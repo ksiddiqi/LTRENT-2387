@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Task 8 Umbrella Regional Policies - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 8 Umbrella Regional Policies";
+        var mkdocs_page_input_path = "Task8.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2/">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 8 Umbrella Regional Policies</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-create-customs-list-web-policy">Step 2 - Create Customs-list Web Policy</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 8 Umbrella Regional Policies</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task8.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-8-umbrella-regional-policies">Task 8 - Umbrella Regional Policies</h1>
+<p>For <strong>Web Proxy</strong>, block all social media networking contenxt and use custom-list to few other block websites</p>
+<h2 id="step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</h2>
+<ul>
+<li>
+<p>Configure an Umbrella Web Policy to block social media websites.</p>
+<ul>
+<li>Go to <strong>Policies&gt;Management&gt;Web Policy</strong> and click <strong>Add</strong>
+<img alt="" src="../pics/umbrella-p5.png" /></li>
+<li>Click <strong>Add Rule</strong>. Give the rule a Name and click <strong>Add Identity</strong></li>
+<li>
+<p>Select <strong>Inherit Ruleset Identities</strong>, then <strong>Apply</strong>
+<img alt="" src="../pics/umbrella-s1-p1.png" /></p>
+</li>
+<li>
+<p>Click <strong>Add Destination</strong>
+<img alt="" src="../pics/umbrella-s1-p3.png" /></p>
+</li>
+<li>Click <strong>Application Settings</strong>, then search for <strong>Social Networkingk</strong>. Select <strong>Social Networking</strong>, then <strong>Apply</strong>
+<img alt="" src="../pics/umbrella-s1-p4.png" />
+<img alt="" src="../pics/umbrella-s1-p5.png" /></li>
+<li>Click <strong>Save</strong>
+<img alt="" src="../pics/umbrella-s1-p2.png" /></li>
+<li>Click three dots and then <strong>Enable Rule</strong>
+<img alt="" src="../pics/umbrella-s1-p6.png" /></li>
+<li>Confirm by clicking Update
+<img alt="" src="../pics/umbrella-p14.png" /></li>
+</ul>
+</li>
+<li>
+<p>Under <strong>Ruleset Settings</strong>, go to the <strong>Ruleset Identities</strong> section and click <strong>Edit</strong>
+<img alt="" src="../pics/umbrella-s1-p7.png" /></p>
+</li>
+<li>Click on number <strong>4</strong>  and then select <strong>Tunnel</strong> for Site100, click <strong>Save</strong>
+<img alt="" src="../pics/umbrella-s1-p8.png" />
+<img alt="" src="../pics/umbrella-s1-p9.png" /> </li>
+<li>Go to the <strong>HTTPS Inspection</strong> section and click <strong>Edit</strong> 
+<img alt="" src="../pics/umbrella-s1-p10.png" /></li>
+<li>Select <strong>Enable HTTPS Inspection</strong>, then <strong>Save</strong>
+<img alt="" src="../pics/umbrella-p18.png" /> </li>
+<li>Scroll down and click Close
+<img alt="" src="../pics/umbrella-p19.png" /></li>
+</ul>
+<h2 id="step-2-create-customs-list-web-policy">Step 2 - Create Customs-list Web Policy</h2>
+<ul>
+<li>On Umbrella dashboard, navigate to <strong>Policy&gt;Policy Component&gt;Destination lists</strong>, click <strong>Add</strong> on the top right corner
+<img alt="" src="../pics/umbrella-s1-p11.png" /><ul>
+<li>List Name : Custom-Filter</li>
+<li>Destination List type : Web Proxy</li>
+<li>Destination : www.cnn.com</li>
+<li>Click <strong>Add</strong>
+<img alt="" src="../pics/umbrella-s1-p12.png" /></li>
+<li>Click <strong>Save</strong>
+<img alt="" src="../pics/umbrella-s1-p13.png" /></li>
+</ul>
+</li>
+<li>Navigate to <strong>Policies&gt;Management&gt;Web Proxy</strong> and expand on <strong>RuleSet2</strong>
+    <img alt="" src="../pics/umbrella-s1-p14.png" /></li>
+<li>Click three dot and then click <strong>Edit</strong>
+ <img alt="" src="../pics/umbrella-s1-p15.png" /></li>
+<li>Click on <strong>Edit Destinations</strong> and then on <strong>Destiniation Lists</strong>
+<img alt="" src="../pics/umbrella-s1-p16.png" /></li>
+<li>Click on <strong>Customer-Filter</strong> and then on <strong>Apply</strong>
+<img alt="" src="../pics/umbrella-s1-p17.png" /></li>
+<li>Click on <strong>Save</strong> and <strong>Close</strong> the <strong>RuleSet2</strong>
+<img alt="" src="../pics/umbrella-s1-p18.png" /></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Task7/" class="btn btn-neutral float-left" title="Task 7 Umbrella SIG policies for Regional Access"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Task7/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
