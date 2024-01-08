@@ -80,6 +80,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-policies">Step 3 - Verify Policies</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-block-sites-using-destination-list">Step 4 - Block sites using Destination List</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -213,6 +215,41 @@
 <li>Use Chromium to navigate onto <code>www.facebook.com</code>.  As per our Umbrella Web Policy, this site should be blocked and, as expected, Cisco Umbrella block page will appear. </li>
 </ul>
 </li>
+</ul>
+<h2 id="step-4-block-sites-using-destination-list">Step 4 - Block sites using Destination List</h2>
+<p>In this step we will create a destination list to block customs sites.</p>
+<ul>
+<li>Logon on ubuntu host on Site 300 and access cnn.com &amp; bbc.com</li>
+<li>On Umbrella dashboard, navigate to <strong>Policy&gt;Policy Componenet&gt;Destination Lists&gt;</strong> Click <strong>Add</strong>
+<img alt="" src="../pics/umbrella-destination-01.png" /><ul>
+<li>Enter Name : Custom Block List</li>
+<li>On Destination List Type the dropdown menu, select <strong>Web Proxy</strong></li>
+<li>Enter <code>cnn.com</code> and click <strong>Add</strong>
+<img alt="" src="../pics/umbrella-destination-03.png" /></li>
+<li>Verify <code>cnn.com</code> is addedd and Click <strong>Save</strong>
+<img alt="" src="../pics/umbrella-destination-04.png" /></li>
+<li>Now Navigate to <strong>Policy&gt;Management&gt;Web Policy</strong> and expand on <strong>RuleSet 1</strong>
+<img alt="" src="../pics/umbrella-destination-05.png" /></li>
+<li>Click <strong>Add Rule</strong>
+<img alt="" src="../pics/umbrella-destination-06.png" /></li>
+<li>Enter Rule name : <code>Custom List</code> and click <strong>Add Identity</strong>
+<img alt="" src="../pics/umbrella-destination-07.png" /> </li>
+<li>Enable <strong>Inherit Ruleset Identities</strong> and click <strong>Apply</strong>
+<img alt="" src="../pics/umbrella-destination-08.png" /> </li>
+<li>Click on <strong>Add Destination</strong> and then click on <strong>1</strong> next to <strong>Destination Lists</strong>
+<img alt="" src="../pics/umbrella-destination-09.png" /> </li>
+<li>Select <strong>Custom Block List</strong> and then click <strong>Apply</strong> 
+<img alt="" src="../pics/umbrella-destination-10.png" /></li>
+<li>Click <strong>Save</strong>
+<img alt="" src="../pics/umbrella-destination-11.png" /></li>
+<li>Click on <strong>3 Dots</strong> and <strong>Enable Rule</strong>
+<img alt="" src="../pics/umbrella-destination-12.png" /></li>
+<li>Click <strong>Update</strong>
+<img alt="" src="../pics/umbrella-destination-13.png" /></li>
+</ul>
+</li>
+<li>Logon on ubuntu host on Site 300 and access again cnn.com, site is not accessible anymore.</li>
+<li>Follow the same steps and block bbc.com this time.</li>
 </ul>
               
             </div>
