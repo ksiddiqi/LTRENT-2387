@@ -89,6 +89,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -114,46 +118,49 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-3-regional-internet-access-for-all-sites">Task 3 - Regional Internet Access for All Sites</h1>
-<h2 id="step-1-verify-internet-access-on-site300-and-site-400-vpn-10"><strong>Step 1</strong> – Verify internet access on Site300 and Site 400 VPN 10</h2>
+<h2 id="step-1-verify-internet-access-on-site300-and-site-400-vpn-10">Step 1 – Verify internet access on Site300 and Site 400 VPN 10</h2>
 <ul>
 <li>
-<p>Access the Ubuntu Console on VPN 10 segment of site 300 using mRemoteNG </p>
+<p>On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.  Access the Console of this Ubuntu machine (on VPN 10 segment of site 300) using mRemoteNG.</p>
+</li>
+<li>
+<p>Initially the console may be locked, click on the console and use below credentials to log on:</p>
 <p>Username: <code>admin</code><br/>Password: <code>viptela</code></p>
 </li>
 </ul>
 <p><img alt="" src="../pics/mRemoteNG.png" /></p>
 <p><img alt="" src="../pics/mRemoteNG-1.png" /></p>
 <ul>
-<li>Open Chromium Browser on Desktop and try to access internet websites.</li>
+<li>Open Chromium Browser on Desktop of this Ubuntu machine and try to access internet website such as <code>cisco.com</code>.  As expected, access to these websites will fail. </li>
 </ul>
 <p><img alt="" src="../pics/Ubuntu-Chomium.png" /></p>
 <p><img alt="" src="../pics/No-Internet.png" /></p>
 <ul>
-<li>Open terminal and try to ping <code>8.8.8.8</code> and press Contrl+C to stop the ping. 100% packet loss</li>
+<li>Open terminal and try to ping <code>8.8.8.8</code> and press <code>Contrl+C</code> after few seconds to stop the ping.  As expected there will be 100% packet loss.</li>
 </ul>
 <p><img alt="" src="../pics/ubuntu-ping.png" /></p>
 <ul>
-<li>Verify internet access on Site400 VPN10</li>
+<li>Use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>.  Repeat the above steps to verify that there is no internet access on this Ubuntu VM on Site400 in VPN10. </li>
 </ul>
-<h2 id="step-2-enable-internet-on-site100-vpn10"><strong>Step 2</strong> - Enable Internet on Site100 VPN10</h2>
+<h2 id="step-2-enable-internet-on-site100-vpn10">Step 2 - Enable Internet on Site100 VPN10</h2>
 <ul>
 <li>Open mPutty and logon to Site300-cE1 and Site400-cE1 vEdges</li>
 </ul>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
-<li>Use the following command to verify routing table for both node. There is no <strong>default route</strong> on vrf 10. </li>
+<li>Use the following command to verify routing table for both node. <strong>Note:</strong> There is no <strong>default route</strong> on vrf 10.</li>
 </ul>
 <p><code>show ip route vrf 10</code></p>
 <p><img alt="" src="../pics/site300-iprroute-1.png" /></p>
-<p>– On node Site100-cE1, add a default route in VPN 10 pointing to VPN 0. This is done by modifying the VPN10 template.</p>
+<p>– On node Site100-cE1, add a default route in VPN 10 pointing to VPN 0. This is done by modifying the VPN10 template on vManage GUI as per below steps.</p>
 <ul>
-<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt;Feature Templates</strong></li>
+<li>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature Templates</strong> tab.</li>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
 <p><img alt="" src="../pics/Config-Template-Feature.png" /></p>
 <ul>
 <li>
-<p>Then on the search bar, search for <strong>VPN_10_05-09-2022_17-18-00_vedge-C8000V_1201</strong>
+<p>Then on the search bar, search for <strong>VPN_10_05-09-2022_17-18-00_vedge-C8000V_1201</strong>.  As per search results <strong>click</strong> on the three dots <code>...</code> and then <strong>Edit</strong> as shown in below screenshots
  
 <img alt="" src="../pics/Site100-VPN10-Ftemp.png" /></p>
 <ul>
@@ -162,35 +169,35 @@
 <img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></p>
 </li>
 <li>
-<p>Click <strong>Add Route</strong></p>
+<p>Click <strong>New IPv4 Route</strong></p>
 </li>
-<li>Prefix :  <strong>0.0.0.0/0</strong></li>
-<li>Gateway : <strong>VPN</strong></li>
-<li>Enable VPN : <strong>Global</strong> <em>click on grey tick and select Global</em></li>
+<li>In <strong>Prefix</strong> enter:  <strong>0.0.0.0/0</strong></li>
+<li>In <strong>Gateway</strong>, select <strong>VPN</strong> button</li>
+<li>In <strong>Enable VPN</strong> select <strong>Global</strong> from drop down menu.   </li>
+<li>Then set <strong>Enable VPN</strong> to <strong>On</strong></li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-1.png" /></p>
 <ul>
-<li>Enable VPN : <strong>On</strong></li>
+<li>Then set <strong>Enable VPN</strong> to <strong>On</strong></li>
+<li>Further click <strong>Add</strong> </li>
+<li>Next, click on <strong>update</strong> for these changes to be accepted</li>
 </ul>
 </li>
-<li>
-<p>Click Add and then update
-<img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
-</li>
-<li>
-<p>Click Next</p>
-</li>
+</ul>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
+<ul>
+<li>Click <strong>Next</strong></li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3.png" /></p>
 <ul>
-<li>Click Configure Device</li>
+<li>Click <strong>Configure Devices</strong> at the bottom of the page</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-4.png" /></p>
 <ul>
 <li>Verify Config-Push is successful </li>
 </ul>
 <p><img alt="" src="../pics/Config-success.png" /></p>
-<h2 id="step-3-default-route-propagation"><strong>Step 3</strong> - Default Route Propagation</h2>
+<h2 id="step-3-default-route-propagation">Step 3 - Default Route Propagation</h2>
 <ul>
 <li>On vManage, navigate to <strong>Configuration&gt;Templates&gt;Feature Templates</strong></li>
 </ul>
@@ -216,15 +223,16 @@
 <p><img alt="" src="../pics/default-info-ospf-3.png" /></p>
 <p><img alt="" src="../pics/default-info-ospf-4.png" /> </p>
 <ul>
+<li>Click <strong>Update</strong>, <strong>Next</strong> on the following screen and then <strong>Configure Devices</strong></li>
 <li>
-<p>Click <strong>Update</strong>, <strong>Next</strong> on the following screen and then <strong>Configure</strong></p>
+<p>Further click on <strong>Confirm configuration changes on 2 devices</strong> button.</p>
 </li>
 <li>
 <p>Verify task is sucessfull</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Config-success.png" /></p>
-<h2 id="step-3-verify-internet-connectivity-on-site300-and-site400-vpn10"><strong>Step 3</strong> - Verify Internet Connectivity on Site300 and Site400 VPN10</h2>
+<h2 id="step-3-verify-internet-connectivity-on-site300-and-site400-vpn10">Step 3 - Verify Internet Connectivity on Site300 and Site400 VPN10</h2>
 <ul>
 <li>Open mPutty and logon to Site300-cE1 and Site400-cE1 vEdges</li>
 </ul>
@@ -269,7 +277,7 @@
     <!-- Copyright etc -->
   </div>
 
-
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
           
         </div>

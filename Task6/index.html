@@ -70,11 +70,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 6 Umbrella Policy for Site300</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#step-1-umbrella-firewall-configuration">Step – 1 Umbrella Firewall Configuration</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-firewall-policy">Step 1 - Firewall Policy</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-2-umbrella-web-policy">Step 2 - Umbrella Web Policy</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-web-policy">Step 2 - Web Policy</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-verfication">Step 3 - Verfication</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-policies">Step 3 - Verify Policies</a>
     </li>
     </ul>
                 </li>
@@ -85,6 +85,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
       </div>
@@ -112,39 +116,45 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-6-umbrella-policy-for-site300">Task 6: Umbrella Policy for Site300</h1>
-<p>Create Umbrella Policy to block any icmp traffic to Google <strong>8.8.8.8</strong> and block any social media websites.</p>
-<h2 id="step-1-umbrella-firewall-configuration">Step – 1 Umbrella Firewall Configuration</h2>
+<p>The goal of this Task is to create Umbrella Policies that will:</p>
+<ul>
+<li>Use Firewall Policy (Cloud Delivered Firewall / CDFW) on Umbrella to block any icmp traffic to Google IP address of <strong>8.8.8.8</strong> </li>
+<li>Use Web Policy (Secure Web Gateway / SWG) on Umbrella to block web traffic to social media websites.</li>
+</ul>
+<h2 id="step-1-firewall-policy">Step 1 - Firewall Policy</h2>
 <ul>
 <li>Configure an Umbrella Firewall Policy.<ul>
-<li>On Umbrella dashboard, go to <strong>Policies&gt;Management &gt;Firewall Policy</strong>. At the top-right corner, click <strong>Add</strong>
+<li>On Umbrella dashboard, go to <strong>Policies &gt; Management &gt; Firewall Policy</strong>. At the top-right corner, click <strong>Add</strong>
 <img alt="" src="../pics/umbrella-p1.png" /></li>
-<li>Create a Rule Name, and under Rule Criteria, specify ICMP as the protocol, and IP.<ul>
-<li>Add a Rule name and select Block action
+<li>Create a <strong>Rule Name</strong> of <code>Block ICMP Google</code>. </li>
+<li>Under <strong>Rule Action</strong> select <code>Block</code> from drop-down menu
 <img alt="" src="../pics/umbrella-p2.png" /></li>
-<li>Protocol : <strong>ICMP</strong></li>
-<li>Destination : <strong>8.8.8.8</strong>
+<li>Under <strong>Rule Criteria &gt; Protocol</strong> select <code>ICMP</code> as the protocol</li>
+<li>Further under <strong>Destinations</strong> (under <strong>Rule Criteria</strong>) select <code>Specify IP</code> from drop-down menu:<ul>
+<li>Enter <strong>CIDR IP Address</strong>: <code>8.8.8.8</code>
 <img alt="" src="../pics/umbrella-p3.png" /></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Enable <strong>logging</strong> and <strong>Save</strong> the policy
+<li>Scroll down on the page and Enable <strong>logging</strong> and then <strong>Save</strong> the policy
 <img alt="" src="../pics/umbrella-p4.png" /></li>
 </ul>
-<h2 id="step-2-umbrella-web-policy">Step 2 - Umbrella Web Policy</h2>
+<h2 id="step-2-web-policy">Step 2 - Web Policy</h2>
 <ul>
 <li>
 <p>Configure an Umbrella Web Policy to block social media websites.</p>
 <ul>
-<li>Go to <strong>Policies&gt;Management&gt;Web Policy</strong> and click <strong>Add</strong>
+<li>Go to <strong>Policies &gt; Management &gt; Web Policy</strong> and click <strong>Add</strong> on the top right as shown in below screenshot:
 <img alt="" src="../pics/umbrella-p5.png" /></li>
-<li>Click <strong>Add Rule</strong>. Give the rule a Name and click <strong>Add Identity</strong>
+<li>Click <strong>ADD RULE</strong> under <em>'Ruleset Rules'</em>. </li>
+<li>Give the <strong>Rule Name</strong> of <code>Block Facebook</code> and then click <strong>Add Identity</strong>
 <img alt="" src="../pics/umbrella-p6.png" /></li>
 <li>Select <strong>Inherit Ruleset Identities</strong>, then <strong>Apply</strong>
 <img alt="" src="../pics/umbrella-p7.png" /></li>
 <li>Click <strong>Add Destination</strong>
 <img alt="" src="../pics/umbrella-p8.png" /></li>
-<li>Click <strong>Application Settings</strong>, then search for <strong>Social Networkingk</strong>. Select <strong>Social Networking (Facebook)</strong>, then <strong>Apply</strong>
+<li>Click on <strong>Application Settings</strong>, then search for <strong>facebook</strong> in <code>Search Applications</code> bar. Scroll down and Click on the right side (on the 154 number) of <strong>Social Networking (Multiple Matches)</strong>.  Next, select <strong>Facebook</strong> and <strong>Facebook Messenger</strong> and hit <strong>Apply</strong>
 <img alt="" src="../pics/umbrella-p9.png" />
 <img alt="" src="../pics/umbrella-p10.png" />
 <img alt="" src="../pics/umbrella-p11.png" /></li>
@@ -177,18 +187,28 @@
 <img alt="" src="../pics/umbrella-p19.png" /></p>
 </li>
 </ul>
-<h2 id="step-3-verfication">Step 3 - Verfication</h2>
+<h2 id="step-3-verify-policies">Step 3 - Verify Policies</h2>
 <ul>
-<li>Test if traffic is being redirected to Umbrella.<ul>
-<li>Connect to the Ubuntu Host on VPN 10.</li>
-<li>Navigate to welcome.umbrella.com. A green check mark should appear, confirming that traffic from VPN 10 is being successfully redirected to Umbrella.
-Step 4   Access internet websites from the Ubuntu host on Site 300 (VPN 10).</li>
-<li>Use Chromium to navigate onto traditional websites, such as www.cisco.com.</li>
-<li>Use Chromium to navigate onto www.facebook.com. The page load should time out.</li>
+<li>
+<p>Test if traffic is being redirected to Umbrella.</p>
+<ul>
+<li>Launch console access to ubuntu <strong>Site300 VPN10</strong> host by using <strong>mRemoteNG</strong> application.</li>
+<li>Use Chromium to navigate to <code>welcome.umbrella.com</code>. A green check mark should appear, confirming that traffic from VPN 10 is being successfully redirected to Umbrella.</li>
 </ul>
 </li>
-<li>ICMP to 8.8.8.8 should not be allowed.</li>
-<li>From the Ubuntu Host on VPN 10, use Terminal and try to ping again 1.1.1.1, 4.2.2.1 and 8.8.8.8 (Google should fail).</li>
+<li>
+<p>Verify Firewall policy enforcement on Umbrella by launching the <strong>Terminal</strong> application on <strong>Site300 VPN10</strong> host.  As per our policy ICMP traffic to 8.8.8.8 should not be allowed.</p>
+<ul>
+<li>From the Ubuntu Host on VPN 10, use Terminal issue <code>ping 8.8.8.8</code> command.  This ping should fail - as expected.  </li>
+</ul>
+</li>
+<li>
+<p>Verify Web Policy by using Chromium Web Browser on <strong>Site300 VPN10</strong> host.</p>
+<ul>
+<li>Use Chromium to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
+<li>Use Chromium to navigate onto <code>www.facebook.com</code>.  As per our Umbrella Web Policy, this site should be blocked and, as expected, Cisco Umbrella block page will appear. </li>
+</ul>
+</li>
 </ul>
               
             </div>
@@ -204,6 +224,7 @@ Step 4   Access internet websites from the Ubuntu host on Site 300 (VPN 10).</li
     <!-- Copyright etc -->
   </div>
 
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
           
         </div>

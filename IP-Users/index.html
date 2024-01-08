@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Task 1 Remote Connection - Cisco Live 2023 LTRENT-2387</title>
+    <title>Address Plan, Connection Details and Credentials - Cisco Live 2023 LTRENT-2387</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Task 1 Remote Connection";
-        var mkdocs_page_input_path = "Task1-Connect.md";
+        var mkdocs_page_name = "Address Plan, Connection Details and Credentials";
+        var mkdocs_page_input_path = "IP-Users.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -47,10 +47,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 1 Remote Connection</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
                 </li>
               </ul>
               <ul>
@@ -99,9 +97,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Task 1 Remote Connection</li>
+      <li class="breadcrumb-item active">Address Plan, Connection Details and Credentials</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task1-Connect.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/IP-Users.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -109,51 +107,282 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Your first task will log on to remote lab using VPN.  At the end of this task, you will have a fully network connectivity to a remote server using Remote Desktop.</p>
-<h2 id="step-1-connect-to-lab-using-anyconnect-vpn">Step 1: Connect to lab using anyconnect VPN</h2>
-<p>You will connect to remote Lab using Cisco VPN AnyConnect client, as shown in below picture.</p>
-<ul>
-<li><strong>Launch</strong> the Cisco VPN AnyConnect client from your PC</li>
-<li>Enter the remote server for your pod as provided by Lab Speakers.
-        * This remote server will be <code>dcloud-sjc-anyconnect.cisco.com</code> or <code>dcloud-rtp-anyconnect.cisco.com</code> </li>
-<li>
-<p>The <code>username</code> and <code>password</code> credentials for this VPN connection will also be provided by the lab admin </p>
-<p><strong>Note:</strong> lab admin will furnish the credentials information to each participant.  If you don't have this information please ask the lab speakers.</p>
-<p><img alt="" src="../pics/t1-1-1.png" /></p>
-<p>Below is an example of user logging into a reference pod in <code>dcloud-sjc-anyconnect.cisco.com</code>:</p>
-<p><img alt="" src="../pics/t1-2-vpn-credentials.png" /></p>
-</li>
-<li>
-<p>Hit accept when the prompt appears to accept the VPN connection login    </p>
-<p><img alt="" src="../pics/t1-2-vpn-accept.png" /></p>
-</li>
-</ul>
-<blockquote>
-<p><strong>Note:</strong> credentials used in above screenshot are provided as an example only.  Credentials for each pod will be provided by the lab speakers.</p>
-</blockquote>
-<h2 id="step-2-rdp-to-workstation">Step 2: RDP to workstation</h2>
-<p>In this step, you will connect to the workstation with Remote Desktop (<strong>RDP</strong>) client on your machines.  Use below details for this RDP session:</p>
-<ul>
-<li><strong>Workstation/Computer</strong>: <code>198.18.133.36</code></li>
-<li><strong>Username</strong>: <code>Administrator</code></li>
-<li><strong>Password</strong>: <code>C1sco12345</code></li>
-</ul>
-<p>Below screenshot is only an example for this RDP connection:
-<img alt="" src="../pics/t1-3-RDP.png" /></p>
-<blockquote>
-<p><strong>Note:</strong>  above screenshot is provided as an example only.  </p>
-</blockquote>
-<h2 id="step-3-mtputty-and-browser">Step 3: MTPutty and Browser</h2>
-<p>Once you have the RDP session to the remote workstation, then you will use MTputty client (pre-installed on the remote workstation) and Chrome Browser to connect to all devices in this lab. </p>
-<p>MTputty is already installed on the Desktop of the workstation where you connected using RDP.  Run this application by clicking on the icon on the desktop:</p>
-<p><img alt="" src="../pics/t3-mputty.png" /></p>
+                <h1 id="address-plan-connection-details-and-credentials">Address Plan, Connection Details and Credentials</h1>
+<h2 id="wan-edges-internal">WAN Edges - Internal</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>System IP</th>
+<th>Site ID</th>
+<th>VPN 10 Loopback10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site100-cE1</td>
+<td>1.1.10.1</td>
+<td>100</td>
+<td>100.110.10.1</td>
+</tr>
+<tr>
+<td>Site200-cE1</td>
+<td>1.1.20.1</td>
+<td>200</td>
+<td>100.110.20.1</td>
+</tr>
+<tr>
+<td>Site300-cE1</td>
+<td>1.1.30.1</td>
+<td>300</td>
+<td>100.110.30.1</td>
+</tr>
+<tr>
+<td>Site400-cE1</td>
+<td>1.1.40.1</td>
+<td>400</td>
+<td>100.110.40.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wan-edges-external">WAN Edges – External</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>MPLS TLOC (Gi2)</th>
+<th>Internet TLOC (Gi1)</th>
+<th>VPN 10 LAN (Gi3)</th>
+<th>VPN 12 LAN (Gi3)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site100-cE1</td>
+<td>10.1.2.2/24</td>
+<td>10.2.2.2/24</td>
+<td>10.10.1.1/24</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Site200-cE1</td>
+<td>10.1.4.2/24</td>
+<td>10.2.4.2/24</td>
+<td>10.20.1.1/24</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Site300-cE1</td>
+<td>10.1.6.2/24</td>
+<td>10.2.6.2/24</td>
+<td>10.30.1.1/24</td>
+<td>10.32.1.1/24</td>
+</tr>
+<tr>
+<td>Site400-cE1</td>
+<td>10.1.7.2/24</td>
+<td>10.2.7.2/24</td>
+<td>10.40.1.1/24</td>
+<td>10.42.1.1/24</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controllers">Controllers</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>System</th>
+<th>Site ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vManage</td>
+<td>1.1.1.1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>vBond</td>
+<td>1.1.1.2</td>
+<td>-</td>
+</tr>
+<tr>
+<td>vSmart-1</td>
+<td>1.1.1.3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>vSmart-2</td>
+<td>1.1.1.4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3rd-party-devices">3rd Party Devices</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Type</th>
+<th>Site</th>
+<th>VPN ID</th>
+<th>IP address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site300-Ubuntu-VPN10</td>
+<td>Host</td>
+<td>300</td>
+<td>10</td>
+<td>10.30.1.10/24</td>
+</tr>
+<tr>
+<td>Site300-Ubuntu-VPN12</td>
+<td>Host</td>
+<td>300</td>
+<td>12</td>
+<td>10.32.1.10/24</td>
+</tr>
+<tr>
+<td>Site400-Ubuntu-VPN10</td>
+<td>Host</td>
+<td>400</td>
+<td>10</td>
+<td>10.40.1.10/24</td>
+</tr>
+<tr>
+<td>Site400-Ubuntu-VPN12</td>
+<td>Host</td>
+<td>400</td>
+<td>12</td>
+<td>10.42.1.10/24</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ui-credentials-and-connection-details">UI Credentials and Connection Details</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>IP</th>
+<th>Port</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vManage</td>
+<td>198.18.133.200</td>
+<td>8443</td>
+<td>admin</td>
+<td>C1sco12345</td>
+</tr>
+<tr>
+<td>Site300-Ubuntu-VPN10</td>
+<td>198.18.133.200</td>
+<td>30503</td>
+<td>ubuntu</td>
+<td>viptela</td>
+</tr>
+<tr>
+<td>Site300-Ubuntu-VPN12</td>
+<td>198.18.133.200</td>
+<td>30504</td>
+<td>ubuntu</td>
+<td>viptela</td>
+</tr>
+<tr>
+<td>Site400-Ubuntu-VPN10</td>
+<td>198.18.133.200</td>
+<td>30501</td>
+<td>ubuntu</td>
+<td>viptela</td>
+</tr>
+<tr>
+<td>Site400-Ubuntu-VPN12</td>
+<td>198.18.133.200</td>
+<td>30500</td>
+<td>ubuntu</td>
+<td>viptela</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ssh-credential-and-connection-details">SSH Credential and Connection Details</h2>
+<table>
+<thead>
+<tr>
+<th>Node</th>
+<th>IP</th>
+<th>Port</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vManage</td>
+<td>198.18.133.200</td>
+<td>19001</td>
+<td>admin</td>
+<td>C1sco12345</td>
+</tr>
+<tr>
+<td>vBond</td>
+<td>198.18.133.200</td>
+<td>19002</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>vSmart-1</td>
+<td>198.18.133.200</td>
+<td>19003</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>vSmart-2</td>
+<td>198.18.133.200</td>
+<td>19005</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Site100-cE1</td>
+<td>198.18.133.200</td>
+<td>19007</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Site200-cE1</td>
+<td>198.18.133.200</td>
+<td>19011</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Site300-cE1</td>
+<td>198.18.133.200</td>
+<td>19017</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>Site400-cE1</td>
+<td>198.18.133.200</td>
+<td>19021</td>
+<td>admin</td>
+<td>admin</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Topology/" class="btn btn-neutral float-left" title="Topology"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Task2/" class="btn btn-neutral float-right" title="Task 2 Devices Feature Templates">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -179,10 +408,6 @@
         </span>
     
     
-      <span><a href="../Topology/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../Task2/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

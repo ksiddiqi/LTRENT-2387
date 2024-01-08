@@ -66,7 +66,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-internet-connectivity-on-site300-vpn10">Step 3 - Verify Internet Connectivity on Site300 VPN10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-inetnert-connectivity-on-other-vpns">Step 4 - Verify Inetnert Connectivity on Other VPNs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-internet-connectivity-on-other-vpns">Step 4 - Verify Internet Connectivity on Other VPNs</a>
     </li>
     </ul>
                 </li>
@@ -85,6 +85,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
       </div>
@@ -130,7 +134,7 @@
 <img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></p>
 </li>
 <li>
-<p>Click <strong>Add Route</strong></p>
+<p>Click <strong>New IP Route</strong></p>
 </li>
 <li>Prefix :  <strong>0.0.0.0/0</strong></li>
 <li>Gateway : <strong>VPN</strong></li>
@@ -143,7 +147,7 @@
 <img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
 </li>
 <li>
-<p>Click Add and then update</p>
+<p>Click <strong>Add</strong> and then Click <strong>Update</strong> at the bottom of page</p>
 </li>
 </ul>
 </li>
@@ -151,16 +155,16 @@
 <p>Click Next</p>
 </li>
 </ul>
-<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3.png" /></p>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3a.png" /></p>
 <ul>
-<li>Click Configure Device</li>
+<li>Click <strong>Configure Devices</strong></li>
 </ul>
-<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-4.png" /></p>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-4a.png" /></p>
 <ul>
 <li>Verify Config-Push is successful </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
-<h2 id="step-3-verify-internet-connectivity-on-site300-vpn10"><strong>Step 3</strong> - Verify Internet Connectivity on Site300 VPN10</h2>
+<h2 id="step-3-verify-internet-connectivity-on-site300-vpn10">Step 3 - Verify Internet Connectivity on Site300 VPN10</h2>
 <p>_ - Open mPutty and logon to Site300-cE1 vEdge</p>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
@@ -186,9 +190,9 @@
 </ul>
 <p><code>traceroute 8.8.8.8</code></p>
 <p><img alt="" src="../pics/ubuntu-300-trace-int.png" /></p>
-<h2 id="step-4-verify-inetnert-connectivity-on-other-vpns"><strong>Step 4</strong> - Verify Inetnert Connectivity on Other VPNs</h2>
+<h2 id="step-4-verify-internet-connectivity-on-other-vpns">Step 4 - Verify Internet Connectivity on Other VPNs</h2>
 <ul>
-<li>Uptill this stage Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs, verify <strong>Site300 VPN12</strong> ubuntu host using <strong>mRemoteNG</strong>.</li>
+<li>At this stage direct Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs, verify lack of Internet connectivity on <strong>Site300 VPN12</strong> Ubuntu host using <strong>mRemoteNG</strong> application on RDP.</li>
 </ul>
               
             </div>
@@ -204,7 +208,7 @@
     <!-- Copyright etc -->
   </div>
 
-
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
           
         </div>
