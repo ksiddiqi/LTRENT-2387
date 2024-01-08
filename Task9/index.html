@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Task 9 - Monitoring on Umbrella - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 9 - Monitoring on Umbrella";
+        var mkdocs_page_input_path = "LTRENT-2387-MacDown/Task9.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.md">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Topology.md">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task1-Connect.md">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task2.md">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task3.md">Task 3 Regional Internet Access for All Sites</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task4.md">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task5.md">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task6.md">Task 6 Umbrella Policy for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task7.md">Task 7 Umbrella SIG policies for Regional Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../Task8.md">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 9 - Monitoring on Umbrella</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/LTRENT-2387-MacDown/Task9.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-9-monitoring-on-umbrella">Task 9 - Monitoring on Umbrella</h1>
+<p>In this task the Reports on Cisco Umbrella will be used to monitor it's usage and the SD-WAN integration. </p>
+<p><strong>Pre-requisites:</strong></p>
+<h2 id="step-1-traffic-from-sd-wan-sites">Step 1: Traffic from SD-WAN sites</h2>
+<p>Earlier tasks, that include integration of SD-WAN sites to Umbrella, configuraiton of Umbrella policies such as Firewall, Web etc. must be completed successfully as a pre-requisite to this task.  The traffic monitored by Umbrella, as per those policies, will be viewed in this task.</p>
+<p>In this step, traffic must be initiated for Umbrella monitoring as per below steps:</p>
+<ul>
+<li>On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.</li>
+<li>From the Chromium Web browser initiate traffic to <code>facebook.com</code> and <code>cisco.com</code>.  As per earlier tasks, the traffic to <code>facebook.com</code> should be blocked by Umbrella on Site-300. </li>
+<li>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site300-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by issuing <code>Control-C</code>.  As per configuration in earlier task, this traffic should be blocked by Umbrella:</li>
+</ul>
+<pre><code>ping 8.8.8.8
+</code></pre>
+<ul>
+<li>You may also issue <code>ping 1.1.1.</code> command to validate site connectivity to Internet via Umbrella is working properly.  Stop the ping traffic by issuing <code>Control-C</code>.</li>
+</ul>
+<p>Next,
+* On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.
+* From the Chromium Web browser initiate traffic to <code>cnn.com</code> and <code>cisco.com</code>.   As per earlier task, the traffic to <code>cnn.com</code> should be blocked by Umbrella. </p>
+<h2 id="step-2-activity-reports-for-web-urls">Step 2 - Activity Reports for Web URLs</h2>
+<p>The web and other IP traffic activity from the SD-WAN branch sites over a selected time period can be viewed from <code>Activity Search</code> on Cisco Umbrella.  These reports can be filtered by various categories such as identity name, destination, source IP, etc.  </p>
+<ul>
+<li>
+<p>On the RDP session, access the Umbrella web page by clicking on <code>Umbrella SSO</code> short cut on Google Chrome browser.</p>
+</li>
+<li>
+<p>Go to <strong>Reporting &gt; Core Reports</strong> and click on <strong>Activity Search</strong>:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t9-s1-activity3.png" /></p>
+<p>Here you can view the result of every DNS, URL, and IP request from your various SD-WAN sites and other identities.  Browse through to view some of the past results.</p>
+<ul>
+<li>
+<p>Click on <strong>Filter</strong> to close the filter tab and then click on <strong>Advanced</strong> button in the <code>Search</code> field.  </p>
+</li>
+<li>
+<p>On the <code>Advanced Search</code> page, navigate to to the <strong>URL</strong> section and enter <code>cnn.com</code>.  Then click <strong>Apply</strong> as shown in below screenshot:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t9-s1-adv-url.png" /></p>
+<p>You will now see all the search results matching URL of <code>cnn.com</code>.  Note:</p>
+<ul>
+<li>The search results are all <strong><em>Web</em></strong> Requests i.e., Secure Web Gateway (or Web Proxy) of Umbrella logged these requests.</li>
+<li>
+<p>Further review the <code>Action</code>, <code>Categories</code> and <code>Ruleset or Rule</code> fields of the results shown on this page.  Do they match the configurations performed in earlier tasks?</p>
+</li>
+<li>
+<p>Click on <strong>Advanced</strong> button in the <code>Search</code> field again.  Enter <code>facebook.com</code> as the second URL and click <strong>Apply</strong> button as shown below:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t9-s1-adv-url2.png" /></p>
+<ul>
+<li>View the updated Activity results as shown below:</li>
+</ul>
+<p><img alt="" src="../pics/t9-s1-adv-results.png" /></p>
+<h2 id="step-2-activity-reports-for-firewall">Step 2 - Activity Reports for Firewall</h2>
+<p>In this task, results of  Umbrella monitoring </p>
+<h2 id="step-3-top-identities">Step 3 - Top Identities</h2>
+<p>The list of most activity identities (devices) that are making DNS, Proxy and IP requests over a period of time are identified by Cisco Umbrella. </p>
+<ul>
+<li>
+<p>Log on to Cisco Umbrella using the short link on Google Chrome Browser on RDP session.</p>
+</li>
+<li>
+<p>Navgiate to <strong>Reporting &gt; Additional Reports</strong> and then Click on Top Desitinations.  It will </p>
+</li>
+</ul>
+<h2 id="step-4-top-destinations">Step 4 - Top Destinations</h2>
+<ul>
+<li>
+<p>Log on to Cisco Umbrella using the short link on Google Chrome Browser on RDP session.</p>
+</li>
+<li>
+<p>Navgiate to <strong>Reporting &gt; Additional Reports</strong> and then Click on <strong>Top Desitinations</strong>.  It will show the most visited destinations.   </p>
+</li>
+<li>
+<p>If in previous tasks, on Ubuntu Virtual Machines at some of the SD-WAN sites, you had browsed to various websites then as Ubuntu VM settings the DNS queries will be routed via DNS Resolver with IP address of <code>1.1.1.1</code>.  Below Figure shows an example screenshot from a lab system.  Your screen may not have the same output. Click on <strong><code>1.1.1.1</code></strong> among the list of destinations as shown below:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t9-s4-top-dest.png" /></p>
+<ul>
+<li>Once <code>1.1.1.1</code> is clicked it will show below screenshot.  Click on <strong><code>VIEW 1.1.1.1 IN INVESTIGATE</code></strong> to view more details of this IP address as shown below</li>
+</ul>
+<p><img alt="" src="../pics/t9-s4-investigate.png" /></p>
+<ul>
+<li>The investigate page shows more details about this IP address as shown in below screenshot.  Click on <strong>Talos</strong> to view the reputation and other intelligence from Cisco Talos about this IP address.
+<img alt="" src="../pics/t9-s4-talos.png" /></li>
+</ul>
+<p>Here is the screenshot from Cisco Talos about this IP address
+<img alt="" src="../pics/t9-s4-talos-reput.png" /></p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
