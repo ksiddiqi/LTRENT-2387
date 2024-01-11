@@ -66,7 +66,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-2-enable-internet-on-site100-vpn10">Step 2 - Enable Internet on Site100 VPN10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-default-route-propagation">Step 3 - Default Route Propagation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-default-route-propagation-using-cli-template">Step 3 - Default Route Propagation Using Cli Template</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-internet-connectivity-on-site300-and-site400-vpn10">Step 3 - Verify Internet Connectivity on Site300 and Site400 VPN10</a>
     </li>
@@ -201,41 +201,54 @@
 <li>Verify Config-Push is successful </li>
 </ul>
 <p><img alt="" src="../pics/Config-success.png" /></p>
-<h2 id="step-3-default-route-propagation">Step 3 - Default Route Propagation</h2>
+<h2 id="step-3-default-route-propagation-using-cli-template">Step 3 - Default Route Propagation Using Cli Template</h2>
 <ul>
-<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt;Feature Templates</strong></li>
+<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt;Device Templates</strong></li>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
-<p><img alt="" src="../pics/Config-Template-Feature.png" /></p>
+<p><img alt="" src="../pics/Device-template.png" /></p>
 <ul>
-<li>On the search bar, search for <strong>ospf_dc_vpn10</strong></li>
+<li>Click <strong>3 Dots</strong> on Site 100 Device Template</li>
 </ul>
-<p><img alt="" src="../pics/default-info-ospf.png" /></p>
+<p><img alt="" src="../pics/Device-template-Edit.png" /></p>
 <ul>
-<li>Click  <strong>Advance</strong></li>
+<li>Click on <strong>Additional Templates</strong></li>
 </ul>
-<p><img alt="" src="../pics/default-info-ospf-2.png" /></p>
+<p><img alt="" src="../pics/Default-route-cli1.png" /></p>
 <ul>
-<li>Under Advance select following<ul>
-<li>Originate : Click on grey tick and select Global</li>
-<li>Originate : <strong>On</strong></li>
-<li>Always      : Click on grey tick and select Global</li>
-<li>Always      : <strong>On</strong></li>
+<li>On <strong>CLI Add-on Template</strong> dropdown menu select <strong>Create Template</strong></li>
 </ul>
-</li>
-</ul>
-<p><img alt="" src="../pics/default-info-ospf-3.png" /></p>
-<p><img alt="" src="../pics/default-info-ospf-4.png" /> </p>
+<p><img alt="" src="../pics/Default-route-cli2.png" /></p>
 <ul>
-<li>Click <strong>Update</strong>, <strong>Next</strong> on the following screen and then <strong>Configure Devices</strong></li>
 <li>
-<p>Further click on <strong>Confirm configuration changes on 2 devices</strong> button.</p>
+<p>Enter the following information</p>
+<ul>
+<li>Template Name : <code>Default-Route-Propagation</code></li>
+<li>Description : <code>Default Route Propagation</code></li>
+</ul>
 </li>
 <li>
-<p>Verify task is sucessfull</p>
+<p>In CLI configuration box paste the following commands</p>
 </li>
 </ul>
-<p><img alt="" src="../pics/Config-success.png" /></p>
+<pre><code>sdwan
+ omp
+  address-family ipv4 vrf 10
+   advertise network 0.0.0.0/0
+</code></pre>
+<ul>
+<li>Click <strong>Save</strong></li>
+</ul>
+<p><img alt="" src="../pics/Default-route-cli3.png" /></p>
+<ul>
+<li>
+<p>Click <strong>Update</strong> and then <strong>Configure Device</strong></p>
+</li>
+<li>
+<p>Wait for task to be successfull 
+<img alt="" src="../pics/Config-success.png" /></p>
+</li>
+</ul>
 <h2 id="step-3-verify-internet-connectivity-on-site300-and-site400-vpn10">Step 3 - Verify Internet Connectivity on Site300 and Site400 VPN10</h2>
 <ul>
 <li>Open mPutty and logon to Site300-cE1 and Site400-cE1 vEdges</li>
