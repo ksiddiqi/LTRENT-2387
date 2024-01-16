@@ -120,10 +120,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-4-direct-internet-access-for-site300">Task 4 - Direct Internet Access for Site300</h1>
-<h2 id="step-1-enable-dia-on-site300-vpn10"><strong>Step 1</strong> - Enable DIA on Site300 VPN10</h2>
-<p>– On node Site300-cE1, add a default route in VPN 10 pointing to VPN 0. This is done by modifying the VPN10 template.</p>
+<p>In this task Direct Internet Access from Site 300 will be configured.  So instead  </p>
+<h2 id="step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</h2>
+<p>On node Site300-cE1, add a default route in VPN 10 pointing to VPN 0 (Global Routing Table). This is done by modifying the VPN10 template.</p>
 <ul>
-<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt;Feature Templates</strong></li>
+<li>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature Templates</strong></li>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
 <p><img alt="" src="../pics/Config-Template-Feature.png" /></p>
@@ -169,34 +170,45 @@
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
 <h2 id="step-3-verify-internet-connectivity-on-site300-vpn10">Step 3 - Verify Internet Connectivity on Site300 VPN10</h2>
-<p>_ - Open mPutty and logon to Site300-cE1 vEdge</p>
+<p>_ - Open mPutty and logon to <strong>Site300-cE1</strong> cEdge using SSH:</p>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
-<li>Use the following command to verify routing table.  <strong>default route</strong> on vrf 10</li>
+<li>Use the following command to verify routing table and the <strong>default route</strong> on vrf 10:</li>
 </ul>
-<p><code>show ip route vrf 10</code></p>
+<pre><code>show ip route vrf 10
+</code></pre>
 <p><img alt="" src="../pics/Site300-int-iproute.png" /></p>
 <ul>
+<li>Further verify that default route on Global Routing Table (VPN 0) points to <code>10.2.6.1</code> and <code>10.1.6.1</code> by issuing below command:</li>
+</ul>
+<pre><code>show ip route vrf
+</code></pre>
+<p><img alt="" src="../pics/Site300-vrf0-iproute.png" /></p>
+<ul>
 <li>
-<p>Logon again to Ubuntu on <strong>Site300 VPN10</strong> using mRemoteNG. </p>
+<p>Using <strong>mRemoteNG</strong> application on the RDP session, Logon again to Ubuntu on <strong>Site300 VPN10</strong></p>
 </li>
 <li>
-<p>Open browser, Internet access should now be possible.</p>
+<p>On Ubuntu VM launch the Web browser and verify that Internet access is working.</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Internet-access.png" /></p>
 <ul>
-<li>Open Terminal, and ping 8.8.8.8. Ping is successful.</li>
+<li>On Ubuntu VM open Terminal application, and initiate ping to 8.8.8.8 as per below command.  As expected ping will be successful.</li>
 </ul>
+<pre><code>ping 8.8.8.8
+</code></pre>
 <p><img alt="" src="../pics/ubuntu-ping-ok.png" /></p>
 <ul>
-<li>On Terminal do a tracroute again for 8.8.8.8 using following command. Now the packets are going direclty to internet</li>
+<li>On Terminal application on Ubuntu VM, initiate a tracroute again for 8.8.8.8 using following command. Now the packets are going direclty to internet from Site-300 cEdge router</li>
 </ul>
-<p><code>traceroute 8.8.8.8</code></p>
+<pre><code>traceroute 8.8.8.8
+</code></pre>
 <p><img alt="" src="../pics/ubuntu-300-trace-int.png" /></p>
 <h2 id="step-4-verify-internet-connectivity-on-other-vpns">Step 4 - Verify Internet Connectivity on Other VPNs</h2>
+<p>At this stage direct Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs. </p>
 <ul>
-<li>At this stage direct Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs, verify lack of Internet connectivity on <strong>Site300 VPN12</strong> Ubuntu host using <strong>mRemoteNG</strong> application on RDP.</li>
+<li>Verify lack of Internet connectivity on <strong>Site300 VPN12</strong> Ubuntu host using <strong>mRemoteNG</strong> application on RDP</li>
 </ul>
               
             </div>

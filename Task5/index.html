@@ -124,21 +124,11 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-5-umbrella-sig-for-site300">Task 5: Umbrella (SIG) for Site300</h1>
-<h2 id="step-1-umbrella-configuration"><strong>Step 1</strong> - Umbrella Configuration</h2>
+<h2 id="step-1-umbrella-configuration">Step 1 - Umbrella Configuration</h2>
 <ul>
-<li>
-<p>Logon to Umbrella Dashboard</p>
-<ul>
-<li>
-<p>On the jumphost, open another browser tab and click on the Umbrella SSO bookmark. It will open the Umbrella dashboard and auto-login using single-sign-on.
-<img alt="" src="../pics/Umbrella.png" /></p>
-</li>
-<li>
-<p><strong>Organization ID</strong> can be extracted from the URL field of your Umbrella account.</p>
-</li>
+<li>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>. It will open the Umbrella dashboard and auto-login using single-sign-on.</li>
 </ul>
-</li>
-</ul>
+<p><img alt="" src="../pics/Umbrella.png" /></p>
 <table>
 <thead>
 <tr>
@@ -151,100 +141,165 @@
 </tr>
 </tbody>
 </table>
-<pre><code>![](pics/Umbrella-ord-id.png)
-
-* On Umbrella, navigate to **Admin &gt; API Keys**
-
-* Generate API and Secret key by clicking on **Legecy Key**.  Further, click on *Umbrella Management* and then click on **Generate Token**.
-![](pics/Umbrella-keys.png)
-![](pics/Umbrella-keys-2.png)
-
-* Copy both **Key** and **Secret** in a notepad, this information will be used in next step.
+<ul>
+<li>Umbrella organization (Org) is a separate instance of Umbrella and has its own dashboard.  An <strong><code>Org ID</code></strong> is used to identify each organization and for integrating Umbrella with Cisco SD-WAN.  This <strong><code>Org ID</code></strong> is a number and part of the Umbrella web URL and must be extracted from the URL.  This ID will be required at a later step as part of vManage configurations for Umbrella SIG integration.  Once you are logged into the Umbrella dashboard, extract <strong><code>Org ID</code></strong> from the URL in the address bar as per below syntax:</li>
+</ul>
+<pre><code>https://dashboard.umbrella.com/o/&lt;Org ID&gt;/#/&lt;page&gt;
 </code></pre>
+<p><img alt="" src="../pics/Umbrella-ord-id.png" /></p>
+<ul>
+<li>
+<p>On Umbrella, navigate to <strong>Admin &gt; API Keys</strong></p>
+</li>
+<li>
+<p>Generate API <code>Key</code> and <code>Secret</code> by clicking on <strong>Legecy Keys</strong>.  Further, click on <strong>Umbrella Management</strong> and then click on <strong>Generate Token</strong>.  Then <strong>copy</strong> both <strong><code>Key</code></strong> and <strong><code>Secret</code></strong> on a notepad - this information will be used in next step.</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/Umbrella-keys.png" />
+<img alt="" src="../pics/Umbrella-keys-2.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Note:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">You must copy both <strong>Key</strong> and <strong>Secret</strong> in a notepad.  It is only shown at this stage and not visible afterwards.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="step-2-update-sig-template">Step 2 - Update SIG Template.</h2>
 <ul>
-<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt; Feature</strong>, and then search <strong>sig</strong> and find the template with name <strong>VIP23-SIG-Feature-Template</strong>. 
-    <img alt="" src="../pics/Config-Template.png" /> 
-    <img alt="" src="../pics/Config-Template-Feature.png" />
-    <img alt="" src="../pics/sig-feat-temp-3.png" /><ul>
-<li>Click on <strong>"Click here to create - Cisco SIG Credintial Template"</strong>
-<img alt="" src="../pics/sig-feat-temp-4.png" /></li>
-<li>Enter Org ID and keys saved from previous steps and click <strong>Save</strong>
-<img alt="" src="../pics/sig-feat-temp-2.png" /></li>
-<li>Click <strong>Update</strong>
-<img alt="" src="../pics/sig-feat-temp-5.png" /></li>
+<li>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature Templates</strong>, and then in the search bar type <strong><code>sig</code></strong> and find the template with name <strong><code>VIP23-SIG-Feature-Template</code></strong>.  Further, click on three dots (<strong>...</strong>) at the right side and click <strong>Edit</strong> as shown in below screenshots:</li>
 </ul>
+<p><img alt="" src="../pics/Config-Template.png" /> 
+<img alt="" src="../pics/Config-Template-Feature.png" />
+<img alt="" src="../pics/sig-feat-temp-3.png" /></p>
+<ul>
+<li>
+<p>Click on <strong>"Click here to create - Cisco SIG Credintial Template"</strong>
+<img alt="" src="../pics/sig-feat-temp-4.png" /></p>
+</li>
+<li>
+<p>Enter Umbrella <strong><code>Org ID</code></strong>, <strong><code>Keys</code></strong> and <strong><code>Secret</code></strong> saved in previous step and click <strong>Save</strong>.<br />
+<img alt="" src="../pics/sig-feat-temp-2.png" /></p>
+</li>
+<li>
+<p>Then click <strong>Update</strong> at the bottom of the page:
+<img alt="" src="../pics/sig-feat-temp-5.png" /></p>
 </li>
 </ul>
 <h2 id="step-3-apply-sig-template">Step 3 - Apply SIG Template</h2>
-<ul>
-<li>Add the SIG template in <strong>VPN0</strong> on the device template of node <strong>Site300-cE1</strong> in the <strong>Transport and Management VPN</strong> section. <ul>
-<li>Click <strong>Device template</strong>
-<img alt="" src="../pics/Device-template.png" /></li>
-<li>Edit <strong>Site300-cE1 template</strong>
-<img alt="" src="../pics/sig-feat-temp-6.png" /></li>
-<li>Click on <strong>Transport and Management VPN</strong>
-<img alt="" src="../pics/sig-feat-temp-7.png" /></li>
-<li>Click on <strong>Cisco Secure Internet Gateway</strong> to add the template.  Select <strong>VIP23-SIG-Feature-Template</strong> from the drop-down menu.
-<img alt="" src="../pics/sig-feat-temp-8.png" /></li>
-<li>Scroll all the way down to <strong>Additional Templates</strong> section and ensure <strong>Cisco SIG Credentials</strong> of <strong>VIP23-SIG-Credentials</strong> are added.<br />
-<img alt="" src="../pics/sig-feat-temp-9.png" /></li>
-<li>Click <strong>Update</strong></li>
-<li>Click <strong>Next</strong>
-<img alt="" src="../pics/sig-feat-temp-10.png" /></li>
-<li>Click <strong>Configure Devices</strong>
-<img alt="" src="../pics/sig-feat-temp-11.png" /></li>
-<li>Wait till config push is sucessfull</li>
-</ul>
-</li>
-</ul>
-<h2 id="step-4-sig-tunnels-verificaiton">Step 4 - SIG Tunnels Verificaiton</h2>
+<p>This SIG template in <strong>VPN0</strong> will be applied to <strong>Site300-cE1</strong> for Umbrella SIG integration i.e. setting up IPSec tunnels with between Site300 and Umbrella cloud.</p>
 <ul>
 <li>
-<p>Confirm that the tunnels to Umbrella are UP by accessing Umbrella dashboard <strong>Deployments &gt; Core Identities &gt; Network Tunnels</strong></p>
-<p><img alt="" src="../pics/umbrella-tun-unauth.png" /></p>
+<p>Navigate to <strong>Configuration &gt; Templates &gt; Device Templates</strong>.
+<img alt="" src="../pics/Device-template.png" /></p>
 </li>
+<li>
+<p>Further, for the <strong>Site300-cE1</strong> device, click on three dots (<strong>...</strong>) at the right side and click <strong>Edit</strong> as shown in below screenshots.
+<img alt="" src="../pics/sig-feat-temp-6.png" /></p>
+</li>
+<li>
+<p>Click on the <strong>Transport and Management VPN</strong> section. 
+<img alt="" src="../pics/sig-feat-temp-7.png" /></p>
+</li>
+<li>
+<p>Click on <strong>Cisco Secure Internet Gateway</strong> to add the template.  Select <strong><code>VIP23-SIG-Feature-Template</code></strong> from the drop-down menu.
+<img alt="" src="../pics/sig-feat-temp-8.png" /></p>
+</li>
+<li>
+<p>Scroll all the way down to <strong>Additional Templates</strong> section and ensure <strong>Cisco SIG Credentials</strong> of <strong><code>VIP23-SIG-Credentials</code></strong> are added.<br />
+<img alt="" src="../pics/sig-feat-temp-9.png" /></p>
+</li>
+<li>
+<p>Click <strong>Update</strong></p>
+</li>
+<li>
+<p>Click <strong>Next</strong>
+<img alt="" src="../pics/sig-feat-temp-10.png" /></p>
+</li>
+<li>
+<p>Click <strong>Configure Devices</strong>
+<img alt="" src="../pics/sig-feat-temp-11.png" /></p>
+</li>
+<li>
+<p>Wait till config push is sucessfull</p>
+</li>
+</ul>
+<p>Now the configurations for IPSec tunnels creation between Site-300 cEdge and Umbrella cloud are done.</p>
+<h2 id="step-4-sig-tunnels-verificaiton">Step 4 - SIG Tunnels Verificaiton</h2>
+<p>In this step we will confirm that the tunnels to Umbrella cloud are UP by accessing Umbrella dashboard.</p>
+<ul>
+<li>
+<p>If access to Umbrella dashboard is not already open, on the RDP session, launch Google Chrome and click on <code>Umbrella SSO</code> bookmark to open up a session to Umbrella dashboard.</p>
+</li>
+<li>
+<p>After successful login to Umbrella Dashboard, navigate to <strong>Deployments &gt; Core Identities &gt; Network Tunnels</strong></p>
+</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-tun-unauth.png" /></p>
+<ul>
 <li>
 <p>It will take few minutes for tunnels to be <strong>Active</strong>.  The tunnels will remain in <code>Unestablished Tunnels</code> state initially.  After few minutes there should be <strong>2</strong> <code>Active Tunnels</code> as shown in below screenshot:
-    <img alt="" src="../pics/sig-feat-temp-12.png" /></p>
+<img alt="" src="../pics/sig-feat-temp-12.png" /></p>
 </li>
 <li>
-<p>Using <strong>mRemoteNG</strong> application on RDP session, launch console session on ubuntu <strong>Site300 VPN10</strong> host.  Within the console, open browser and access following site to verify if Site300 is protected by Umbrella</p>
-<p><code>welcome.umbrella.com</code></p>
+<p>Using <strong>mRemoteNG</strong> application on RDP session, launch console session on ubuntu <strong>Site300 VPN10</strong> host (Virtual Machine / VM).  </p>
+</li>
+<li>
+<p>Within the console of this Ubuntu VM, launch the <strong>Web Browser</strong> application and access website <strong><code>welcome.umbrella.com</code></strong>.  This is to verify if Site300 is protected by Umbrella.  What message do you see when you try to access this website?  It will fail as shown below:</p>
+</li>
+</ul>
 <p><img alt="" src="../pics/umbrella-oops.png" /></p>
-</li>
-<li>
-<p>This is because, the traffic is still going out throught normal interface NOT throught SIG tunnels. We have to create a <strong>Service Route</strong> to redirect traffic to <strong>Umbrella SIG Tunnels</strong></p>
-</li>
-</ul>
+<p><em>Why did it fail?</em>
+This is because, the traffic from SD-WAN site is still going out throught normal interface NOT throught SIG tunnels. We have to create a <strong>Service Route</strong> to redirect traffic from SD-WAN site on <strong>Umbrella SIG Tunnels</strong> towards Umbrella Cloud - this will be performed in next step.</p>
 <h2 id="step-5-redirect-traffic-to-sig-tunnels">Step 5 - Redirect Traffic to SIG tunnels</h2>
-<p>Add a Service Route to SIG in order to redirect traffic from VPN 10 to Umbrella.</p>
+<p>Let's add a Service Route to SIG in order to redirect traffic from VPN 10 to Umbrella cloud.</p>
 <ul>
 <li>
-<p>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature</strong>, and then search for <strong>vpn_10_site300_ce1</strong>.  <strong>Click</strong> the three dots (...) on the right side, and then click <strong>Edit</strong> in the dropdown menu as shown in below screenshot:
-    <img alt="" src="../pics/Config-Template.png" /> 
-    <img alt="" src="../pics/Config-Template-Feature.png" />
-    <img alt="" src="../pics/sig-feat-temp-13.png" /></p>
-<ul>
-<li>Click <strong>Service Route</strong>
-<img alt="" src="../pics/sig-feat-temp-14.png" /></li>
-<li>Click <strong>New Service Route</strong></li>
-<li>Add a route to <code>0.0.0.0/0</code> pointing to SIG. </li>
-<li>Click <strong>Add</strong> and then <strong>Update</strong> at the bottom of the page
-<img alt="" src="../pics/sig-feat-temp-15.png" /></li>
-<li>Click <strong>Next</strong> and then click <strong>Configure Devices</strong></li>
-<li>Wait till config push is sucessfull
-<img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></li>
-<li>Using <strong>mRemoteNG</strong> application on RDP session, launch console session on ubuntu <strong>Site300 VPN10</strong> host. Launch Chromium Web browser and check if the site is now protected by Umbrella. Use the following link</li>
-</ul>
-<p>'welcome.umbrella.com`</p>
+<p>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature Templates</strong>
+<img alt="" src="../pics/Config-Template.png" /> </p>
+</li>
+<li>
+<p>In search bar type <strong><code>vpn_10_site300_ce1</code></strong>.  <strong>Click</strong> the three dots (<strong><code>...</code></strong>) on the right side of this template, and then click <strong>Edit</strong> in the dropdown menu as shown in below screenshot:
+<img alt="" src="../pics/Config-Template-Feature.png" />
+<img alt="" src="../pics/sig-feat-temp-13.png" /></p>
+</li>
+<li>
+<p>Click <strong>Service Route</strong>
+<img alt="" src="../pics/sig-feat-temp-14.png" /></p>
+</li>
+<li>
+<p>Click <strong>New Service Route</strong></p>
+</li>
+<li>
+<p>Add a route to <code>0.0.0.0/0</code> pointing to SIG. </p>
+</li>
+<li>
+<p>Click <strong>Add</strong> and then <strong>Update</strong> at the bottom of the page:
+<img alt="" src="../pics/sig-feat-temp-15.png" /></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> and then click <strong>Configure Devices</strong></p>
+</li>
+<li>
+<p>Wait till config push is sucessfull
+<img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
+</li>
+<li>
+<p>Using <strong>mRemoteNG</strong> application on RDP session (Jumphost), launch console session on ubuntu <strong>Site300 VPN10</strong> VM again.  Launch Chromium Web browser and check again by browsing to <strong><code>welcome.umbrella.com</code></strong> URL/website.  The <code>Welcome to Umbrella</code> message indicates that the site is now protected by Umbrella - specifically the traffic in VPN-10 of Site-300 is protected by Umbrella.</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Umbrella-welecome.png" /></p>
-<p>Now traffic in VPN 10 of site 300 is protected by Umbrella.  </p>
 <ul>
-<li>Verify the traffic routing on this Site300 by initiating <code>traceroute 8.8.8.8</code> command on ubuntu <strong>Site300 VPN10</strong> host by using <strong>mRemoteNG</strong> application.   </li>
+<li>On the console session of ubuntu VM  <strong>Site300 VPN10</strong> (by using <strong>mRemoteNG</strong> application), verify traffic routing on this Site-300 by running below command:</li>
 </ul>
+<pre><code>traceroute 8.8.8.8
+</code></pre>
+<p>From the output of traceroute, what do you notice different to the output in earlier task on this VM/host? 
+<em>(Tip: hop count etc)</em></p>
               
             </div>
           </div><footer>

@@ -118,72 +118,123 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-8-umbrella-regional-policies">Task 8 - Umbrella Regional Policies</h1>
-<p>For <strong>Web Proxy</strong>, block all social media networking contenxt and use custom-list to few other block websites</p>
+<p>This tasks will walk through the steps to create <strong>Web Proxy Policies</strong> that will be enforced on Site-100 and Site-400 (i.e., regional sites).  These policies will:
+* Block web traffic to Financial Institutions<br />
+* Block web traffic to additional websites by creating custom destination list</p>
 <h2 id="step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</h2>
+<p>In this step we will configure Umbrella Web Policy to block traffic to Financial websites from Regional sites:</p>
 <ul>
 <li>
-<p>Configure an Umbrella Web Policy to block social media websites.</p>
-<ul>
-<li>Go to <strong>Policies&gt;Management&gt;Web Policy</strong> and click <strong>Add</strong>
-<img alt="" src="../pics/umbrella-p5.png" /></li>
-<li>Click <strong>Add Rule</strong>. Give the rule a Name and click <strong>Add Identity</strong></li>
-<li>
-<p>Select <strong>Inherit Ruleset Identities</strong>, then <strong>Apply</strong>
-<img alt="" src="../pics/umbrella-s1-p1.png" /></p>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
 </li>
 <li>
-<p>Click <strong>Add Destination</strong>
-<img alt="" src="../pics/umbrella-s1-p3.png" /></p>
+<p>Go to <strong>Policies &gt; Management &gt; Web Policy</strong> and click <strong>Add</strong> on the top right to add a new <em>Ruleset</em> as shown in below screenshot:</p>
 </li>
-<li>Click <strong>Application Settings</strong>, then search for <strong>Social Networkingk</strong>. Select <strong>Social Networking</strong>, then <strong>Apply</strong>
-<img alt="" src="../pics/umbrella-s1-p4.png" />
-<img alt="" src="../pics/umbrella-s1-p5.png" /></li>
-<li>Click <strong>Save</strong>
-<img alt="" src="../pics/umbrella-s1-p2.png" /></li>
-<li>Click three dots and then <strong>Enable Rule</strong>
-<img alt="" src="../pics/umbrella-s1-p6.png" /></li>
-<li>Confirm by clicking Update
-<img alt="" src="../pics/umbrella-p14.png" /></li>
 </ul>
+<p><img alt="" src="../pics/umbrella-p5.png" /></p>
+<ul>
+<li>On the new <em>Ruleset Rules</em> web page, under <strong>Ruleset Settings</strong> scroll down to <strong>Ruleset identities</strong> and Click <strong>Edit</strong> as shown below:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-ruleset-identity.png" /></p>
+<ul>
+<li>On the next <strong>Ruleset Identities</strong> web page, under <code>All Identities</code> scroll down to <strong>Tunnels</strong> and Click on number 4 with right arrow <strong><code>4 &gt;</code></strong> as shown below: </li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-ruleset-identities-tunnels.png" /></p>
+<ul>
+<li>On the next page, select the two Tunnels for <strong>SITE100</strong> and Click <strong>SAVE</strong> button as shown below: </li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-ruleset-identities-tunnels-site100.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Note:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">You must only select SITE100 tunnels.  Do not select SITE300 tunnels in this step</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>On the <strong>Ruleset Settings</strong>  scroll down to <strong>HTTPS Inspection</strong> section and click <strong>Edit</strong> 
+<img alt="" src="../pics/umbrella-s1-p10.png" /></p>
 </li>
 <li>
-<p>Under <strong>Ruleset Settings</strong>, go to the <strong>Ruleset Identities</strong> section and click <strong>Edit</strong>
-<img alt="" src="../pics/umbrella-s1-p7.png" /></p>
+<p>Select <strong>Enable HTTPS Inspection</strong>, then click <strong>Save</strong>:
+<img alt="" src="../pics/umbrella-p18.png" /> </p>
 </li>
-<li>Click on number <strong>4</strong>  and then select <strong>Tunnel</strong> for Site100, click <strong>Save</strong>
-<img alt="" src="../pics/umbrella-s1-p8.png" />
-<img alt="" src="../pics/umbrella-s1-p9.png" /> </li>
-<li>Go to the <strong>HTTPS Inspection</strong> section and click <strong>Edit</strong> 
-<img alt="" src="../pics/umbrella-s1-p10.png" /></li>
-<li>Select <strong>Enable HTTPS Inspection</strong>, then <strong>Save</strong>
-<img alt="" src="../pics/umbrella-p18.png" /> </li>
-<li>Scroll down and click Close
-<img alt="" src="../pics/umbrella-p19.png" /></li>
+<li>
+<p>After adding the identities, Click <strong>ADD RULE</strong> button.  Give the rule a Name of <strong>Regional - block Financial</strong> and verify the <code>Rule Action</code> is <code>Block</code>:
+<img alt="" src="../pics/t8-s1-add-rule.png" /></p>
+</li>
+<li>
+<p>Next click on <strong>Edit Identity</strong> for this rule.  Enable <strong>Inherit Ruleset Identities</strong> and click <strong>Apply</strong> as shown in below figure:
+<img alt="" src="../pics/t8-s1-edit-identity.png" /></p>
+</li>
+<li>
+<p>Further on the new rule, click on <strong>Edit Destination</strong> and Click on right arrow <strong><code>&gt;</code></strong> next to <strong>Application Settings</strong>:
+<img alt="" src="../pics/t8-s1-umbrella-edit-dest.png" /></p>
+</li>
+<li>
+<p>Then scroll down to Select <strong>Financial Services</strong> and hit <strong>Apply</strong>:
+<img alt="" src="../pics/t8-s1-umbrella-edit-dest-finance.png" /></p>
+</li>
+<li>
+<p>On the Rule click on <strong>Save</strong> icon to save newly added rule:
+<img alt="" src="../pics/t8-s1-umbrella-edit-dest-save.png" /></p>
+</li>
+<li>
+<p>For the Rule 1, click three (<strong><code>...</code></strong>) dots at the right side and then <strong>Enable Rule</strong> as shown in below screenshot:
+<img alt="" src="../pics/t8-s1-umbrella-rule-enable.png" /></p>
+</li>
+<li>
+<p>Confirm by clicking <strong>Update</strong>
+<img alt="" src="../pics/umbrella-p14.png" /></p>
+</li>
+<li>
+<p>Scroll down and click Close
+<img alt="" src="../pics/umbrella-p19.png" /></p>
+</li>
 </ul>
 <h2 id="step-2-create-customs-list-web-policy">Step 2 - Create Customs-list Web Policy</h2>
 <ul>
-<li>On Umbrella dashboard, navigate to <strong>Policy&gt;Policy Component&gt;Destination lists</strong>, click <strong>Add</strong> on the top right corner
-<img alt="" src="../pics/umbrella-s1-p11.png" /><ul>
-<li>List Name : Custom-Filter</li>
-<li>Destination List type : Web Proxy</li>
-<li>Destination : www.cnn.com</li>
-<li>Click <strong>Add</strong>
+<li>
+<p>On Umbrella dashboard, navigate to <strong>Policy &gt; Policy Component &gt; Destination lists</strong>, click <strong>Add</strong> on the top right corner
+<img alt="" src="../pics/umbrella-s1-p11.png" /></p>
+<ul>
+<li>List Name: <code>Custom-Filter</code></li>
+<li>Destination List type: <code>Web Proxy</code> (from drop-down menu)</li>
+<li>Destination: <code>www.cnn.com</code></li>
+<li>Click <strong><code>Add</code></strong>
 <img alt="" src="../pics/umbrella-s1-p12.png" /></li>
-<li>Click <strong>Save</strong>
+<li>Click <strong>Save</strong> after adding destination/domain:
 <img alt="" src="../pics/umbrella-s1-p13.png" /></li>
 </ul>
 </li>
-<li>Navigate to <strong>Policies&gt;Management&gt;Web Proxy</strong> and expand on <strong>RuleSet2</strong>
-    <img alt="" src="../pics/umbrella-s1-p14.png" /></li>
-<li>Click three dot and then click <strong>Edit</strong>
- <img alt="" src="../pics/umbrella-s1-p15.png" /></li>
-<li>Click on <strong>Edit Destinations</strong> and then on <strong>Destiniation Lists</strong>
-<img alt="" src="../pics/umbrella-s1-p16.png" /></li>
-<li>Click on <strong>Customer-Filter</strong> and then on <strong>Apply</strong>
-<img alt="" src="../pics/umbrella-s1-p17.png" /></li>
-<li>Click on <strong>Save</strong> and <strong>Close</strong> the <strong>RuleSet2</strong>
-<img alt="" src="../pics/umbrella-s1-p18.png" /></li>
+<li>
+<p>Navigate to <strong>Policies &gt; Management &gt;Web Policy</strong> and expand on <strong>RuleSet 2</strong></p>
+<p><img alt="" src="../pics/umbrella-s1-p14.png" /></p>
+</li>
+<li>
+<p>Click three dots <strong><code>...</code></strong> and then click <strong>Edit</strong>
+ <img alt="" src="../pics/umbrella-s1-p15.png" /></p>
+</li>
+<li>
+<p>Click on <strong>Edit Destinations</strong> and then on <strong>Destiniation Lists</strong></p>
+</li>
 </ul>
+<p><img alt="" src="../pics/umbrella-s1-p16.png" /></p>
+<ul>
+<li>Click on <strong>Customer-Filter</strong> and then on <strong>Apply</strong></li>
+</ul>
+<p><img alt="" src="../pics/umbrella-s1-p17.png" /></p>
+<ul>
+<li>Click on <strong>Save</strong> and <strong>Close</strong> the <strong>RuleSet 2</strong></li>
+</ul>
+<p><img alt="" src="../pics/umbrella-s1-p18.png" /></p>
+<p>Now the Umbrella policies for regional sites (site-100 and Site-400) have been configured. </p>
               
             </div>
           </div><footer>
