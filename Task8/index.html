@@ -86,6 +86,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-2-create-customs-list-web-policy">Step 2 - Create Customs-list Web Policy</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-web-policy-tester">Step 3 - Web Policy Tester</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -133,11 +135,11 @@
 </ul>
 <p><img alt="" src="../pics/umbrella-p5.png" /></p>
 <ul>
-<li>On the new <em>Ruleset Rules</em> web page, under <strong>Ruleset Settings</strong> scroll down to <strong>Ruleset identities</strong> and Click <strong>Edit</strong> as shown below:</li>
+<li>On the new "<em>Ruleset Rules</em>" web page, under <strong>Ruleset Settings</strong> scroll down to <strong>Ruleset identities</strong> and Click <strong>Edit</strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/t8-s1-ruleset-identity.png" /></p>
 <ul>
-<li>On the next <strong>Ruleset Identities</strong> web page, under <code>All Identities</code> scroll down to <strong>Tunnels</strong> and Click on number 4 with right arrow <strong><code>4 &gt;</code></strong> as shown below: </li>
+<li>Next on the <strong>Ruleset Identities</strong> web page, under <code>All Identities</code> scroll down to <strong>Tunnels</strong> and Click on number 4 with right arrow i.e., <strong><code>4 &gt;</code></strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/t8-s1-ruleset-identities-tunnels.png" /></p>
 <ul>
@@ -152,89 +154,143 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">You must only select SITE100 tunnels.  Do not select SITE300 tunnels in this step</td>
+<td style="text-align: left;">You must only select SITE100 tunnels.  <em>Do not</em> select SITE300 tunnels in this step.</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>
-<p>On the <strong>Ruleset Settings</strong>  scroll down to <strong>HTTPS Inspection</strong> section and click <strong>Edit</strong> 
-<img alt="" src="../pics/umbrella-s1-p10.png" /></p>
-</li>
-<li>
-<p>Select <strong>Enable HTTPS Inspection</strong>, then click <strong>Save</strong>:
-<img alt="" src="../pics/umbrella-p18.png" /> </p>
-</li>
-<li>
-<p>After adding the identities, Click <strong>ADD RULE</strong> button.  Give the rule a Name of <strong>Regional - block Financial</strong> and verify the <code>Rule Action</code> is <code>Block</code>:
-<img alt="" src="../pics/t8-s1-add-rule.png" /></p>
-</li>
-<li>
-<p>Next click on <strong>Edit Identity</strong> for this rule.  Enable <strong>Inherit Ruleset Identities</strong> and click <strong>Apply</strong> as shown in below figure:
-<img alt="" src="../pics/t8-s1-edit-identity.png" /></p>
-</li>
-<li>
-<p>Further on the new rule, click on <strong>Edit Destination</strong> and Click on right arrow <strong><code>&gt;</code></strong> next to <strong>Application Settings</strong>:
-<img alt="" src="../pics/t8-s1-umbrella-edit-dest.png" /></p>
-</li>
-<li>
-<p>Then scroll down to Select <strong>Financial Services</strong> and hit <strong>Apply</strong>:
-<img alt="" src="../pics/t8-s1-umbrella-edit-dest-finance.png" /></p>
-</li>
-<li>
-<p>On the Rule click on <strong>Save</strong> icon to save newly added rule:
-<img alt="" src="../pics/t8-s1-umbrella-edit-dest-save.png" /></p>
-</li>
-<li>
-<p>For the Rule 1, click three (<strong><code>...</code></strong>) dots at the right side and then <strong>Enable Rule</strong> as shown in below screenshot:
-<img alt="" src="../pics/t8-s1-umbrella-rule-enable.png" /></p>
-</li>
-<li>
-<p>Confirm by clicking <strong>Update</strong>
-<img alt="" src="../pics/umbrella-p14.png" /></p>
-</li>
-<li>
-<p>Scroll down and click Close
-<img alt="" src="../pics/umbrella-p19.png" /></p>
-</li>
+<li>Under the <strong>Ruleset Settings</strong>, scroll down to <strong>HTTPS Inspection</strong> section and click <strong>Edit</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-s1-p10.png" /></p>
+<ul>
+<li>Select <strong>Enable HTTPS Inspection</strong>, then click <strong>Save</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-p18.png" /> </p>
+<ul>
+<li>After adding the identities, Click <strong>ADD RULE</strong> button.  Give the <strong>Rule Name</strong> of <strong><code>Regional - block Financial</code></strong> and verify the <code>Rule Action</code> is <code>Block</code>:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-add-rule.png" /></p>
+<ul>
+<li>Next click on <strong>Add Identity</strong> for this rule.  Enable <strong>Inherit Ruleset Identities</strong> and click <strong>Apply</strong> as shown in below figure:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-edit-identity.png" /></p>
+<ul>
+<li>Further on the new rule, click on <strong>Add Destination</strong> and Click on right arrow <strong><code>&gt;</code></strong> next to <strong>Application Settings</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-umbrella-edit-dest.png" /></p>
+<ul>
+<li>Then scroll down to Select <strong>Financial Services</strong> and hit <strong>Apply</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-umbrella-edit-dest-finance.png" /></p>
+<ul>
+<li>On the Rule click on <strong>Save</strong> icon to save newly added rule as shown in below screenshot:</li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-umbrella-edit-dest-save.png" /></p>
+<ul>
+<li>By default newly created rules are disabled.  To enable the Rule 1, click three dots (<strong><code>...</code></strong>) at the right side and then toggle <strong>Enable Rule</strong> as shown in below screenshot. </li>
+</ul>
+<p><img alt="" src="../pics/t8-s1-umbrella-rule-enable.png" /></p>
+<ul>
+<li>Confirm by clicking <strong>Update</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-p14.png" /></p>
+<p>Now the rule and ruleset settings are all configured for Regional sites.</p>
+<ul>
+<li>Scroll down and click <strong>Close</strong> as shown in below screenshot
+<img alt="" src="../pics/umbrella-p19.png" /></li>
 </ul>
 <h2 id="step-2-create-customs-list-web-policy">Step 2 - Create Customs-list Web Policy</h2>
+<p>In the previous step, a web policy as per Umbrella classification of Financial services websites has been created.  Now let's create our own website list (using Umbrella <code>Destination List</code>) and then use Web policy to block web traffic to this list i.e., custom URL.  This will be done by adding a new rule under existing Ruleset for regional sites i.e., Ruleset 2.</p>
+<ul>
+<li>On Umbrella dashboard, navigate to <strong>Policy &gt; Policy Component &gt; Destination lists</strong>, click <strong>Add</strong> on the top right corner:</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-s1-p11.png" /></p>
 <ul>
 <li>
-<p>On Umbrella dashboard, navigate to <strong>Policy &gt; Policy Component &gt; Destination lists</strong>, click <strong>Add</strong> on the top right corner
-<img alt="" src="../pics/umbrella-s1-p11.png" /></p>
+<p>Add this list as per below settings:</p>
 <ul>
 <li>List Name: <code>Custom-Filter</code></li>
 <li>Destination List type: <code>Web Proxy</code> (from drop-down menu)</li>
 <li>Destination: <code>www.cnn.com</code></li>
-<li>Click <strong><code>Add</code></strong>
-<img alt="" src="../pics/umbrella-s1-p12.png" /></li>
-<li>Click <strong>Save</strong> after adding destination/domain:
-<img alt="" src="../pics/umbrella-s1-p13.png" /></li>
+<li>
+<p>Click <strong><code>Add</code></strong>
+<img alt="" src="../pics/umbrella-s1-p12.png" /></p>
+</li>
+<li>
+<p>Click <strong>Save</strong> after adding destination/domain:
+<img alt="" src="../pics/umbrella-s1-p13.png" /></p>
+</li>
 </ul>
 </li>
 <li>
-<p>Navigate to <strong>Policies &gt; Management &gt;Web Policy</strong> and expand on <strong>RuleSet 2</strong></p>
+<p>Navigate to <strong>Policies &gt; Management &gt; Web Policy</strong> and expand on <strong>RuleSet 2</strong> by clicking on it or by clicking down-arrow:</p>
 <p><img alt="" src="../pics/umbrella-s1-p14.png" /></p>
 </li>
 <li>
-<p>Click three dots <strong><code>...</code></strong> and then click <strong>Edit</strong>
- <img alt="" src="../pics/umbrella-s1-p15.png" /></p>
+<p>Let's add a new rule by clicking <strong>ADD RULE</strong> button.  Give the <strong>Rule Name</strong> of <strong><code>Regional - block custom</code></strong> and verify the <code>Rule Action</code> is <code>Block</code>:
+<img alt="" src="../pics/add-rule-2.png" /></p>
 </li>
 <li>
-<p>Click on <strong>Edit Destinations</strong> and then on <strong>Destiniation Lists</strong></p>
+<p>Next let's also use ruleset identities for this rule.  Click on <strong>Add Identity</strong> for this rule and enable <strong>Inherit Ruleset Identities</strong> and click <strong>Apply</strong> as shown in below figure:</p>
 </li>
 </ul>
-<p><img alt="" src="../pics/umbrella-s1-p16.png" /></p>
+<p><img alt="" src="../pics/add-rule-2-identity.png" /></p>
 <ul>
-<li>Click on <strong>Customer-Filter</strong> and then on <strong>Apply</strong></li>
+<li>Further on the new rule, click on <strong>Add Destination</strong> and CLick on the right arrow  <strong><code>&gt;</code></strong> next to <strong>Destiniation Lists</strong></li>
+</ul>
+<p><img alt="" src="../pics/add-rule-2-dest.png" /></p>
+<ul>
+<li>Select the <strong>Custom-Filter</strong> and then click on <strong>Apply</strong></li>
 </ul>
 <p><img alt="" src="../pics/umbrella-s1-p17.png" /></p>
 <ul>
-<li>Click on <strong>Save</strong> and <strong>Close</strong> the <strong>RuleSet 2</strong></li>
+<li>
+<p>Click on <strong>Save</strong> on this newly created rule:
+<img alt="" src="../pics/add-rule-2-save.png" /></p>
+</li>
+<li>
+<p>By default newly created rules are disabled.  To enable the Rule 2, click three dots (<strong><code>...</code></strong>) at the right side and then toggle <strong>Enable Rule</strong> as shown in below screenshot. </p>
+</li>
 </ul>
-<p><img alt="" src="../pics/umbrella-s1-p18.png" /></p>
+<p><img alt="" src="../pics/rule-2-enable.png" /></p>
+<ul>
+<li>Confirm by clicking <strong>Update</strong>:</li>
+</ul>
+<p><img alt="" src="../pics/umbrella-p14.png" /></p>
+<ul>
+<li>After saving the rule, You may scroll down under Ruleset settings and click on <strong>Close</strong> button.</li>
+</ul>
 <p>Now the Umbrella policies for regional sites (site-100 and Site-400) have been configured. </p>
+<h2 id="step-3-web-policy-tester">Step 3 - Web Policy Tester</h2>
+<p>Let's go through the steps to test the newly created Web policies by using "Policy Tester" on  Umbrella.</p>
+<ul>
+<li>
+<p>On Umbrella Dashboard, navigate to <strong>Policies &gt; Management &gt; Web Policy</strong>.  Click on <strong>Policy Tester</strong> at the top right corner: 
+<img alt="" src="../pics/umbrella-web-policy-test.png" /></p>
+</li>
+<li>
+<p>On the <code>Web Policy Tester</code> page,</p>
+<ul>
+<li>Under the <strong>Primary Identity</strong> search box type <strong><code>Site1</code></strong> and then select any of the <strong>Site100</strong> tunnels </li>
+<li>Under <strong>Destination</strong>, enter <strong><code>chase.com</code></strong></li>
+<li>Then click <strong>Run Test</strong> button: 
+<img alt="" src="../pics/web-policy-test-result-regional-1.png" /></li>
+</ul>
+</li>
+</ul>
+<p>The result of this test appears on the page and as expected it shows the Ruleset 2 and rule being matched by the Web policy. </p>
+<ul>
+<li>
+<p>Next run a test for any of the Site100 tunnel for below destinations:</p>
+<ul>
+<li>Under <strong>Destination</strong>, enter <strong><code>www.cnn.com</code></strong>
+<img alt="" src="../pics/web-policy-test-result-regional-2.png" /></li>
+</ul>
+</li>
+<li>
+<p>Explore the Web Policy Tester further by testing traffic to different destination website such as cisco.com, google.com etc.</p>
+</li>
+</ul>
               
             </div>
           </div><footer>
