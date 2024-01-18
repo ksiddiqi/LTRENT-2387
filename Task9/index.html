@@ -124,29 +124,34 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-9-monitoring-on-umbrella">Task 9 - Monitoring on Umbrella</h1>
-<p>In this task the Reports on Cisco Umbrella will be used to monitor it's usage and the SD-WAN integration. </p>
-<p><strong>Pre-requisites:</strong></p>
+<p>In this task reports on Cisco Umbrella will be used to monitor it's usage, traffic detection, policy enforcement and the SD-WAN integration. </p>
+<p>As a <strong>Pre-requisite:</strong>, all the prior tasks must be completed successfully.  These earlier tasks include integration of SD-WAN sites to Umbrella, configuraiton of Umbrella policies such as Firewall, Web etc.  The traffic monitored by Umbrella, as per those policies, will be viewed in this task.</p>
 <h2 id="step-1-traffic-from-sd-wan-sites">Step 1: Traffic from SD-WAN sites</h2>
-<p>Earlier tasks, that include integration of SD-WAN sites to Umbrella, configuraiton of Umbrella policies such as Firewall, Web etc. must be completed successfully as a pre-requisite to this task.  The traffic monitored by Umbrella, as per those policies, will be viewed in this task.</p>
-<p>In this step, traffic must be initiated for Umbrella monitoring as per below steps:</p>
+<p>In this step, additional IP and Web traffic will be initiated for Umbrella monitoring.</p>
 <ul>
 <li>On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.</li>
-<li>From the Chromium Web browser initiate traffic to <code>facebook.com</code> and <code>cisco.com</code>.  As per earlier tasks, the traffic to <code>facebook.com</code> should be blocked by Umbrella on Site-300. </li>
-<li>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site300-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by issuing <code>Control-C</code>.  As per configuration in earlier task, this traffic should be blocked by Umbrella:</li>
+<li>Launch Chromium web browser and visit the website <code>cisco.com</code>.  This website should be accessible. </li>
+<li>On the Chromium web browser navigate to <code>facebook.com</code>.  As per earlier configured policy, the traffic to <code>facebook.com</code> should be blocked by Umbrella on Site-300. </li>
+<li>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site300-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Control-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</li>
+</ul>
+<pre><code>ping 1.1.1.1
+</code></pre>
+<ul>
+<li>In the same terminal of the <code>Site300-VPN10</code> host, execute the command below. After a few seconds, halt the ping by pressing <code>Control-C</code>. According to the previous configuration, Umbrella should block this traffic:</li>
 </ul>
 <pre><code>ping 8.8.8.8
 </code></pre>
-<ul>
-<li>You may also issue <code>ping 1.1.1.</code> command to validate site connectivity to Internet via Umbrella is working properly.  Stop the ping traffic by issuing <code>Control-C</code>.</li>
-</ul>
 <p>Next,
 * On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.
-* From the Chromium Web browser initiate traffic to <code>cnn.com</code> and <code>cisco.com</code>.   As per earlier task, the traffic to <code>cnn.com</code> should be blocked by Umbrella. </p>
+* From the Chromium Web browser initiate traffic to <code>www.cnn.com</code> and <code>cisco.com</code>.   As per earlier task, the traffic to <code>www.cnn.com</code> should be blocked by Umbrella. 
+* On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site400-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Control-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</p>
+<pre><code>ping 1.1.1.1
+</code></pre>
 <h2 id="step-2-activity-reports-for-web-urls">Step 2 - Activity Reports for Web URLs</h2>
 <p>The web and other IP traffic activity from the SD-WAN branch sites over a selected time period can be viewed from <code>Activity Search</code> on Cisco Umbrella.  These reports can be filtered by various categories such as identity name, destination, source IP, etc.  </p>
 <ul>
 <li>
-<p>On the RDP session, access the Umbrella web page by clicking on <code>Umbrella SSO</code> short cut on Google Chrome browser.</p>
+<p>On the RDP session (jumphost), access the Umbrella web page by clicking on <code>Umbrella SSO</code> bookmark on Google Chrome browser.</p>
 </li>
 <li>
 <p>Go to <strong>Reporting &gt; Core Reports</strong> and click on <strong>Activity Search</strong>:</p>
@@ -156,19 +161,20 @@
 <p>Here you can view the result of every DNS, URL, and IP request from your various SD-WAN sites and other identities.  Browse through to view some of the past results.</p>
 <ul>
 <li>
-<p>Click on <strong>Filter</strong> to close the filter tab and then click on <strong>Advanced</strong> button in the <code>Search</code> field.  </p>
+<p>Click on blue <strong>Filters</strong> button to close the filter tab and then click on <strong>Advanced</strong> button in the <code>Search</code> field.  </p>
 </li>
 <li>
 <p>On the <code>Advanced Search</code> page, navigate to to the <strong>URL</strong> section and enter <code>cnn.com</code>.  Then click <strong>Apply</strong> as shown in below screenshot:</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/t9-s1-adv-url.png" /></p>
-<p>You will now see all the search results matching URL of <code>cnn.com</code>.  Note:</p>
+<p>You will now see all the search results matching URL of <code>cnn.com</code>.  Below is an example screenshot for these results (your view may be different):</p>
+<p><img alt="" src="../pics/t9-s1-adv-cnn-results.png" /></p>
+<p>As per these search results:</p>
 <ul>
-<li>The search results are all <strong><em>Web</em></strong> Requests i.e., Secure Web Gateway (or Web Proxy) of Umbrella logged these requests.</li>
-<li>
-<p>Further review the <code>Action</code>, <code>Categories</code> and <code>Ruleset or Rule</code> fields of the results shown on this page.  Do they match the configurations performed in earlier tasks?</p>
-</li>
+<li>Note that the search results show <strong><em>Web</em></strong> Requests i.e., Secure Web Gateway (or Web Proxy) of Umbrella logged these requests.</li>
+<li>Use the Scroll bar at the bottom to review the various fields such as <code>Action</code>, <code>Categories</code> and <code>Ruleset or Rule</code> fields of the results shown on this page.  Do they match the configurations performed in earlier tasks?</li>
+<li></li>
 <li>
 <p>Click on <strong>Advanced</strong> button in the <code>Search</code> field again.  Enter <code>facebook.com</code> as the second URL and click <strong>Apply</strong> button as shown below:</p>
 </li>

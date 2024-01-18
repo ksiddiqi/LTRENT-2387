@@ -88,6 +88,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-3-web-policy-tester">Step 3 - Web Policy Tester</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-policies-on-hosts">Step 4 - Verify Policies on Hosts</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -280,15 +282,35 @@
 </ul>
 <p>The result of this test appears on the page and as expected it shows the Ruleset 2 and rule being matched by the Web policy. </p>
 <ul>
-<li>
-<p>Next run a test for any of the Site100 tunnel for below destinations:</p>
-<ul>
+<li>Next run a test for any of the Site100 tunnel for below destinations:<ul>
 <li>Under <strong>Destination</strong>, enter <strong><code>www.cnn.com</code></strong>
 <img alt="" src="../pics/web-policy-test-result-regional-2.png" /></li>
 </ul>
 </li>
+</ul>
+<p>The result of this test appears on the page and as expected it shows the Ruleset 2 and rule being matched by the Web policy. </p>
+<ul>
+<li>Explore the Web Policy Tester further by testing traffic to different destination website such as cisco.com, google.com etc for Regional sites traffic.</li>
+</ul>
+<h2 id="step-4-verify-policies-on-hosts">Step 4 - Verify Policies on Hosts</h2>
+<p>Now lets validate the impact of both Firewall and Web Policies from the SD-WAN Site-400 (Regional site).</p>
+<ul>
 <li>
-<p>Explore the Web Policy Tester further by testing traffic to different destination website such as cisco.com, google.com etc.</p>
+<p>First validate if traffic is being redirected to Umbrella.</p>
+<ul>
+<li>Launch console access to ubuntu <strong>Site400-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
+<li>Use Chromium Browser to navigate to <code>welcome.umbrella.com</code>.  A green check mark should appear, confirming that traffic from VPN 10 is being successfully redirected to Umbrella.</li>
+</ul>
+</li>
+<li>
+<p>Verify Web Policy by using Chromium Web Browser on <strong>Site400-VPN10</strong> host.  Just like previous step, use the console of ubuntu <strong>Site400 VPN10</strong> host by using <strong>mRemoteNG</strong> application.</p>
+<ul>
+<li>Use Chromium to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
+<li>Use Chromium to navigate to <code>www.cnn.com</code>.  As per our Umbrella Web Policy, this site should be blocked and, as expected, Cisco Umbrella block page will appear.</li>
+<li>Use Chromium to navigate to <code>www.chase.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, Cisco Umbrella block page will appear.</li>
+<li>Use Chromium to navigate to <code>www.bankofamerica.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, Cisco Umbrella block page will appear.</li>
+<li>Use Chromium to navigate onto <code>www.facebook.com</code>.  Access to this site should work as expected</li>
+</ul>
 </li>
 </ul>
               

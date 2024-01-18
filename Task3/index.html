@@ -231,10 +231,8 @@
 <p>In CLI configuration box paste the following commands</p>
 </li>
 </ul>
-<pre><code>sdwan
- omp
-  address-family ipv4 vrf 10
-   advertise network 0.0.0.0/0
+<pre><code>router ospf 10 vrf 10
+ default-information originate
 </code></pre>
 <ul>
 <li>Click <strong>Save</strong></li>
