@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Task 1 Remote Connection - Cisco Live 2023 LTRENT-2387</title>
+    <title>Task 10 Modify Block Page Notification - Cisco Live 2023 LTRENT-2387</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Task 1 Remote Connection";
-        var mkdocs_page_input_path = "Task1-Connect.md";
+        var mkdocs_page_name = "Task 10 Modify Block Page Notification";
+        var mkdocs_page_input_path = "Task10.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -51,10 +51,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../IP-Users/">Connection Details and Credentials</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 1 Remote Connection</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
                 </li>
               </ul>
               <ul>
@@ -89,8 +87,14 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 10 Modify Block Page Notification</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-verify-new-block-page">Step 2 - Verify new Block Page</a>
+    </li>
+    </ul>
                 </li>
               </ul>
       </div>
@@ -107,9 +111,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Task 1 Remote Connection</li>
+      <li class="breadcrumb-item active">Task 10 Modify Block Page Notification</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task1-Connect.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task10.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -117,50 +121,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>Your first task will log on to remote lab using VPN.  At the end of this task, you will have a fully network connectivity to a remote server using Remote Desktop.</p>
-<h2 id="step-1-connect-to-lab-using-anyconnect-vpn">Step 1: Connect to lab using anyconnect VPN</h2>
-<p>You will connect to remote Lab using Cisco VPN AnyConnect client, as shown in below picture.</p>
+                <h1 id="task-10-block-page">Task 10 - Block Page</h1>
+<p>This tasks will walk through the steps to modify the Block page that is shown to users when a Web policy is enforced on Site-100 and Site-400 (i.e., regional sites).  </p>
+<h2 id="step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</h2>
+<p>In this step we will configure a new block page.</p>
 <ul>
-<li><strong>Launch</strong> the Cisco VPN AnyConnect client from your PC</li>
-<li>Enter the remote server for your pod as provided by Lab Speakers.
-        * This remote server will be <code>dcloud-sjc-anyconnect.cisco.com</code> or <code>dcloud-rtp-anyconnect.cisco.com</code> </li>
 <li>
-<p>The <code>username</code> and <code>password</code> credentials for this VPN connection will also be provided by the lab admin </p>
-<p><strong>Note:</strong> lab admin will furnish the credentials information to each participant.  If you don't have this information please ask the lab speakers.</p>
-<p><img alt="" src="../pics/t1-1-1.png" /></p>
-<p>Below is an example of user logging into a reference pod in <code>dcloud-sjc-anyconnect.cisco.com</code>:</p>
-<p><img alt="" src="../pics/t1-2-vpn-credentials.png" /></p>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
 </li>
 <li>
-<p>Hit accept when the prompt appears to accept the VPN connection login    </p>
-<p><img alt="" src="../pics/t1-2-vpn-accept.png" /></p>
+<p>Navigate to <strong>Policies &gt; Policy Components &gt; Block Page Appearance</strong>.  Then click <strong>Add</strong> on the top right to add a new <em>Block page</em> as shown in below screenshot:</p>
 </li>
 </ul>
-<blockquote>
-<p><strong>Note:</strong> credentials used in above screenshot are provided as an example only.  Credentials for each pod will be provided by the lab speakers.</p>
-</blockquote>
-<h2 id="step-2-rdp-to-workstation">Step 2: RDP to workstation</h2>
-<p>In this step, you will connect to the workstation with Remote Desktop (<strong>RDP</strong>) client on your machines.  Use below details for this RDP session:</p>
+<p><img alt="" src="../pics/t10-block-add.png" /></p>
 <ul>
-<li><strong>Workstation/Computer</strong>: <code>198.18.133.36</code></li>
-<li><strong>Username</strong>: <code>Administrator</code></li>
-<li><strong>Password</strong>: <code>C1sco12345</code></li>
+<li>On the <code>Add New Block Page Appearance</code> web page, configure the below settings:<ul>
+<li>Name: <strong><code>Block Page Regional</code></strong></li>
+<li>Click on <strong><code>Block Page Appearance</code></strong> to expand it's settings</li>
+<li>Click on <strong><code>Show a block page with a custom message</code></strong></li>
+<li>In the text box, enter text of <strong><code>Regional Block Page</code></strong> (You may enter your own text here!)</li>
+<li>Click <strong><code>Save</code></strong> at the bottom right</li>
 </ul>
-<p>Below screenshot is only an example for this RDP connection:
-<img alt="" src="../pics/t1-3-RDP.png" /></p>
-<blockquote>
-<p><strong>Note:</strong>  above screenshot is provided as an example only.  </p>
-</blockquote>
-<h2 id="step-3-mtputty-and-browser">Step 3: MTPutty and Browser</h2>
-<p>Once you have the RDP session to the remote workstation, then you will use MTputty client (pre-installed on the remote workstation) and Chrome Browser to connect to all devices in this lab. </p>
-<p>MTputty is already installed on the Desktop of the workstation where you connected using RDP.  Run this application by clicking on the icon on the desktop:</p>
-<p><img alt="" src="../pics/t3-mputty.png" /></p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t10-block-config.png" /></p>
+<ul>
+<li>On Umbrella dashboard, navigate to <strong>Policies &gt; Management &gt; Web Policy</strong> and click on previously configured <strong><code>Ruleset 2</code></strong></li>
+</ul>
+<p><img alt="" src="../pics/t10-block-ruleset.png" /></p>
+<ul>
+<li>On the Rule 2 page, navigate to <strong>Ruleset Settings</strong> and scroll down to <strong>Block Page</strong> setting and click <strong><code>Edit</code></strong>:</li>
+</ul>
+<p><img alt="" src="../pics/t10-block-ruleset-page-edit.png" /></p>
+<ul>
+<li>On the <code>Block page</code> select <strong>Custom Appearance</strong> and then select <strong><code>Block Page Regional</code></strong> from the dropdown menu and click <strong>Save</strong>: </li>
+</ul>
+<p><img alt="" src="../pics/t10-block-ruleset-block-select.png" /></p>
+<ul>
+<li>Now the newly created <strong><code>Block Page Regional</code></strong> should appear for under the Settings of <code>Ruleset 2</code>:</li>
+</ul>
+<p><img alt="" src="../pics/t10-block-ruleset-final.png" /></p>
+<h2 id="step-2-verify-new-block-page">Step 2 - Verify new Block Page</h2>
+<p>Now lets validate that the new Block page is working for SD-WAN Site-400 (Regional site).</p>
+<ul>
+<li>Launch console access to ubuntu <strong>Site400-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
+<li>Use Chromium Browser to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
+<li>Use Chromium Browser to navigate to <code>www.chase.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, the newly created Umbrella block page will appear.</li>
+</ul>
+<p>Now lets validate that the original Block page is shown for SD-WAN Site-300.</p>
+<ul>
+<li>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
+<li>Use Chromium Browser to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
+<li>Use Chromium Browser to navigate to <code>www.cnn.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, the original block page will appear.</li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../IP-Users/" class="btn btn-neutral float-left" title="Connection Details and Credentials"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Task2/" class="btn btn-neutral float-right" title="Task 2 Devices Feature Templates">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Task9/" class="btn btn-neutral float-left" title="Task 9 Monitoring on Umbrella"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -187,10 +205,8 @@
         </span>
     
     
-      <span><a href="../IP-Users/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Task9/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../Task2/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
