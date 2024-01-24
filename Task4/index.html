@@ -68,9 +68,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-internet-connectivity-on-site300-vpn10">Step 3 - Verify Internet Connectivity on Site300 VPN10</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-verify-internet-connectivity-on-site300-vpn10">Step 2 - Verify Internet Connectivity on Site300 VPN10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-internet-connectivity-on-other-vpns">Step 4 - Verify Internet Connectivity on Other VPNs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-internet-connectivity-on-other-vpns">Step 3 - Verify Internet Connectivity on Other VPNs</a>
     </li>
     </ul>
                 </li>
@@ -124,7 +124,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-4-direct-internet-access-for-site300">Task 4 - Direct Internet Access for Site300</h1>
-<p>In this task Direct Internet Access from Site 300 will be configured.  So instead  </p>
+<p>In this task we will enable local Direct Internet Access for Site 300 </p>
 <h2 id="step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</h2>
 <p>On node Site300-cE1, add a default route in VPN 10 pointing to VPN 0 (Global Routing Table). This is done by modifying the VPN10 template.</p>
 <ul>
@@ -173,7 +173,7 @@
 <li>Verify Config-Push is successful </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
-<h2 id="step-3-verify-internet-connectivity-on-site300-vpn10">Step 3 - Verify Internet Connectivity on Site300 VPN10</h2>
+<h2 id="step-2-verify-internet-connectivity-on-site300-vpn10">Step 2 - Verify Internet Connectivity on Site300 VPN10</h2>
 <p>_ - Open mPutty and logon to <strong>Site300-cE1</strong> cEdge using SSH:</p>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
@@ -209,7 +209,7 @@
 <pre><code>traceroute 8.8.8.8
 </code></pre>
 <p><img alt="" src="../pics/ubuntu-300-trace-int.png" /></p>
-<h2 id="step-4-verify-internet-connectivity-on-other-vpns">Step 4 - Verify Internet Connectivity on Other VPNs</h2>
+<h2 id="step-3-verify-internet-connectivity-on-other-vpns">Step 3 - Verify Internet Connectivity on Other VPNs</h2>
 <p>At this stage direct Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs. </p>
 <ul>
 <li>Verify lack of Internet connectivity on <strong>Site300 VPN12</strong> Ubuntu host using <strong>mRemoteNG</strong> application on RDP</li>
