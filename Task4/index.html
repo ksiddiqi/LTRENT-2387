@@ -66,11 +66,11 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 4 Direct Internet Access for Site300</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-enable-dia-on-site-300-on-vpn-10">Step 1 - Enable DIA on Site-300 on VPN-10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-2-verify-internet-connectivity-on-site300-vpn10">Step 2 - Verify Internet Connectivity on Site300 VPN10</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-verify-internet-connectivity-on-site-300">Step 2 - Verify Internet Connectivity on Site-300</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-verify-internet-connectivity-on-other-vpns">Step 3 - Verify Internet Connectivity on Other VPNs</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-internet-connectivity-on-other-vpns">Step 3 - Internet Connectivity on other VPNs</a>
     </li>
     </ul>
                 </li>
@@ -132,9 +132,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-4-direct-internet-access-for-site-300">Task 4 - Direct Internet Access for Site-300</h1>
-<p>In this task we will enable (local) Direct Internet Access (DIA) for Site 300. Then the traffic on VPN-10 will be routed locally through this DIA.  The DIA setup will allow to setup IPSec tunnels between Site-300 and Umbrella - thus providing Security from Umbrella Cloud.  The IPSec tunnel configurations and connectivity will be done in a later task.  </p>
-<h2 id="step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</h2>
-<p>On node Site300-cE1, add a default route in VPN 10 pointing to VPN 0 (Global Routing Table). This is done by modifying the VPN10 template.</p>
+<p>In this task we will enable (local) Direct Internet Access (DIA) for Site 300. The traffic on VPN-10 will be routed locally through this DIA.  The DIA setup will allow to setup IPSec tunnels between Site-300 and Umbrella - thus providing Security from Umbrella Cloud.  The IPSec tunnel configurations and connectivity will be done in a later task.  </p>
+<h2 id="step-1-enable-dia-on-site-300-on-vpn-10">Step 1 - Enable DIA on Site-300 on VPN-10</h2>
+<p>On node Site300-cE1, we will add a default route in VPN-10 pointing to VPN-0 (Global Routing Table).  This is done by modifying the VPN-10 template.</p>
 <ul>
 <li>On vManage, navigate to <strong>Configuration &gt; Templates</strong> as shown below:</li>
 </ul>
@@ -146,26 +146,26 @@
 <ul>
 <li>Then on the <code>search bar</code>, search for Template name of <strong><code>vpn_10_site300_ce1</code></strong>
  </li>
-<li>Further <strong>Click</strong> on the three dots <strong><code>...</code></strong> on the right side of this feature template and click <strong><code>Edit</code></strong> as shown below:</li>
+<li>After finding this template, <strong>Click</strong> on the three dots <strong><code>...</code></strong> on the right side of this feature template and click <strong><code>Edit</code></strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp.png" /></p>
 <ul>
-<li>Click on <strong>IPv4 Route</strong> and enter following values</li>
+<li>Click on <strong>IPv4 Route</strong> to scroll down to the respective section</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></p>
 <ul>
 <li>
 <p>In the <code>IPv4 Route</code> section, perform below configurations:</p>
 <ul>
-<li>Click <strong><code>New IP Route</code></strong></li>
-<li>In <strong>Prefix</strong> :  <strong><code>0.0.0.0/0</code></strong></li>
-<li>In <strong>Gateway</strong> : <strong><code>VPN</code></strong></li>
-<li>In <strong>Enable VPN</strong> select <strong><code>Global</code></strong> from drop down menu </li>
+<li>Click on <strong><code>New IP Route</code></strong></li>
+<li>In <strong>Prefix</strong>:  <strong><code>0.0.0.0/0</code></strong></li>
+<li>In <strong>Gateway</strong>: <strong><code>VPN</code></strong></li>
+<li>In <strong>Enable VPN</strong>, select <strong><code>Global</code></strong> from drop down menu </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-1.png" /></p>
 </li>
 <li>
-<p>Then set <strong>Enable VPN</strong> to <strong><code>On</code></strong></p>
+<p>Then set <strong>Enable VPN</strong> to <strong><code>On</code></strong>, and</p>
 <ul>
 <li>Further click <strong><code>Add</code></strong> button</li>
 <li>Next, click on <strong><code>Update</code></strong> for these changes to be accepted</li>
@@ -173,7 +173,7 @@
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
 </li>
 <li>
-<p>Then click <strong><code>Next</code></strong> to proceed forward with configuration</p>
+<p>Then click <strong><code>Next</code></strong> to proceed forward with configuration changes</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3a.png" /></p>
@@ -185,46 +185,55 @@
 <li>Lastly, wait and verify that Config-Push from vManage to cEdge device is <code>Success</code> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
-<h2 id="step-2-verify-internet-connectivity-on-site300-vpn10">Step 2 - Verify Internet Connectivity on Site300 VPN10</h2>
-<p>_ - Open mPutty and logon to <strong>Site300-cE1</strong> cEdge using SSH:</p>
+<h2 id="step-2-verify-internet-connectivity-on-site-300">Step 2 - Verify Internet Connectivity on Site-300</h2>
+<p>After successful configuration as per pervious step, lets verify Internet connectivity on Site-300 VPN-10:</p>
+<ul>
+<li>If <strong>MTPutty</strong> application has closed then launch it again on your RDP session (Jumphost)</li>
+</ul>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
-<li>Use the following command to verify routing table and the <strong>default route</strong> on vrf 10:</li>
+<li>
+<p>Open <strong>MTPutty</strong>, SSH/login to <strong><code>Site300-cE1</code></strong> cEdge by clicking on its respective name in the saved <code>Putty sessions</code></p>
+</li>
+<li>
+<p>Use the following command to verify routing table of VPN-10 has a  <strong>default route</strong> by issuging below command on this SSH connection:</p>
+</li>
 </ul>
 <pre><code>show ip route vrf 10
 </code></pre>
 <p><img alt="" src="../pics/Site300-int-iproute.png" /></p>
+<p>Now the packets will be routed through VPN-0/GRT on Site-300 cEdge router and not go over SD-WAN Fabric.</p>
 <ul>
-<li>Further verify that default route on Global Routing Table (VPN 0) points to <code>10.2.6.1</code> and <code>10.1.6.1</code> by issuing below command:</li>
+<li>Let's verify that default route on Global Routing Table (VPN-0) points to <code>10.2.6.1</code> and <code>10.1.6.1</code> by issuing below command:</li>
 </ul>
-<pre><code>show ip route vrf
+<pre><code>show ip route
 </code></pre>
 <p><img alt="" src="../pics/Site300-vrf0-iproute.png" /></p>
 <ul>
 <li>
-<p>Using <strong>mRemoteNG</strong> application on the RDP session, Logon again to Ubuntu on <strong>Site300 VPN10</strong></p>
+<p>Using <strong>mRemoteNG</strong> application on the RDP session, logon to Ubuntu VM/hostname <code>Site300-Ubuntu-VPN10</code></p>
 </li>
 <li>
-<p>On Ubuntu VM launch the Web browser and verify that Internet access is working.</p>
+<p>On Ubuntu VM open <code>Terminal</code> application, and initiate ping as per below command.  As expected ping will be successful.</p>
 </li>
-</ul>
-<p><img alt="" src="../pics/Internet-access.png" /></p>
-<ul>
-<li>On Ubuntu VM open Terminal application, and initiate ping to 8.8.8.8 as per below command.  As expected ping will be successful.</li>
 </ul>
 <pre><code>ping 8.8.8.8
 </code></pre>
 <p><img alt="" src="../pics/ubuntu-ping-ok.png" /></p>
 <ul>
-<li>On Terminal application on Ubuntu VM, initiate a tracroute again for 8.8.8.8 using following command. Now the packets are going direclty to internet from Site-300 cEdge router</li>
+<li>On <code>Terminal</code> application on Ubuntu VM, initiate a tracroute again for 8.8.8.8 using following command:</li>
 </ul>
 <pre><code>traceroute 8.8.8.8
 </code></pre>
 <p><img alt="" src="../pics/ubuntu-300-trace-int.png" /></p>
-<h2 id="step-3-verify-internet-connectivity-on-other-vpns">Step 3 - Verify Internet Connectivity on Other VPNs</h2>
-<p>At this stage direct Internet access is only on <strong>Site300 VPN10</strong>. There is <strong>no internet connectivity</strong> on other VPNs. </p>
 <ul>
-<li>Verify lack of Internet connectivity on <strong>Site300 VPN12</strong> Ubuntu host using <strong>mRemoteNG</strong> application on RDP</li>
+<li>On this Ubuntu VM launch <code>Chromium Web browser</code> and verify that Internet access is working by navigating to <code>www.cisco.com</code> or some other website</li>
+</ul>
+<p><img alt="" src="../pics/Internet-access.png" /></p>
+<h2 id="step-3-internet-connectivity-on-other-vpns">Step 3 - Internet Connectivity on other VPNs</h2>
+<p>At this stage Direct Internet Access (DIA) is only on <strong>Site300 VPN10</strong>. There will be <strong>no internet connectivity</strong> on other VPNs. </p>
+<ul>
+<li>Verify lack of Internet connectivity on <strong><code>Site300-Ubuntu-VPN12</code></strong> Ubuntu host using <strong>mRemoteNG</strong> application on your RDP session (Jumphost) by using <code>Terminal</code> and <code>Chromium Web Browser</code>.  Ping and navigation to any internet website will fail on this Ubuntu VM (on VPN-12).</li>
 </ul>
               
             </div>
