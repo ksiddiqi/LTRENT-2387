@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Task 11 - Data Loss Prevention - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 11 - Data Loss Prevention";
+        var mkdocs_page_input_path = "Task11.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../IP-Users/">Connection Details and Credentials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2/">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 11 - Data Loss Prevention</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task11.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-11-data-loss-prevention">Task 11 - Data Loss Prevention</h1>
+<p>Umbrella Data Loss Prevention (DLP) policy helps to protect sensitive data uploaded to the web. It discovers and protects sensitive data stored being exposed outside of an organization.  </p>
+<p>This tasks will walk through the steps to create policy (called Real Time DLP Rule) that will monitor the web proxy traffic and then allow administrators to decide if the content should only be monitored or blocked.  In this case policy to monitor, and then block, files for General Data Protection Regulation (GDPR) classification will be configured.  The General Data Protection Regulation (GDPR) is a regulation in EU law on data protection and privacy.  Files with personal information such as names, addresses, phone numbers etc must be handled with care.  A sample file will be used to test the compliance of GDPR regulation i.e., monitoring and then enforcing/blocking.</p>
+<h2 id="step-1-umbrella-dlp-monitor-policy">Step 1 - Umbrella DLP Monitor Policy</h2>
+<p>In this step we will configure a DLP rule for monitoring GDPR compliance.</p>
+<ul>
+<li>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
+</li>
+<li>
+<p>Navigate to <strong>Policies &gt; Management &gt; Data Loss Prevention Policy</strong>.  Then click <strong>Add Rule</strong> on the right pane and select <strong><code>Real Time Rule</code></strong> to add a new DLP Policy as shown in below screenshot:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-DLP-add-policy.png" /></p>
+<ul>
+<li>On the <code>Add New Real Time Rule</code> web page, configure the below settings and as shown in below screenshots<ul>
+<li><code>Rule Name</code>: <strong><code>DLP GDPR</code></strong></li>
+<li>From the <strong><code>Severity</code></strong> dropdown menu select <strong><code>Medium</code></strong></li>
+<li>In <code>Data Classifications</code> section, select <strong><code>Built-in GDPR classification</code></strong>.  Note you can click <code>Preview</code> to view the Data Identifiers</li>
+<li>In the <code>Identities</code>, select <strong><code>Tunnels</code></strong> to use the traffic from all SD-WAN sites</li>
+<li>In the <code>Destination</code> section, click on <strong><code>All Destinations</code></strong></li>
+<li>Within <code>Action</code> section, select <strong><code>Monitor</code></strong> from the dropdown menu</li>
+<li>Click <strong><code>Save</code></strong> at the bottom right</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-DLP-add-rule-1.png" />
+<img alt="" src="../pics/t11-DLP-add-rule-2.png" />
+<img alt="" src="../pics/t11-DLP-add-rule-3.png" /></p>
+<p>Now the DLP policy to inspect (Monitor) the compliance of GDPR data has been configured.</p>
+<h2 id="step-2-sample-file-for-dlp">Step 2 - Sample file for DLP</h2>
+<p>In this step a sample file to test the previously configured DLP policy will be downloaded on a VM with hostname of <strong>Site300-Ubuntu-VPN10</strong> on SD-WAN site-300.  This file has sample data that includes items such as Name, Birth date, Gender, address etc.  If this file is published to cloud, then this data in file will result in raising a compliance alarm on Umbrella, as per our policy.</p>
+<ul>
+<li>
+<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code>.</p>
+</li>
+<li>
+<p>Use Chromium Browser on this VM to navigate onto website with URL of <strong><code>dlptest.com/sample-data</code></strong>.  </p>
+</li>
+<li>
+<p>Scroll (down) to <code>Sample SSN and CCN Files</code> on this website and then click to download <strong><code>CSV File</code></strong> as shown in below figure.  This file will be automically saved on the <code>Downloads</code> folder on the VM.</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-sample-file.png" /></p>
+<p>Now we have the sample file available on our host VM to test it.</p>
+<h2 id="step-3-validate-dlp-monitor-policy">Step 3 - Validate DLP Monitor Policy</h2>
+<p>Now validate this DLP policy by publishing this file.  Umbrella will detect the GDPR compliance data violation as per our policy and raise an event in it's reporting.</p>
+<ul>
+<li>
+<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
+</li>
+<li>
+<p>Use Chromium Browser to navigate to website: <code>dlptest.com/http-post/</code> </p>
+</li>
+<li>
+<p>On this web page, on Chromium Browser, navigate to <code>File Upload *</code> section.  Click on <strong><code>Drop a file here or click to upload</code></strong> as shown in below screenshot:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-sample-file-upload.png" /></p>
+<ul>
+<li>On the <code>Open Files</code> page, click on <strong><code>Downloads</code></strong>, then click on <strong><code>sample-data.csv</code></strong> and click <strong><code>Open</code></strong> to upload the file:</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-sample-file-upload-csv.png" /></p>
+<ul>
+<li>The file will be uploaded successfully.  You will see the message as shown in below screenshot</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-sample-file-upload-success.png" /></p>
+<p>Now let's navigate to Umbrella to check if a compliance alarm was raised as per our policy.</p>
+<ul>
+<li>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
+</li>
+<li>
+<p>Navigate to <strong>Reporting &gt; Additional Reports &gt; Data Loss Prevention</strong>.  On the right pane, you should see an <code>Event Type</code> of <code>Real Time</code> with <code>Severity</code> of <code>Medium</code> and other details related to the File upload to <code>DLP Test</code> website.  </p>
+</li>
+<li>
+<p>Further on the right side of each row, click on the three dots (<strong><code>...</code></strong>) and then click <strong><code>View Full Details</code></strong> to check the various GDPR related violations detected by Umbrella.  Below is a sample screenshot for such event, your view may be little different.</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-report.png" /></p>
+<p>This event confirms that Umbrella has detected the compliance violation.</p>
+<h2 id="step-4-umbrella-dlp-block-policy">Step 4 - Umbrella DLP Block Policy</h2>
+<p>Now let's modify the existing DLP policy to Block (instead of Monitor) the content in case of breach of GDPR compliance</p>
+<ul>
+<li>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
+</li>
+<li>
+<p>Navigate to <strong>Policies &gt; Management &gt; Data Loss Prevention Policy</strong>.   One DLP Rule should appear on the right pane.  Click on the three dots (<strong>...</strong>) on the right side as shown in below screenshot and then click <strong>Edit Rule</strong>:</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-rule-edit.png" /></p>
+<ul>
+<li>On the <code>Edit Real Time Rule</code> scroll down to the <code>Action</code> section and select the action of <strong><code>Block</code></strong> from the dropdown menu and click <strong><code>Save</code></strong>:</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-rule-edit-save.png" /></p>
+<p>Now this rule has been edited with block action instead of just monitor.</p>
+<h2 id="step-5-validate-dlp-block-policy">Step 5 - Validate DLP Block Policy</h2>
+<p>Now validate this DLP policy by publishing the test file previously downloaded on VM/host on Site300.  Umbrella will detect the GDPR compliance data violation as per our policy and block uploading of this file.</p>
+<ul>
+<li>
+<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
+</li>
+<li>
+<p>Use Chromium Browser to navigate to website: <code>dlptest.com/http-post/</code>.  If you already have this webiste open on Chromium Browser, you must refresh the browser to navigate on to this page again.</p>
+</li>
+<li>
+<p>On this web page, on Chromium Browser, navigate to <code>File Upload *</code> section.  Click on <strong><code>Drop a file here or click to upload</code></strong> as done in previous step in this task.</p>
+</li>
+<li>
+<p>On the <code>Open Files</code> page, click on <strong><code>Downloads</code></strong>, then click on <strong><code>sample-data.csv</code></strong> and click <strong><code>Open</code></strong> to upload the file</p>
+</li>
+<li>
+<p>The file upload will fail.  You will see the message as shown in below screenshot</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-sample-file-upload-fail.png" /></p>
+<p>Now let's navigate to Umbrella to check if a compliance event was raised as per our policy.</p>
+<ul>
+<li>
+<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
+</li>
+<li>
+<p>Navigate to <strong>Reporting &gt; Additional Reports &gt; Data Loss Prevention</strong>.  On the right pane, you should see an <code>Event Type</code> of <code>Real Time</code> with <code>Severity</code> of <code>Medium</code> and other details related to the File upload to <code>DLP Test</code> website.  This event should have an action of <strong><code>Blocked</code></strong></p>
+</li>
+<li>
+<p>Further on the right side of each row, click on the three dots (<strong><code>...</code></strong>) and then click <strong><code>View Full Details</code></strong> to check the various GDPR related violations detected by Umbrella.  Below is a sample screenshot for such block event, your view may be little different.</p>
+</li>
+</ul>
+<p><img alt="" src="../pics/t11-dlp-report-block.png" /></p>
+<p>This event confirms that Umbrella has detected the compliance violation and resulted in Blocking the upload of this file. </p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
