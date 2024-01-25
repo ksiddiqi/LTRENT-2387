@@ -58,6 +58,10 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 2 Devices Feature Templates</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-vmanage-gui">Step 1 - vManage GUI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-device-template-for-cedges">Step 2 - Device Template for cEdges</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -93,6 +97,14 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11/">Task 11 Data Loss Prevention</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Challenge-Tasks/">Challenge Task</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -118,32 +130,41 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-2-device-templates">Task 2 - Device Templates</h1>
-<p>In this Task we will add cEdeges to their respective Device templates.</p>
+<p>In this Task we will add cEdeges (Site-100, Site-300 and Site-400) to their respective Device templates.  The device templates have been preconfigured with configurations required for functional SD-WAN Fabric.  The attachment of the cEdge to it's Device templates is performed on the vManage GUI via a web browser. </p>
+<h2 id="step-1-vmanage-gui">Step 1 - vManage GUI</h2>
+<ul>
+<li>Logon to vManage GUI by launching Google Chrome on the RDP / Jumphost</li>
+</ul>
+<p><img alt="" src="../pics/Chrome.png" /></p>
 <ul>
 <li>
-<p>Attach vEdge to Device Templates</p>
-<ul>
-<li>Logon to vManage GUI</li>
-<li>Open Chrome and click vManage on Boookmark Bar</li>
-</ul>
+<p>Open Chrome and click <code>vManage</code> on the boookmark bar
+<img alt="" src="../pics/Chrome-vManage.png" /></p>
 </li>
 <li>
-<p>Logon to vManage using credential provided</p>
+<p>Logon to vManage using below credentials: </p>
 <ul>
 <li>Username: <code>admin</code></li>
 <li>Password: <code>C1sco12345</code></li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../pics/Chrome.png" />
-<img alt="" src="../pics/Chrome-vManage.png" /></p>
+<h2 id="step-2-device-template-for-cedges">Step 2 - Device Template for cEdges</h2>
 <ul>
-<li>On vManage, navigate to <strong>Configuration&gt;Templates&gt; Device Template</strong>
-<img alt="" src="../pics/Navigation-Start.png" />
-<img alt="" src="../pics/Config-Template.png" /> 
-<img alt="" src="../pics/Device-template.png" /></li>
-<li>Attach <strong>only</strong> following device template to their respective vEdge</li>
+<li>
+<p>After logging into vManage, click on the three bars at the top left side as shown in below screenshot: 
+<img alt="" src="../pics/Navigation-Start.png" /></p>
+</li>
+<li>
+<p>Then navigate to <strong>Configuration &gt; Templates</strong> as shown below: </p>
+</li>
 </ul>
+<p><img alt="" src="../pics/Config-Template.png" /> </p>
+<ul>
+<li>On the <code>Configuration - Templates</code> page, click on the <strong>Device Templates</strong> as shown below:</li>
+</ul>
+<p><img alt="" src="../pics/Device-template.png" /></p>
+<p>The <code>Device Template</code> page will list various control and cEdge devices.  We will <strong>only</strong> attach the device template to their respective cEdge as per below table.  The cEdge devices can be recognized by their <code>Description</code>:</p>
 <table>
 <thead>
 <tr>
@@ -167,19 +188,44 @@
 </tbody>
 </table>
 <p><span style="color:red">
-Note: Please don't add Site200CE1 to any template
+Note: Please don't add Site200-CE1 to any template
 </span></p>
-<p><img alt="" src="../pics/Template-3Dots.png" />
-<img alt="" src="../pics/Attach-Devices.png" />
-<img alt="" src="../pics/site100-temp-attach-1.png" />
-<img alt="" src="../pics/site100-temp-attach-2.png" />
-<img alt="" src="../pics/site100-temp-attach-3.png" />
-<img alt="" src="../pics/site100-temp-attach-4.png" />
-<img alt="" src="../pics/site100-temp-attach-5.png" /></p>
 <ul>
-<li>Wait for task to be successfull 
-<img alt="" src="../pics/Config-success.png" /></li>
+<li>On the <code>Device Templates</code> page, locate the Site100-cE1 device from its description and click on the the three dots (<strong><code>...</code></strong>) on the right side as shown below:</li>
 </ul>
+<p><img alt="" src="../pics/site100-temp-attach-1.png" /></p>
+<ul>
+<li>Then on <code>Attach Devices</code> page scroll down to or Search for <code>Site100-cE1</code> to select it with the Right arrow (<strong><code>&gt;</code></strong>) as shown below:</li>
+</ul>
+<p><img alt="" src="../pics/site100-temp-attach-2.png" /></p>
+<ul>
+<li>After selecting the Site100-cE1, click on <code>Attach</code>:</li>
+</ul>
+<p><img alt="" src="../pics/site100-temp-attach-3.png" /></p>
+<ul>
+<li>On the next page, click <code>Next</code>:</li>
+</ul>
+<p><img alt="" src="../pics/site100-temp-attach-4.png" /></p>
+<ul>
+<li>And lastly click on <code>Configure Devices</code> to attach the template configurations to cEdge device:</li>
+</ul>
+<p><img alt="" src="../pics/site100-temp-attach-5.png" /></p>
+<ul>
+<li>Wait for task to be successfull </li>
+</ul>
+<p><img alt="" src="../pics/Config-success.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Note:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Above screenshots are for <code>Site-100 cE1</code> only.  You must repeat these tasks for <code>Site300-cE1</code> and <code>Site400-cE1</code>.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>

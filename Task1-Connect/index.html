@@ -93,6 +93,14 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11/">Task 11 Data Loss Prevention</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Challenge-Tasks/">Challenge Task</a>
+                </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -122,23 +130,49 @@
 <p>You will connect to remote Lab using Cisco VPN AnyConnect client, as shown in below picture.</p>
 <ul>
 <li><strong>Launch</strong> the Cisco VPN AnyConnect client from your PC</li>
-<li>Enter the remote server for your pod as provided by Lab Speakers.
-        * This remote server will be <code>dcloud-sjc-anyconnect.cisco.com</code> or <code>dcloud-rtp-anyconnect.cisco.com</code> </li>
+<li>
+<p>Enter the remote server for your pod as provided by Lab Speakers.</p>
+<ul>
+<li>This remote server will be <code>dcloud-sjc-anyconnect.cisco.com</code> or <code>dcloud-rtp-anyconnect.cisco.com</code> </li>
+</ul>
+</li>
 <li>
 <p>The <code>username</code> and <code>password</code> credentials for this VPN connection will also be provided by the lab admin </p>
-<p><strong>Note:</strong> lab admin will furnish the credentials information to each participant.  If you don't have this information please ask the lab speakers.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Note:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Lab admins will furnish the credentials information to each participant.  If you don't have this information please ask the lab speakers.</td>
+</tr>
+</tbody>
+</table>
 <p><img alt="" src="../pics/t1-1-1.png" /></p>
 <p>Below is an example of user logging into a reference pod in <code>dcloud-sjc-anyconnect.cisco.com</code>:</p>
 <p><img alt="" src="../pics/t1-2-vpn-credentials.png" /></p>
-</li>
+<ul>
 <li>
-<p>Hit accept when the prompt appears to accept the VPN connection login    </p>
+<p>Hit <strong>Accept</strong> when the prompt appears to accept the VPN connection login    </p>
 <p><img alt="" src="../pics/t1-2-vpn-accept.png" /></p>
 </li>
 </ul>
-<blockquote>
-<p><strong>Note:</strong> credentials used in above screenshot are provided as an example only.  Credentials for each pod will be provided by the lab speakers.</p>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Note:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Credentials used in above screenshot are provided as an example only.  Credentials for each pod will be provided by the lab speakers.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="step-2-rdp-to-workstation">Step 2: RDP to workstation</h2>
 <p>In this step, you will connect to the workstation with Remote Desktop (<strong>RDP</strong>) client on your machines.  Use below details for this RDP session:</p>
 <ul>
@@ -146,13 +180,13 @@
 <li><strong>Username</strong>: <code>Admin</code></li>
 <li><strong>Password</strong>: <code>C1sco12345</code></li>
 </ul>
-<p>Below screenshot is only an example for this RDP connection:
-<img alt="" src="../pics/t1-3-RDP.png" /></p>
+<p>Below screenshot is only an example for this RDP connection:</p>
+<p><img alt="" src="../pics/t1-3-RDP.png" /></p>
 <blockquote>
 <p><strong>Note:</strong>  above screenshot is provided as an example only.  </p>
 </blockquote>
 <h2 id="step-3-mtputty-and-browser">Step 3: MTPutty and Browser</h2>
-<p>Once you have the RDP session to the remote workstation, then you will use MTputty client (pre-installed on the remote workstation) and Chrome Browser to connect to all devices in this lab. </p>
+<p>Once you have the RDP session to the remote workstation (Jumphost), then you will use MTputty client (pre-installed on the remote workstation) and Chrome Browser to connect to all devices in this lab. </p>
 <p>MTputty is already installed on the Desktop of the workstation where you connected using RDP.  Run this application by clicking on the icon on the desktop:</p>
 <p><img alt="" src="../pics/t3-mputty.png" /></p>
               
