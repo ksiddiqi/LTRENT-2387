@@ -68,7 +68,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-3-default-route-propagation-from-site-100-on-vpn-10">Step 3 - Default Route Propagation from Site-100 on VPN-10</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-internet-connectivity-on-vpn-10-of-site-300-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-300 &amp; Site-400</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-internet-connectivity-on-vpn-10-of-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-400</a>
     </li>
     </ul>
                 </li>
@@ -134,42 +134,43 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-3-internet-access-for-all-sites">Task 3 - Internet Access for All Sites</h1>
-<p>In the Task we will enable internet access on Site-100 on VPN-10.  Further we will propagate default route from Site-100 towards Site-400 and Site-300 on VPN-10.  This default route will result in Site-400 (and Site-300) to use Site-100 as default gateway on VPN-10 and hence route internet traffic through it. </p>
+<p>In the Task we will enable internet access on Site-100 on VPN-10.  Further we will propagate default route from Site-100 towards Site-400 (&amp; Site-300) on VPN-10.  This default route will result in Site-400 (&amp; Site-300) to use Site-100 as default gateway on VPN-10.  </p>
+<p>Hence Site-400 will route internet traffic through Site-100 by sending traffic over the SD-WAN Fabric. </p>
 <h2 id="step-1-verify-no-internet-access-on-vpn-10-of-site-400-and-site-300">Step 1 – Verify no internet access on VPN-10 of Site-400 and Site-300</h2>
 <ul>
 <li>On the RDP session, launch <code>mRemoteNG</code> application.  This application is used to get Console access to all of the Ubuntu machines (Virtual Machines / hosts) that are located on the respective LANs (VPNs) of the SD-WAN sites.</li>
 </ul>
-<p><img alt="" src="../pics/mRemoteNG-Site400.png" /></p>
+<p><img alt="" src="../pics/mRemoteNG.png" /></p>
 <ul>
 <li>To login the console of VM named <code>Site400-Ubuntu-VPN10</code>, click on it's name on <code>mRemoteNG</code> application under the <code>VNC Sessions</code>.  As the name indicates, this VM exists on VPN-10 (LAN segment) of Site-400.</li>
 </ul>
-<p><img alt="" src="../pics/mRemoteNG-1.png" /></p>
+<p><img alt="" src="../pics/mRemoteNG-Site400.png" /></p>
 <ul>
 <li>
-<p>The console of Ubuntu host/VM may be initially locked, click on the console and use below credentials to log on:</p>
+<p>The console of Ubuntu host/VM may be initially locked, click on the console and use below credentials to login to the Desktop of Ubuntu VM:</p>
 <p>Username: <code>ubuntu</code><br/>
 Password: <code>viptela</code></p>
 </li>
 <li>
-<p>Launch Chromium Browser on Desktop of this Ubuntu machine by clicking on it's icon as shown below:</p>
+<p>Launch <code>Chromium Web Browser</code> on Desktop of this Ubuntu machine by clicking on it's icon as shown below:</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Ubuntu-Chomium.png" /></p>
 <ul>
-<li>Try to access internet websites such as <code>cisco.com</code>.  As expected, access to these websites will fail. </li>
+<li>Try to access internet websites such as <code>cisco.com</code>.  As expected, access to the website will fail. </li>
 </ul>
 <p><img alt="" src="../pics/No-Internet.png" /></p>
 <ul>
 <li>
-<p>Launch <code>Terminal</code> application on the console of Ubuntu VM by clicking on it's icon on the desktop <em>(Note: you may also see screenshot after below step, which shows Terminal icon)</em>.</p>
+<p>Launch <code>Terminal</code> application on the console of Ubuntu VM by clicking on it's icon on the desktop <em>(You can also see the icon for Terminal application after the next step)</em>.</p>
 </li>
 <li>
-<p>On the Terminal application try to ping a server on internet by issuing <code>ping 8.8.8.8</code> command and press <code>Contrl+C</code> after few seconds to stop the ping.  As expected ping will fail and there will be 100% packet loss.</p>
+<p>On the <code>Terminal</code> application try to ping a server on internet by issuing <code>ping 8.8.8.8</code> command and press <code>Contrl+C</code> after few seconds to stop the ping.  As expected ping will fail and there will be 100% packet loss.</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/ubuntu-ping.png" /></p>
 <ul>
-<li>Use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>.  Repeat the above steps to verify that there is no internet access on this Ubuntu VM on Site400 in VPN-10. </li>
+<li>Use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.  Repeat the above steps to verify that there is no internet access on this Ubuntu VM as well.</li>
 </ul>
 <h2 id="step-2-enable-internet-on-vpn-10-of-site-100">Step 2 - Enable Internet on VPN-10 of Site-100</h2>
 <p>Now let's enable internet access on Site-100 for VPN-10.  This is done by routing traffic from VPN-10 to the Global Routing Table (GRT) i.e., VPN-0.  </p>
@@ -179,24 +180,24 @@ Password: <code>viptela</code></p>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
 <li>
-<p>On MTPutty application logon, via SSH, to <strong><code>Site400-cE1</code></strong> and <strong><code>Site300-cE1</code></strong> cEdges by clicking on their respective names under saved <code>Putty sessions</code>.  When prompted use below credentials for authentication:</p>
+<p>On MTPutty application logon, via SSH, to <strong><code>Site400-cE1</code></strong> cEdge by clicking on the respective names under saved <code>Putty sessions</code>.  When prompted use below credentials for authentication:</p>
 <p>Username: <code>admin</code><br/>Password: <code>admin</code></p>
 </li>
 <li>
-<p>Use the below command to verify routing table for both node. It can be verified from the output that there is no <strong>default route</strong> in VRF-10.</p>
+<p>Use the below command to verify routing table for both node. It can be verified from the output that there is <strong>no default route</strong> in VRF-10.</p>
 </li>
 </ul>
 <pre><code>show ip route vrf 10
 </code></pre>
 <p>Below screenshot from Site-400 confirms lack of default route on VRF/VPN-10:</p>
 <p><img alt="" src="../pics/site400-iprroute-1.png" /></p>
-<p>On Site100-cE1 node let's add a default route in VPN-10 pointing to VPN-0 (i.e., GRT). This is done by modifying the Feature Template for VPN-10 on vManage GUI as per below steps.</p>
+<p>Now on Site100-cE1 node let's add a default route in VPN-10 pointing to VPN-0 (i.e., GRT). This is done by modifying the <code>Feature Template</code> for VPN-10 on vManage GUI as per below steps.</p>
 <ul>
 <li>On vManage, navigate to <strong>Configuration &gt; Templates</strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
 <ul>
-<li>Then click on <strong>Feature Templates</strong> tab as shown in below screenshot:</li>
+<li>Then click on <strong><code>Feature Templates</code></strong> tab as shown in below screenshot:</li>
 </ul>
 <p><img alt="" src="../pics/Config-Template-Feature.png" /></p>
 <ul>
@@ -204,7 +205,7 @@ Password: <code>viptela</code></p>
 <p>Then on the <code>search bar</code>, search for Template name of <strong><code>VPN_10_05-09-2022_17-18-00_vedge-C8000V_1201</code></strong></p>
 </li>
 <li>
-<p>Then <strong>Click</strong> on the three dots <strong><code>...</code></strong> and click <strong><code>Edit</code></strong> as shown below:</p>
+<p>Then <strong>Click</strong> on the three dots <strong><code>...</code></strong> on the right side of this feature template and click <strong><code>Edit</code></strong> as shown below:</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Site100-VPN10-Ftemp.png" /></p>
@@ -234,11 +235,11 @@ Password: <code>viptela</code></p>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
 <ul>
-<li>Then click <strong>Next</strong> to proceed forward with configuration</li>
+<li>Then click <strong><code>Next</code></strong> to proceed forward with configuration</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3.png" /></p>
 <ul>
-<li>Click <strong>Configure Devices</strong> at the bottom of the page to push the configuration from vManage towards cEdge:</li>
+<li>Click <strong><code>Configure Devices</code></strong> at the bottom of the page to push the configuration from vManage towards cEdge:</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-4.png" /></p>
 <ul>
@@ -252,7 +253,7 @@ Password: <code>viptela</code></p>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
 <ul>
-<li>then click on <strong>Device Templates</strong> tab:</li>
+<li>Then click on <strong><code>Device Templates</code></strong> tab:</li>
 </ul>
 <p><img alt="" src="../pics/Device-template.png" /></p>
 <ul>
@@ -264,40 +265,45 @@ Password: <code>viptela</code></p>
 </ul>
 <p><img alt="" src="../pics/Default-route-cli1.png" /></p>
 <ul>
-<li>On <strong>CLI Add-on Template</strong> dropdown menu select <strong><code>Create Template</code></strong>:</li>
+<li>From the <strong><code>CLI Add-on Template</code></strong> dropdown menu select <strong><code>Create Template</code></strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Default-route-cli2.png" /></p>
 <ul>
 <li>Enter the following information (also shown in below screenshot):<ul>
-<li>Template Name: <code>Default-Route-Propagation</code></li>
-<li>Description: <code>Default Route Propagation</code></li>
-<li>In CLI configuration box enter the following commands:
+<li>Template Name: <strong><code>Default-Route-Propagation</code></strong></li>
+<li>Description: <strong><code>Default Route Propagation</code></strong></li>
+<li>In <code>CLI configuration</code> enter box the following commands:
     ~~~
     router ospf 10 vrf 10
     default-information originate
     ~~~</li>
-<li>Click <strong>Save</strong></li>
+<li>And then click <strong><code>Save</code></strong> as shown in below screenshot:</li>
 </ul>
 </li>
 </ul>
 <p><img alt="" src="../pics/Default-route-cli3.png" /></p>
 <ul>
 <li>
-<p>Click <strong>Update</strong> and then <strong>Configure Devices</strong>:</p>
+<p>Click <strong><code>Update</code></strong>, <strong><code>Next</code></strong> and then <strong><code>Configure Devices</code></strong>:</p>
 </li>
 <li>
-<p>Wait for <code>Success</code> message confirming that configurations are pushed by vManage and applied successfully by cEdge:</p>
+<p>Wait for <code>Success</code> message confirming that configurations are pushed by vManage and applied successfully by cEdge.</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Config-success.png" /></p>
-<p>Now a default route on VRF/VPN-10 will be propagated by Site-100 to all other sites over SD-WAN fabric.</p>
-<h2 id="step-4-verify-internet-connectivity-on-vpn-10-of-site-300-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-300 &amp; Site-400</h2>
+<p>Now a default route on VRF/VPN-10 towards Site-100 over SD-WAN fabric has been configured.</p>
+<h2 id="step-4-verify-internet-connectivity-on-vpn-10-of-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-400</h2>
 <ul>
-<li>Open <strong>MTPutty</strong> application on your RDP session and logon to <code>Site400-cE1</code> and <code>Site300-cE1</code> cEdges</li>
+<li>If <strong>MTPutty</strong> application has closed then launch it again on your RDP session:</li>
 </ul>
 <p><img alt="" src="../pics/mPutty.png" /></p>
 <ul>
-<li>Use the following command to verify routing table for both node. Both nodes (Site300-cE1 and Site400-cE1) are recevining <strong>default route</strong> on VRF/VPN-10</li>
+<li>
+<p>SSH/Login to <code>Site400-cE1</code> and <code>Site300-cE1</code> cEdges by clicking on their respective names in the saved <code>Putty sessions</code></p>
+</li>
+<li>
+<p>Use the below command to verify routing table for both node. Both nodes (Site300-cE1 and Site400-cE1) are recevining <strong>default route</strong> on VRF/VPN-10</p>
+</li>
 </ul>
 <pre><code>show ip route vrf 10
 </code></pre>
@@ -310,7 +316,7 @@ Password: <code>viptela</code></p>
 <p>Logon again to Ubuntu with hostname of <code>Site400-Ubuntu-VPN10</code> again on the mRemoteNG application</p>
 </li>
 <li>
-<p>Launch Chromium browser on the Ubuntu VM and navigate to Internet site such as <code>cisco.com</code>.  This time the internet access should work properly as shown below:</p>
+<p>Launch <code>Chromium Web browser</code> on the Ubuntu VM and navigate to Internet site such as <code>cisco.com</code>.  This time the internet access should work properly as shown below:</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Internet-access.png" /></p>
@@ -328,7 +334,7 @@ Password: <code>viptela</code></p>
 </code></pre>
 <p><img alt="" src="../pics/ubuntu-trace-ok.png" /></p>
 <ul>
-<li>Verify again for <strong>Site400 VPN10</strong></li>
+<li><strong>Repeat</strong> these steps to confirm internet access for VPN-10 of <strong>Site300</strong> (verify ip route on VPN-10 on <code>Site300-cE1</code> and then verify internet connectivity on Ubuntu VM <code>Site300-Ubuntu-VPN10</code>)</li>
 </ul>
               
             </div>

@@ -131,54 +131,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="task-4-direct-internet-access-for-site300">Task 4 - Direct Internet Access for Site300</h1>
-<p>In this task we will enable local Direct Internet Access for Site 300 </p>
+                <h1 id="task-4-direct-internet-access-for-site-300">Task 4 - Direct Internet Access for Site-300</h1>
+<p>In this task we will enable (local) Direct Internet Access (DIA) for Site 300. Then the traffic on VPN-10 will be routed locally through this DIA.  The DIA setup will allow to setup IPSec tunnels between Site-300 and Umbrella - thus providing Security from Umbrella Cloud.  The IPSec tunnel configurations and connectivity will be done in a later task.  </p>
 <h2 id="step-1-enable-dia-on-site300-vpn10">Step 1 - Enable DIA on Site300 VPN10</h2>
 <p>On node Site300-cE1, add a default route in VPN 10 pointing to VPN 0 (Global Routing Table). This is done by modifying the VPN10 template.</p>
 <ul>
-<li>On vManage, navigate to <strong>Configuration &gt; Templates &gt; Feature Templates</strong></li>
+<li>On vManage, navigate to <strong>Configuration &gt; Templates</strong> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Config-Template.png" /> </p>
+<ul>
+<li>Then click on <strong><code>Feature Templates</code></strong> tab as shown in below screenshot:</li>
+</ul>
 <p><img alt="" src="../pics/Config-Template-Feature.png" /></p>
 <ul>
-<li>
-<p>Then on the search bar, search for <strong><code>vpn_10_site300_ce1</code></strong>
- 
-<img alt="" src="../pics/Site400-VPN10-Ftemp.png" /></p>
+<li>Then on the <code>search bar</code>, search for Template name of <strong><code>vpn_10_site300_ce1</code></strong>
+ </li>
+<li>Further <strong>Click</strong> on the three dots <strong><code>...</code></strong> on the right side of this feature template and click <strong><code>Edit</code></strong> as shown below:</li>
+</ul>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp.png" /></p>
+<ul>
+<li>Click on <strong>IPv4 Route</strong> and enter following values</li>
+</ul>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></p>
 <ul>
 <li>
-<p>Click on <strong>IPv4 Route</strong> and enter following values
-<img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></p>
-</li>
-<li>
-<p>Click <strong>New IP Route</strong></p>
-</li>
-<li>Prefix :  <strong>0.0.0.0/0</strong></li>
-<li>Gateway : <strong>VPN</strong></li>
-<li>Enable VPN : Click on grey tick and select <strong>Global</strong> </li>
+<p>In the <code>IPv4 Route</code> section, perform below configurations:</p>
+<ul>
+<li>Click <strong><code>New IP Route</code></strong></li>
+<li>In <strong>Prefix</strong> :  <strong><code>0.0.0.0/0</code></strong></li>
+<li>In <strong>Gateway</strong> : <strong><code>VPN</code></strong></li>
+<li>In <strong>Enable VPN</strong> select <strong><code>Global</code></strong> from drop down menu </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-1.png" /></p>
+</li>
+<li>
+<p>Then set <strong>Enable VPN</strong> to <strong><code>On</code></strong></p>
 <ul>
-<li>
-<p>Enable VPN : <strong>On</strong>
-<img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
-</li>
-<li>
-<p>Click <strong>Add</strong> and then Click <strong>Update</strong> at the bottom of page</p>
-</li>
+<li>Further click <strong><code>Add</code></strong> button</li>
+<li>Next, click on <strong><code>Update</code></strong> for these changes to be accepted</li>
 </ul>
+<p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></p>
 </li>
 <li>
-<p>Click Next</p>
+<p>Then click <strong><code>Next</code></strong> to proceed forward with configuration</p>
 </li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-3a.png" /></p>
 <ul>
-<li>Click <strong>Configure Devices</strong></li>
+<li>Click <strong><code>Configure Devices</code></strong> at the bottom of the page to push the configuration from vManage towards cEdge:</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-4a.png" /></p>
 <ul>
-<li>Verify Config-Push is successful </li>
+<li>Lastly, wait and verify that Config-Push from vManage to cEdge device is <code>Success</code> as shown below:</li>
 </ul>
 <p><img alt="" src="../pics/Site400-VPN10-Ftemp-IPv4-5.png" /></p>
 <h2 id="step-2-verify-internet-connectivity-on-site300-vpn10">Step 2 - Verify Internet Connectivity on Site300 VPN10</h2>
