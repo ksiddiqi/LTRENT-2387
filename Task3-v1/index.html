@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Task 3 Regional Internet Access for All Sites - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 3 Regional Internet Access for All Sites";
+        var mkdocs_page_input_path = "Task3-v1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../IP-Users/">Connection Details and Credentials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 3 Regional Internet Access for All Sites</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-verify-no-internet-access-on-vpn-10-of-site-400-and-site-300">Step 1 – Verify No Internet Access on VPN-10 of Site-400 and Site-300</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-enable-internet-on-vpn-10-of-site-100">Step 2 - Enable Internet on VPN-10 of Site-100</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-default-route-propagation-from-site-100-on-vpn-10">Step 3 - Default Route Propagation from Site-100 on VPN-10</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-internet-connectivity-on-vpn-10-of-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-400</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Challenge-Tasks/">Challenge Task</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 3 Regional Internet Access for All Sites</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task3-v1.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-3-internet-access-for-all-sites">Task 3 - Internet Access for All Sites</h1>
+<p>In this task, our primary goal is to enable internet access for VPN-10 at Site-100. We will achieve this by routing the VPN-10 traffic through the Global Routing Table. The process involves a series of structured steps:</p>
+<p><strong>1. Enabling Internet Access for VPN-10 on Site-100:</strong> 
+We will start by configuring Site-100 to allow VPN-10 traffic to access the internet through the Global Routing Table. This is a crucial step in ensuring that Site-100 can serve as a gateway for internet access.</p>
+<p><strong>2. Propagating the Default Route:</strong> 
+The next significant step is to propagate a default route from Site-100 to other sites within the network (specifically Site-400 and Site-300) that are also on VPN-10. By doing this, we essentially enable Site-400 and Site-300 to use Site-100 as their default gateway on VPN-10.</p>
+<p><strong>3. Routing Internet Traffic via Site-100:</strong> 
+Consequently, both Site-400 and Site-300 will begin routing their internet traffic through Site-100. This is achieved by efficiently utilizing the SD-WAN Fabric, which facilitates the traffic flow between these sites.</p>
+<p><strong>4. Verification and Testing:</strong> 
+Throughout the task, we will conduct a series of verifications and tests. These are designed to ensure that each step is successfully implemented and that internet connectivity is reliably established across the sites on VPN-10.</p>
+<p>By the end of this task, we will have established a streamlined and efficient routing mechanism that leverages Site-100 as a pivotal access point for internet connectivity for VPN-10 across multiple sites.</p>
+<h2 id="step-1-verify-no-internet-access-on-vpn-10-of-site-400-and-site-300">Step 1 – Verify No Internet Access on VPN-10 of Site-400 and Site-300</h2>
+<p><strong>Objective:</strong> Confirm that there is currently no internet access on VPN-10 for both Site-400 and Site-300.</p>
+<p><strong>1. Launching mRemoteNG:</strong> </p>
+<ul>
+<li>On your RDP session, open the <code>mRemoteNG</code> application. This application provides access to the console of all Ubuntu machines (Virtual Machines/hosts) on the respective LANs (VPNs) of the SD-WAN sites.
+  <img alt="mRemoteNG Application Interface" src="../pics/mRemoteNG.png" /></li>
+</ul>
+<p><strong>2. Accessing Site-400's VM:</strong> </p>
+<ul>
+<li>In the <code>mRemoteNG</code> application, under <code>VNC Sessions</code>, click on <code>Site400-Ubuntu-VPN10</code>. This VM is located on the VPN-10 (LAN segment) of Site-400.
+  <img alt="Accessing Site400-Ubuntu-VPN10" src="../pics/mRemoteNG-Site400.png" /></li>
+</ul>
+<p><strong>3. Logging into the Ubuntu VM:</strong></p>
+<ul>
+<li>If the console is locked, click on the console screen.</li>
+<li>Use the following credentials to log in:</li>
+<li>Username: <code>ubuntu</code></li>
+<li>Password: <code>viptela</code></li>
+</ul>
+<p><strong>4. Testing Internet Browser Access:</strong></p>
+<ul>
+<li>On the Ubuntu desktop, click on the <code>Chromium Web Browser</code> icon to launch it.
+  <img alt="Ubuntu Chromium Browser Icon" src="../pics/Ubuntu-Chomium.png" /></li>
+<li>Try accessing an internet website, such as <code>cisco.com</code>. The access should fail, indicating no internet connectivity.
+  <img alt="Testing Internet Access on Chromium" src="../pics/No-Internet.png" /></li>
+</ul>
+<p><strong>5. Testing Network Connectivity:</strong></p>
+<ul>
+<li>Open the <code>Terminal</code> application by clicking its icon on the desktop.</li>
+<li>In the Terminal, execute <code>ping 8.8.8.8</code> and press <code>Ctrl+C</code> after a few seconds to stop the ping. A failed ping with 100% packet loss indicates no internet access.
+  <img alt="Ping Command Result" src="../pics/ubuntu-ping.png" /></li>
+</ul>
+<p><strong>6. Repeating the Process for Site-300:</strong></p>
+<ul>
+<li>Use <code>mRemoteNG</code> to access the console of <code>Site300-Ubuntu-VPN10</code>.</li>
+<li>Repeat the steps to verify the absence of internet access on this VM as well.</li>
+</ul>
+<h2 id="step-2-enable-internet-on-vpn-10-of-site-100">Step 2 - Enable Internet on VPN-10 of Site-100</h2>
+<p><strong>Objective:</strong> Route traffic from VPN-10 on Site-100 to the Global Routing Table (GRT), also known as VPN-0, to enable internet access.</p>
+<p><strong>1. Launching MTPutty:</strong> </p>
+<ul>
+<li>Start the <strong><code>MTPutty</code></strong> application. You can find it either on the Desktop or in the Taskbar of your RDP session (Jumphost).
+  <img alt="MTPutty Application" src="../pics/mPutty.png" /></li>
+</ul>
+<p><strong>2. Accessing Site-400 cEdge:</strong> </p>
+<ul>
+<li>Use MTPutty to SSH into <strong><code>Site400-cE1</code></strong> cEdge.</li>
+<li>Select the saved <code>Putty session</code> for Site400-cE1.</li>
+<li>When prompted, enter the following credentials:</li>
+<li>Username: <code>admin</code></li>
+<li>Password: <code>admin</code></li>
+</ul>
+<p><strong>3. Verifying the Routing Table:</strong> </p>
+<ul>
+<li>Execute the command <code>show ip route vrf 10</code> to check the routing table.</li>
+<li>Confirm that there is no default route in VRF-10.
+  <img alt="Routing Table on Site-400" src="../pics/site400-iprroute-1.png" /></li>
+</ul>
+<p><strong>4. Configuring Default Route on Site100-cE1:</strong> </p>
+<ul>
+<li>Now, let's add a default route in VPN-10 pointing to VPN-0 on the Site100-cE1 node.</li>
+<li>This is done by modifying the <code>Feature Template</code> for VPN-10 in the vManage GUI.</li>
+</ul>
+<p><strong>5. Editing Feature Template in vManage:</strong> </p>
+<ul>
+<li>Navigate to <strong>Configuration &gt; Templates</strong> on vManage.
+  <img alt="vManage Configuration Templates" src="../pics/Config-Template.png" /> </li>
+<li>Click on the <strong><code>Feature Templates</code></strong> tab.
+  <img alt="Feature Templates Tab" src="../pics/Config-Template-Feature.png" /></li>
+<li>Use the search bar to find the template named <strong><code>VPN_10_05-09-2022_17-18-00_vedge-C8000V_1201</code></strong>.</li>
+<li>Click the three dots <strong><code>...</code></strong> beside the template and select <strong><code>Edit</code></strong>.
+  <img alt="Editing VPN-10 Feature Template" src="../pics/Site100-VPN10-Ftemp.png" /></li>
+</ul>
+<p><strong>6. Adding IPv4 Route:</strong> </p>
+<ul>
+<li>On the editing page, click on <strong><code>IPv4 Route</code></strong>.
+  <img alt="IPv4 Route Option" src="../pics/Site400-VPN10-Ftemp-IPv4.png" /></li>
+<li>Perform the following configurations in the <code>IPv4 Route</code> section:</li>
+<li>Click <strong><code>New IPv4 Route</code></strong>.</li>
+<li>Enter <strong><code>0.0.0.0/0</code></strong> in <strong>Prefix</strong>.</li>
+<li>Select <strong><code>VPN</code></strong> in <strong>Gateway</strong>.</li>
+<li>Choose <strong><code>Global</code></strong> from the dropdown menu in <strong>Enable VPN</strong>.</li>
+<li>Set <strong>Enable VPN</strong> to <strong><code>On</code></strong>.
+  <img alt="Configuring New IPv4 Route" src="../pics/Site400-VPN10-Ftemp-IPv4-1.png" /></li>
+<li>Click <strong><code>Add</code></strong> and then <strong><code>Update</code></strong> to save the changes.
+  <img alt="Adding IPv4 Route" src="../pics/Site400-VPN10-Ftemp-IPv4-2.png" /></li>
+</ul>
+<p><strong>7. Applying the Configuration:</strong> </p>
+<ul>
+<li>Click <strong><code>Next</code></strong> to proceed with the configuration.
+  <img alt="Next Step in Configuration" src="../pics/Site400-VPN10-Ftemp-IPv4-3.png" /></li>
+<li>Select <strong><code>Configure Devices</code></strong> to push the configuration from vManage to the cEdge device.
+  <img alt="Configure Devices Option" src="../pics/Site400-VPN10-Ftemp-IPv4-4.png" /></li>
+<li>Wait and confirm that the configuration push from vManage to the cEdge device is successful.
+  <img alt="Configuration Push Success" src="../pics/Config-success.png" /></li>
+</ul>
+<p><strong>Result:</strong> By completing these steps, VPN-10 on Site-100 will be configured to route its internet traffic through the Global Routing Table (VPN-0), enabling internet access.</p>
+<h2 id="step-3-default-route-propagation-from-site-100-on-vpn-10">Step 3 - Default Route Propagation from Site-100 on VPN-10</h2>
+<p><strong>Objective:</strong> Propagate the default route from Site-100 to other sites over the SD-WAN Fabric, following the configuration of VPN-10 traffic routing to the Global Routing Table (VPN-0) on Site100-cE1.</p>
+<p><strong>1. Navigating in vManage:</strong> </p>
+<ul>
+<li>In vManage, go to <strong>Configuration &gt; Templates</strong>.
+  <img alt="vManage Configuration Templates" src="../pics/Config-Template.png" /> </li>
+</ul>
+<p><strong>2. Accessing Device Templates:</strong> </p>
+<ul>
+<li>Click on the <strong><code>Device Templates</code></strong> tab.
+  <img alt="Device Templates Tab" src="../pics/Device-template.png" /></li>
+</ul>
+<p><strong>3. Editing Site-100 Device Template:</strong> </p>
+<ul>
+<li>Find <code>Site-100</code> Device Template and click on the three dots (<strong><code>...</code></strong>) at the right side of it.
+  <img alt="Editing Site-100 Device Template" src="../pics/Device-template-Edit.png" /></li>
+</ul>
+<p><strong>4. Working with Additional Templates:</strong> </p>
+<ul>
+<li>Click on <strong><code>Additional Templates</code></strong>.
+  <img alt="Navigating to Additional Templates" src="../pics/Default-route-cli1.png" /></li>
+</ul>
+<p><strong>5. Creating a CLI Add-on Template:</strong> </p>
+<ul>
+<li>From the <strong><code>CLI Add-on Template</code></strong> dropdown menu, select <strong><code>Create Template</code></strong>.
+  <img alt="Creating CLI Add-on Template" src="../pics/Default-route-cli2.png" /></li>
+</ul>
+<p><strong>6. Configuring CLI Add-on Template:</strong> </p>
+<ul>
+<li>Enter the following information in the template:</li>
+<li>Template Name: <strong><code>Default-Route-Propagation</code></strong></li>
+<li>Description: <strong><code>Default Route Propagation</code></strong></li>
+<li>In the <code>CLI configuration</code> box, input:
+    <code>router ospf 10 vrf 10
+    default-information originate</code></li>
+<li>Click <strong><code>Save</code></strong> after entering the commands.
+  <img alt="Configuring CLI Add-on Template" src="../pics/Default-route-cli3.png" /></li>
+</ul>
+<p><strong>7. Applying the Configuration:</strong> </p>
+<ul>
+<li>Click <strong><code>Update</code></strong>, followed by <strong><code>Next</code></strong>, and then <strong><code>Configure Devices</code></strong>.</li>
+<li>This step applies the configuration across the network.</li>
+<li>Wait for the confirmation message indicating successful configuration push by vManage and application by cEdge.
+  <img alt="Configuration Push Success" src="../pics/Config-success.png" /></li>
+</ul>
+<p><strong>Result:</strong> The default route on VRF/VPN-10 is now configured and propagated from Site-100 across the SD-WAN fabric.</p>
+<h2 id="step-4-verify-internet-connectivity-on-vpn-10-of-site-400">Step 4 - Verify Internet Connectivity on VPN-10 of Site-400</h2>
+<p><strong>Objective:</strong> Verify the successful establishment of internet connectivity on VPN-10 for both Site-400 and Site-300 following the configuration changes.</p>
+<p><strong>1. Re-launching MTPutty if Needed:</strong> </p>
+<ul>
+<li>If the <strong>MTPutty</strong> application is not open, launch it again on your RDP session.
+  <img alt="MTPutty Application" src="../pics/mPutty.png" /></li>
+</ul>
+<p><strong>2. SSH/Login to cEdges:</strong> </p>
+<ul>
+<li>SSH/Login to <code>Site400-cE1</code> and <code>Site300-cE1</code> cEdges by clicking on their respective names in the saved <code>Putty sessions</code>.</li>
+</ul>
+<p><strong>3. Verifying the Routing Table:</strong> </p>
+<ul>
+<li>Use the command <code>show ip route vrf 10</code> to verify the routing table for both nodes (Site300-cE1 and Site400-cE1).</li>
+<li>Confirm that both nodes are receiving the <strong>default route</strong> on VRF/VPN-10.
+  <img alt="Routing Table on Site-400" src="../pics/site400-iprroute-2.png" /></li>
+</ul>
+<p><strong>4. Checking Internet Access on Site-400:</strong> </p>
+<ul>
+<li>Log in again to the Ubuntu VM named <code>Site400-Ubuntu-VPN10</code> using the mRemoteNG application.</li>
+<li>Launch the <code>Chromium Web Browser</code> on the Ubuntu VM and navigate to an internet site, such as <code>cisco.com</code>.</li>
+<li>The internet access should now be functioning properly.
+  <img alt="Internet Access on Site-400" src="../pics/Internet-access.png" /></li>
+</ul>
+<p><strong>5. Testing Connectivity with Ping:</strong> </p>
+<ul>
+<li>Open the <code>Terminal</code> application on the Ubuntu VM.</li>
+<li>Issue the ping command <code>ping 8.8.8.8</code>.</li>
+<li>This time, the ping should be successful, indicating internet connectivity.
+  <img alt="Successful Ping on Ubuntu VM" src="../pics/ubuntu-ping-ok.png" /></li>
+</ul>
+<p><strong>6. Performing Traceroute:</strong> </p>
+<ul>
+<li>In the Terminal application on the Ubuntu VM, execute a <code>traceroute</code> with the following command: <code>traceroute 8.8.8.8</code>.
+  <img alt="Traceroute Result on Ubuntu VM" src="../pics/ubuntu-trace-ok.png" /></li>
+</ul>
+<p><strong>7. Repeating for Site-300:</strong> </p>
+<ul>
+<li>Repeat the above steps to confirm internet access for VPN-10 of <strong>Site300</strong>.</li>
+<li>This involves verifying the ip route on VPN-10 on <code>Site300-cE1</code> and then checking internet connectivity on the Ubuntu VM <code>Site300-Ubuntu-VPN10</code>.</li>
+</ul>
+<p><strong>Result:</strong> Internet connectivity on VPN-10 for Site-400 and Site-300 should now be successfully established and verifiable through the above tests.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Task2-v1/" class="btn btn-neutral float-left" title="Task 2 Devices Feature Templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task4-v1/" class="btn btn-neutral float-right" title="Task 4 Direct Internet Access for Site300">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Task2-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Task4-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

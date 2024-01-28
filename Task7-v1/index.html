@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Task 7 Umbrella SIG policies for Regional Access - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 7 Umbrella SIG policies for Regional Access";
+        var mkdocs_page_input_path = "Task7-v1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../IP-Users/">Connection Details and Credentials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 7 Umbrella SIG policies for Regional Access</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-ipsec-tunnels-from-site-100-to-umbrella">Step 1 - IPSec Tunnels from Site-100 to Umbrella</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-verify-sig-tunnels-on-umbrella">Step 2 - Verify SIG Tunnels on Umbrella</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-redirect-traffic-to-sig-tunnels">Step 3 - Redirect Traffic to SIG Tunnels</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Challenge-Tasks/">Challenge Task</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 7 Umbrella SIG policies for Regional Access</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task7-v1.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-7-umbrella-sig-for-regional-sites">Task 7 - Umbrella SIG for Regional sites</h1>
+<p>In this task, Umbrella SIG will be integrated to Site 100 will be performed.  This integration will be used to route traffic towards Umbrella and enforce Cloud Security policies for local Site 100 as well as for remote Site 400.  Recall that as per IP traffic routing (earlier task) the Internet traffic from Site 400 is also routed via Site 100.  Hence Umbrella policies from these sites will also be </p>
+<h2 id="step-1-ipsec-tunnels-from-site-100-to-umbrella">Step 1 - IPSec Tunnels from Site-100 to Umbrella</h2>
+<p><strong>Objective:</strong> Implement the SIG template in <strong>VPN-0</strong> on the device template of node <strong>Site100-cE1</strong> in the <strong>Transport and Management VPN</strong> section on vManage.  This will result in creating IPSec tunnels between SD-WAN Site-100 and Umbrella Cloud.</p>
+<p><strong>1. Accessing Device Templates:</strong></p>
+<ul>
+<li>Navigate to <strong>Configuration &gt; Templates</strong> and click on <strong>Device Templates</strong> in vManage.
+  <img alt="Device Templates" src="../pics/Device-template.png" /></li>
+</ul>
+<p><strong>2. Editing Site100-cE1 Template:</strong></p>
+<ul>
+<li>Locate the <strong>Site100-cE1</strong> template from the <code>Description</code> field. Then <strong>click</strong> on three dots (<strong><code>...</code></strong>) on the right hand side and click <strong><code>Edit</code></strong>:
+  <img alt="Edit Site100-cE1 Template" src="../pics/sig-feat-temp-s100-1.png" /></li>
+</ul>
+<p><strong>3. Configuring Transport and Management VPN:</strong></p>
+<ul>
+<li>On the <code>Device Template</code>, Click on <strong>Transport and Management VPN</strong>.
+  <img alt="Transport and Management VPN" src="../pics/sig-feat-temp-s100-2.png" /></li>
+</ul>
+<p><strong>4. Adding Cisco Secure Internet Gateway Template:</strong></p>
+<ul>
+<li>Add the <strong><code>Cisco Secure Internet Gateway</code></strong> template by clicking on it, and then select <strong><code>VIP23-SIG-Feature-Template</code></strong> from the dropdown for this template.
+  <img alt="Add SIG Template" src="../pics/sig-feat-temp-8.png" /></li>
+</ul>
+<p><strong>5. Ensuring Cisco SIG Credentials:</strong></p>
+<ul>
+<li>Scroll down to the <strong>Additional Templates</strong> section and confirm the addition of <strong>Cisco SIG Credentials</strong> with value of <strong><code>VIP23-SIG-Credentials</code></strong>.
+  <img alt="Cisco SIG Credentials" src="../pics/sig-feat-temp-9.png" /></li>
+</ul>
+<p><strong>6. Updating and Configuring Devices:</strong></p>
+<ul>
+<li>
+<p>Click on <strong>Update</strong> to modify the settings.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong> to proceed with the configuration
+  <img alt="Update Settings" src="../pics/sig-feat-temp-s100-3.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>Configure Devices</code></strong> on next page
+  <img alt="Configure Devices" src="../pics/sig-feat-temp-11.png" /></p>
+</li>
+<li>
+<p>Wait for <code>success</code> message for pushing these configuration changes to Site100-cE1.</p>
+</li>
+</ul>
+<h2 id="step-2-verify-sig-tunnels-on-umbrella">Step 2 - Verify SIG Tunnels on Umbrella</h2>
+<p><strong>Objective:</strong> Confirm the operational status of IPSec tunnels to Site100-cE1 by accessing the Umbrella dashboard.</p>
+<p><strong>1. Accessing Umbrella Dashboard:</strong></p>
+<ul>
+<li>Log in to the Umbrella Dashboard via <code>Umbrella SSO</code> on the RDP session.</li>
+</ul>
+<p><strong>2. Checking Tunnel Status:</strong></p>
+<ul>
+<li>
+<p>Navigate to <strong>Deployments &gt; Core Identities &gt; Network Tunnels</strong>.</p>
+</li>
+<li>
+<p>Initially, the newly created IPSec tunnels <strong><em>may</em></strong> appear under <strong>Unestablished Tunnels</strong>.<br />
+<img alt="Unestablished Tunnels" src="../pics/sig-feat-temp-s100-4.png" /></p>
+</li>
+<li>
+<p>After a few minutes, they should appear as <strong>Active Tunnels</strong>.
+  <img alt="Active Tunnels" src="../pics/sig-feat-temp-s100-5.png" /></p>
+</li>
+</ul>
+<h2 id="step-3-redirect-traffic-to-sig-tunnels">Step 3 - Redirect Traffic to SIG Tunnels</h2>
+<p><strong>Objective:</strong> Direct VPN-10 traffic from SD-WAN Site-100 via IPSec tunnels towards Umbrella by adding a Service route on vManage.</p>
+<p><strong>1. Modifying VPN Template:</strong></p>
+<ul>
+<li>On the vManage GUI, go to <strong>Configuration &gt; Templates &gt; Feature Templates</strong>. </li>
+<li>Search for <strong><code>VPN_10_05-09-2022_17-18-00_vedge-C8000V_1201</code></strong> and <strong><code>Edit</code></strong> the template.
+  <img alt="Edit VPN Template" src="../pics/sig-feat-temp-s100-6.png" /></li>
+</ul>
+<p><strong>2. Adding Service Route:</strong></p>
+<ul>
+<li>
+<p>Select <strong>Service Route</strong>.
+  <img alt="Service Route" src="../pics/sig-feat-temp-service-route.png" /></p>
+</li>
+<li>
+<p>Click <strong>New Service Route</strong> and add a <strong>Prefix</strong> of <code>0.0.0.0/0</code> pointing to <code>SIG</code> (default).</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> and then click <strong>Update</strong> at the bottom of the page
+  <img alt="Add Service Route" src="../pics/sig-feat-temp-15.png" /></p>
+</li>
+</ul>
+<p><strong>3. Updating and Configuring Device:</strong></p>
+<ul>
+<li>
+<p>Click <strong>Next</strong> and then click <strong>Configure Devices</strong></p>
+</li>
+<li>
+<p>Wait till config push is sucessfull to Site100-cE1.  </p>
+</li>
+<li>
+<p>Optional: you may SSH to Site100-cE1 by using <em>MTPutty</em> application on RDP session (Jumphost).  Validate that the service route command <code>ip sdwan route vrf 10 0.0.0.0/0 service sig</code> are pushed by vManage.</p>
+</li>
+</ul>
+<p><strong>4. Verifying Traffic Redirection to Umbrella:</strong></p>
+<ul>
+<li>
+<p>Using <strong>mRemoteNG</strong>, relaunch the console session of the Ubuntu VM <code>Site400-Ubuntu-VPN10</code>.</p>
+</li>
+<li>
+<p>Open the Chromium Web Browser on this VM and navigate to <strong><code>welcome.umbrella.com</code></strong>. The message <code>Welcome to Umbrella</code> indicates successful protection by Umbrella.
+  <img alt="Welcome to Umbrella" src="../pics/Umbrella-welecome.png" /></p>
+</li>
+</ul>
+<p><strong>Conclusion:</strong> 
+With these configurations, traffic from Site-100 and Site-400 is now routed towards Umbrella using the IPSec tunnels. The next steps will involve configuring Cloud Security policies for these sites on Umbrella.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Task6-v1/" class="btn btn-neutral float-left" title="Task 6 Umbrella Policy for Site300"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task8-v1/" class="btn btn-neutral float-right" title="Task 8 Umbrella Regional Policies">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Task6-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Task8-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

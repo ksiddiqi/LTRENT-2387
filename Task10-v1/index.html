@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Task 10 Modify Block Page Notification";
-        var mkdocs_page_input_path = "Task10.md";
+        var mkdocs_page_input_path = "Task10-v1.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,35 +56,35 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task2/">Task 2 Devices Feature Templates</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
               <ul class="current">
@@ -98,7 +98,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task11/">Task 11 Data Loss Prevention</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
                 </li>
               </ul>
               <ul>
@@ -121,7 +121,7 @@
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Task 10 Modify Block Page Notification</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task10.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task10-v1.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -130,16 +130,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-10-block-page">Task 10 - Block Page</h1>
-<p>This tasks will walk through the steps to modify the Block page that is shown to users when a Web policy is enforced on Site-100 and Site-400 (i.e., regional sites).  </p>
+<p>This task guides through the process of customizing the block page displayed to users when a web policy is enforced on regional sites, Site-100 and Site-400.</p>
 <h2 id="step-1-umbrella-web-policy">Step 1 - Umbrella Web Policy</h2>
-<p>In this step we will configure a new block page.</p>
+<p><strong>Objective:</strong> Configure a new block page on the Umbrella Dashboard.</p>
+<p><strong>1. Accessing Block Page Settings:</strong></p>
 <ul>
-<li>
-<p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
-</li>
-<li>
-<p>Navigate to <strong>Policies &gt; Policy Components &gt; Block Page Appearance</strong>.  Then click <strong>Add</strong> on the top right to add a new <em>Block page</em> as shown in below screenshot:</p>
-</li>
+<li>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</li>
+</ul>
+<p><strong>2. Configuring the Block Page:</strong></p>
+<ul>
+<li>Navigate to <strong>Policies &gt; Policy Components &gt; Block Page Appearance</strong>.  Then click <strong>Add</strong> on the top right to add a new <em>Block page</em> as shown in below screenshot:</li>
 </ul>
 <p><img alt="" src="../pics/t10-block-add.png" /></p>
 <ul>
@@ -153,6 +153,7 @@
 </li>
 </ul>
 <p><img alt="" src="../pics/t10-block-config.png" /></p>
+<p><strong>3. Applying the Block Page to Web Policy</strong></p>
 <ul>
 <li>On Umbrella dashboard, navigate to <strong>Policies &gt; Management &gt; Web Policy</strong> and click on previously configured <strong><code>Ruleset 2</code></strong></li>
 </ul>
@@ -170,24 +171,28 @@
 </ul>
 <p><img alt="" src="../pics/t10-block-ruleset-final.png" /></p>
 <h2 id="step-2-verify-new-block-page">Step 2 - Verify new Block Page</h2>
-<p>Now lets validate that the new Block page is working for SD-WAN Site-400 (Regional site).</p>
+<p><strong>Objective:</strong> Validate the new block page for Site-400 and confirm the original block page for Site-300.</p>
+<p><strong>1. Testing on Site-400:</strong></p>
 <ul>
-<li>Launch console access to ubuntu <strong>Site400-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
+<li>Launch console access to ubuntu <strong><code>Site400-Ubuntu-VPN10</code></strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
 <li>Use Chromium Browser to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
 <li>Use Chromium Browser to navigate to <code>www.chase.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, the newly created Umbrella block page will appear.</li>
 </ul>
+<p><strong>2. Testing on Site-300:</strong></p>
 <p>Now lets validate that the original Block page is shown for SD-WAN Site-300.</p>
 <ul>
 <li>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></li>
 <li>Use Chromium Browser to navigate onto traditional websites, such as <code>www.cisco.com</code>.  Access to this website should work.</li>
 <li>Use Chromium Browser to navigate to <code>www.cnn.com</code>.  As per our Umbrella Web Policy, this sites should be blocked and, as expected, the original block page will appear.</li>
 </ul>
+<p><strong>Conclusion:</strong></p>
+<p>With the successful implementation of Task 10, the regional sites now have a customized block page, enhancing the user experience when web policies are enforced. This customization allows for a more tailored approach to displaying block messages, aligning with the specific needs and branding of the organization.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Task9/" class="btn btn-neutral float-left" title="Task 9 Monitoring on Umbrella"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Task11/" class="btn btn-neutral float-right" title="Task 11 Data Loss Prevention">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Task9-v1/" class="btn btn-neutral float-left" title="Task 9 Monitoring on Umbrella"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task11-v1/" class="btn btn-neutral float-right" title="Task 11 Data Loss Prevention">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -214,10 +219,10 @@
         </span>
     
     
-      <span><a href="../Task9/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Task9-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Task11/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Task11-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Task 2 Devices Feature Templates";
-        var mkdocs_page_input_path = "Task2.md";
+        var mkdocs_page_input_path = "Task2-v1.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,39 +66,39 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task11/">Task 11 Data Loss Prevention</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
                 </li>
               </ul>
               <ul>
@@ -121,7 +121,7 @@
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Task 2 Devices Feature Templates</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task2.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task2-v1.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -129,42 +129,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="task-2-device-templates">Task 2 - Device Templates</h1>
-<p>In this Task we will add cEdeges (Site-100, Site-300 and Site-400) to their respective Device templates.  The device templates have been preconfigured with configurations required for functional SD-WAN Fabric.  The attachment of the cEdge to it's Device templates is performed on the vManage GUI via a web browser. </p>
+                <h1 id="task-2-vmanage-templates">Task 2 - vManage Templates</h1>
+<p>Cisco SD-WAN vManage is a centralized network management system that simplifies the configuration, monitoring, and management of Cisco's SD-WAN infrastructure.</p>
+<p>Cisco vManage Device and Feature templates are key components of the Cisco SD-WAN solution. These templates are used to simplify the process of configuring and managing SD-WAN devices in a network, offering a standardized and scalable way to deploy configurations to multiple devices. This approach ensures consistency and reduces the likelihood of manual errors.</p>
+<p>In this lab, vManage has been pre-configured with various Device and Feature Templates. The pre-configured templates contain all the configurations required for a functional SD-WAN Fabric.</p>
+<p>In this task, we will attach cEdges (Site-100, Site-300, and Site-400) to their respective vManage Templates and this is performed on a GUI via a web browser. This process streamlines network management by enabling efficient scalability and reducing manual configuration errors. It allows for the rapid deployment of new devices and easy updates to existing ones, ensuring network settings are in line with predefined policies and standards.</p>
 <h2 id="step-1-vmanage-gui">Step 1 - vManage GUI</h2>
-<ul>
-<li>Logon to vManage GUI by launching Google Chrome on the RDP / Jumphost</li>
-</ul>
-<p><img alt="" src="../pics/Chrome.png" /></p>
+<p><strong>Objective:</strong> In this step, we will access the Cisco SD-WAN vManage through a web browser for provisioning. All provisioning tasks will be performed using a Google Chrome browser on the RDP session (i.e., Jumphost).</p>
 <ul>
 <li>
-<p>Open Chrome and click <code>vManage</code> on the boookmark bar
-<img alt="" src="../pics/Chrome-vManage.png" /></p>
+<p>Log on to the vManage GUI by launching the <code>Google Chrome</code> web browser, which can be found either on the Desktop or in the Taskbar of your RDP session (Jumphost).
+  <img alt="Chrome Browser Icon" src="../pics/Chrome.png" /></p>
 </li>
 <li>
-<p>Logon to vManage using below credentials: </p>
-<ul>
+<p>After launching Chrome, click on the <code>vManage</code> bookmark on the bookmark bar.
+  <img alt="vManage Bookmark in Chrome" src="../pics/Chrome-vManage.png" /></p>
+</li>
+<li>
+<p>Log in to vManage using the following credentials:</p>
+</li>
 <li>Username: <code>admin</code></li>
 <li>Password: <code>C1sco12345</code></li>
 </ul>
-</li>
-</ul>
 <h2 id="step-2-device-template-for-cedges">Step 2 - Device Template for cEdges</h2>
+<p><strong>Objective:</strong> In this step, we will manage the device templates for the cEdge devices in the Cisco SD-WAN vManage. This involves identifying and attaching the correct device templates to their respective cEdge devices as per the specified criteria.</p>
+<p><strong>1. Navigating in vManage:</strong> </p>
 <ul>
-<li>
-<p>After logging into vManage, click on the three bars at the top left side as shown in below screenshot: 
-<img alt="" src="../pics/Navigation-Start.png" /></p>
-</li>
-<li>
-<p>Then navigate to <strong>Configuration &gt; Templates</strong> as shown below: </p>
-</li>
+<li>After logging into vManage, click on the three bars () at the top left side to open the navigation menu.
+  <img alt="Navigation Start" src="../pics/Navigation-Start.png" /></li>
 </ul>
-<p><img alt="" src="../pics/Config-Template.png" /> </p>
+<p><strong>2. Accessing Device Templates:</strong> </p>
 <ul>
-<li>On the <code>Configuration - Templates</code> page, click on the <strong>Device Templates</strong> as shown below:</li>
+<li>Navigate to <strong>Configuration &gt; Templates</strong>.
+  <img alt="Configuration Templates" src="../pics/Config-Template.png" /> </li>
 </ul>
-<p><img alt="" src="../pics/Device-template.png" /></p>
-<p>The <code>Device Template</code> page will list various control and cEdge devices.  We will <strong>only</strong> attach the device template to their respective cEdge as per below table.  The cEdge devices can be recognized by their <code>Description</code>:</p>
+<p><strong>3. Selecting Device Templates:</strong> </p>
+<ul>
+<li>On the <code>Configuration - Templates</code> page, click on <strong><code>Device Templates</code></strong>.
+  <img alt="Device Templates" src="../pics/Device-template.png" /></li>
+</ul>
+<p><strong>4. Identifying cEdge Devices:</strong> </p>
+<ul>
+<li>The <code>Device Template</code> page lists various control and cEdge devices. We will <strong>only</strong> attach the device template to their respective cEdge as per the following table. The cEdge devices can be recognized by their <code>Description</code>:</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -187,51 +194,45 @@
 </tr>
 </tbody>
 </table>
-<p><span style="color:red">
-Note: Please don't add Site200-CE1 to any template
-</span></p>
+<p><strong>Note:</strong> Please don't add Site200-CE1 to any template.</p>
+<p><strong>5. Attaching Device Templates:</strong> </p>
 <ul>
-<li>On the <code>Device Templates</code> page, locate the Site100-cE1 device from its description and click on the the three dots (<strong><code>...</code></strong>) on the right side as shown below:</li>
+<li>
+<p>Locate the Site100-cE1 device from its description and click on the three dots (<strong><code>...</code></strong>) on the right side.
+  <img alt="Site100 Device Template" src="../pics/site100-temp-attach-1.png" /></p>
+</li>
+<li>
+<p>On the <code>Attach Devices</code> page, scroll down to or search for <strong><code>Site100-cE1</code></strong> and select it with the Right arrow (<strong><code>&gt;</code></strong>).
+  <img alt="Attach Site100 Device" src="../pics/site100-temp-attach-2.png" /></p>
+</li>
+<li>
+<p>After selecting the Site100-cE1, click on <strong><code>Attach</code></strong>.
+  <img alt="Attach Button" src="../pics/site100-temp-attach-3.png" /></p>
+</li>
 </ul>
-<p><img alt="" src="../pics/site100-temp-attach-1.png" /></p>
+<p><strong>6. Completing the Attachment Process:</strong> </p>
 <ul>
-<li>Then on <code>Attach Devices</code> page scroll down to or Search for <code>Site100-cE1</code> to select it with the Right arrow (<strong><code>&gt;</code></strong>) as shown below:</li>
+<li>
+<p>On the next page, click <strong><code>Next</code></strong>.
+  <img alt="Next Step" src="../pics/site100-temp-attach-4.png" /></p>
+</li>
+<li>
+<p>Finally, click on <strong><code>Configure Devices</code></strong> to attach the template configurations to the cEdge device.
+  <img alt="Configure Devices" src="../pics/site100-temp-attach-5.png" /></p>
+</li>
+<li>
+<p>Wait for the task to be successful.
+  <img alt="Configuration Success" src="../pics/Config-success.png" /></p>
+</li>
 </ul>
-<p><img alt="" src="../pics/site100-temp-attach-2.png" /></p>
-<ul>
-<li>After selecting the Site100-cE1, click on <code>Attach</code>:</li>
-</ul>
-<p><img alt="" src="../pics/site100-temp-attach-3.png" /></p>
-<ul>
-<li>On the next page, click <code>Next</code>:</li>
-</ul>
-<p><img alt="" src="../pics/site100-temp-attach-4.png" /></p>
-<ul>
-<li>And lastly click on <code>Configure Devices</code> to attach the template configurations to cEdge device:</li>
-</ul>
-<p><img alt="" src="../pics/site100-temp-attach-5.png" /></p>
-<ul>
-<li>Wait for task to be successfull </li>
-</ul>
-<p><img alt="" src="../pics/Config-success.png" /></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Note:</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Above screenshots are for <code>Site-100 cE1</code> only.  You must repeat these tasks for <code>Site300-cE1</code> and <code>Site400-cE1</code>.</td>
-</tr>
-</tbody>
-</table>
+<p><strong>Important Note:</strong> The above screenshots are for <code>Site-100 cE1</code> only. You must <strong>repeat</strong> these tasks for <code>Site300-cE1</code> and <code>Site400-cE1</code>.</p>
+<p><strong>Conclusion:</strong> The device templates for cEdge devices are now correctly configured and attached in vManage, ensuring proper management and configuration of these devices as per the network requirements.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../Task1-Connect/" class="btn btn-neutral float-left" title="Task 1 Remote Connection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Task3/" class="btn btn-neutral float-right" title="Task 3 Regional Internet Access for All Sites">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Task3-v1/" class="btn btn-neutral float-right" title="Task 3 Regional Internet Access for All Sites">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -261,7 +262,7 @@ Note: Please don't add Site200-CE1 to any template
       <span><a href="../Task1-Connect/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Task3/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Task3-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

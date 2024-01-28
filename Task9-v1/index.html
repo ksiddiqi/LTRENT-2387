@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Task 9 Monitoring on Umbrella";
-        var mkdocs_page_input_path = "Task9.md";
+        var mkdocs_page_input_path = "Task9-v1.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,31 +56,31 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task2/">Task 2 Devices Feature Templates</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
                 </li>
               </ul>
               <ul class="current">
@@ -90,23 +90,21 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-2-activity-reports-for-web-urls">Step 2 - Activity Reports for Web URLs</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-2-activity-reports-for-firewall">Step 2 - Activity Reports for Firewall</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-activity-reports-for-firewall">Step 3 - Activity Reports for Firewall</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-top-destinations-reports">Step 3 - Top Destinations Reports</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-top-destinations-reports">Step 4 - Top Destinations Reports</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#optional-step-4-additional-reports">Optional Step 4 - additional reports</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#well-done">Well Done! ##</a>
+    <li class="toctree-l2"><a class="reference internal" href="#optional-step-5-additional-reports">Optional Step 5 - additional reports</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task11/">Task 11 Data Loss Prevention</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
                 </li>
               </ul>
               <ul>
@@ -129,7 +127,7 @@
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Task 9 Monitoring on Umbrella</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task9.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task9-v1.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -138,15 +136,23 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="task-9-monitoring-on-umbrella">Task 9 - Monitoring on Umbrella</h1>
-<p>In this task reports on Cisco Umbrella will be used to monitor it's usage, traffic detection, policy enforcement and the SD-WAN integration. </p>
-<p>As a <strong>Pre-requisite:</strong>, all the prior tasks must be completed successfully.  These earlier tasks include integration of SD-WAN sites to Umbrella, configuraiton of Umbrella policies such as Firewall, Web etc.  The traffic monitored by Umbrella, as per those policies, will be viewed in this task.</p>
+<p>Task 9 is focused on utilizing Cisco Umbrella reports for monitoring usage, traffic detection, policy enforcement, and SD-WAN integration. This task assumes the completion of all prior tasks involving the integration of SD-WAN sites with Umbrella and the configuration of various policies.</p>
 <h2 id="step-1-traffic-from-sd-wan-sites">Step 1: Traffic from SD-WAN sites</h2>
-<p>In this step, additional IP and Web traffic will be initiated for Umbrella monitoring.</p>
+<p><strong>Objective:</strong> Initiate additional IP and Web traffic for Umbrella monitoring.</p>
+<p><strong>1. Generating Web and IP Traffic:</strong></p>
 <ul>
-<li>On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.</li>
-<li>Launch Chromium web browser and visit the website <code>cisco.com</code>.  This website should be accessible. </li>
-<li>On the Chromium web browser navigate to <code>facebook.com</code>.  As per earlier configured policy, the traffic to <code>facebook.com</code> should be blocked by Umbrella on Site-300. </li>
-<li>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site300-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Control-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</li>
+<li>
+<p>On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site300-Ubuntu-VPN10</code>.</p>
+</li>
+<li>
+<p>Launch Chromium web browser and visit the website <code>cisco.com</code>.  This website should be accessible. </p>
+</li>
+<li>
+<p>On the Chromium web browser navigate to <code>facebook.com</code>.  As per earlier configured policy, the traffic to <code>facebook.com</code> should be blocked by Umbrella on Site-300. </p>
+</li>
+<li>
+<p>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site300-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Ctrl-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</p>
+</li>
 </ul>
 <pre><code>ping 1.1.1.1
 </code></pre>
@@ -156,13 +162,20 @@
 <pre><code>ping 8.8.8.8
 </code></pre>
 <p>Next,
-* On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>.  This VM exists on VPN #10 of this site.
-* From the Chromium Web browser initiate traffic to <code>www.cnn.com</code> and <code>cisco.com</code>.   As per earlier task, the traffic to <code>www.cnn.com</code> should be blocked by Umbrella. 
-* On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site400-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Control-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</p>
+* On the RDP session, use <code>mRemoteNG</code> application to logon the console of VM named <code>Site400-Ubuntu-VPN10</code>. </p>
+<ul>
+<li>
+<p>From the Chromium Web browser initiate traffic to <code>www.cnn.com</code> and <code>cisco.com</code>.   As per earlier task, the traffic to <code>www.cnn.com</code> should be blocked by Umbrella. </p>
+</li>
+<li>
+<p>On the <code>mRemoteNG</code> application launch the <strong>Terminal</strong> application in the RDP session of the <code>Site400-Ubuntu-VPN10</code>.  Then initiate ICMP traffic by issuing below <code>ping</code> command.  After few seconds stop the ping by pressing <code>Ctrl-C</code>.  A 100% success rate in the ping results confirms successful Internet connectivity through Umbrella.</p>
+</li>
+</ul>
 <pre><code>ping 1.1.1.1
 </code></pre>
 <h2 id="step-2-activity-reports-for-web-urls">Step 2 - Activity Reports for Web URLs</h2>
-<p>The web and other IP traffic activity from the SD-WAN branch sites over a selected time period can be viewed from <code>Activity Search</code> on Cisco Umbrella.  These reports can be filtered by various categories such as identity name, destination, source IP, etc.  </p>
+<p><strong>Objective:</strong> View web and IP traffic activity reports from SD-WAN branch sites in Umbrella.</p>
+<p><strong>1. Accessing Activity Search:</strong></p>
 <ul>
 <li>
 <p>On the RDP session (jumphost), access the Umbrella web page by clicking on <code>Umbrella SSO</code> bookmark on Google Chrome browser.</p>
@@ -173,6 +186,7 @@
 </ul>
 <p><img alt="" src="../pics/t9-s1-activity3.png" /></p>
 <p>Here you can view the result of every DNS, URL, and IP request from your various SD-WAN sites and other identities.  Browse through to view some of the past results.</p>
+<p><strong>2. Conducting Advanced Searches:</strong></p>
 <ul>
 <li>
 <p>Click on blue <strong>Filters</strong> button to close the filter tab and then click on <strong>Advanced</strong> button in the <code>Search</code> field/bar.  </p>
@@ -203,8 +217,9 @@
 <ul>
 <li>In the search result, review the various fields such as <code>Action</code>, <code>Categories</code> and <code>Ruleset or Rule</code> fields of the results (each row) shown on this page and verify that results match the configurations performed in earlier tasks.</li>
 </ul>
-<h2 id="step-2-activity-reports-for-firewall">Step 2 - Activity Reports for Firewall</h2>
-<p>In this task, results of Umbrella monitoring for Firewall traffic will be viewed</p>
+<h2 id="step-3-activity-reports-for-firewall">Step 3 - Activity Reports for Firewall</h2>
+<p><strong>Objective:</strong> Review Umbrella's monitoring results for Firewall traffic.</p>
+<p><strong>1. Reviewing Traffic to Specific IPs:</strong></p>
 <ul>
 <li>
 <p>In the Umbrella Dashboard on Google Chrome, clear the existing <code>Advanced</code> Filter by clicking on <strong><code>CLEAR</code></strong> button or click on cross (<strong><code>X</code></strong>) next to the URL field on this page.  Thus Web filters for <code>cnn.com</code> and <code>facebook.com</code> are cleared from Activity Search page.  Alternatively, just navigate back to <strong>Reporting &gt; Core Reports &gt; Activity Search</strong>.</p>
@@ -234,8 +249,9 @@
 </ul>
 <p><em>Tip: Have a look at details of these packets by clicking on <code>view Full Details</code> and then review the <code>Protocol</code> field (ICMP, UDP)!</em></p>
 <p><img alt="" src="../pics/t9-activity-IP8-result.png" /></p>
-<h2 id="step-3-top-destinations-reports">Step 3 - Top Destinations Reports</h2>
-<p>In this step we will view the traffic to most active destinations on Umbrella Dashboard. </p>
+<h2 id="step-4-top-destinations-reports">Step 4 - Top Destinations Reports</h2>
+<p><strong>Objective:</strong> Analyze the most active destinations in traffic on the Umbrella Dashboard.</p>
+<p><strong>1. Viewing Top Destinations:</strong></p>
 <ul>
 <li>
 <p>On Umbrella Dashboard, navgiate to <strong>Reporting &gt; Additional Reports &gt; Top Destinations</strong>.  It will show the most visited destinations.   </p>
@@ -245,6 +261,7 @@
 </li>
 </ul>
 <p><img alt="" src="../pics/t9-s4-top-dest.png" /></p>
+<p><strong>2. Investigating Specific Destinations:</strong></p>
 <ul>
 <li>Once <code>1.1.1.1</code> is clicked it will show below screenshot.  Click on <strong><code>VIEW 1.1.1.1 IN INVESTIGATE</code></strong> to view more details of this IP address as shown below</li>
 </ul>
@@ -255,8 +272,8 @@
 </ul>
 <p>Here is the screenshot from Cisco Talos about this IP address
 <img alt="" src="../pics/t9-s4-talos-reput.png" /></p>
-<h2 id="optional-step-4-additional-reports">Optional Step 4 - additional reports</h2>
-<p>If you have time then you can proceed to view various other reports on Umbrella Dashboard:</p>
+<h2 id="optional-step-5-additional-reports">Optional Step 5 - additional reports</h2>
+<p><strong>Objective:</strong> Explore various other reports available on the Umbrella Dashboard.</p>
 <ul>
 <li>
 <p>Navigate to <strong>Reporting &gt; Additional Request &gt; Top Identities</strong> to view the traffic by various Identities.  As expected, the Network tunnels (four) will be shown here.  <code>Allowed</code> or <code>Blocked</code> Responses by specific Traffic type can also be viewed on this page by clicking under the <code>Responses</code>.   You can vew the Tunnel and site with most traffic and the respective count (i.e. number of <code>Requests</code>) in your lab pod on this page.</p>
@@ -268,14 +285,22 @@
 <p>Navigate to <strong>Reporting &gt; Additional Request &gt; Top Categories</strong> to view the traffic by various categories such as Advertisements, Search Engines etc.  Note traffic size and number of requests by various categories is shown in these reports.</p>
 </li>
 </ul>
-<p>This concludes the task for using some of the Umbrella monitoring capabilities.</p>
-<h2 id="well-done">Well Done! ##</h2>
+<p><strong>Conclusion:</strong> 
+Task 9's completion marks a significant milestone in leveraging Cisco Umbrella's robust monitoring capabilities. Throughout this task, we have successfully navigated the intricacies of Umbrella's reporting features, gaining insights into various aspects of network traffic and policy enforcement.</p>
+<p>Key takeaways from this task include:</p>
+<ul>
+<li><strong>Effective Monitoring:</strong> The ability to monitor web and IP traffic from SD-WAN sites, providing visibility into network activities and policy impacts.</li>
+<li><strong>Policy Enforcement Validation:</strong> Confirmation of the effectiveness of Umbrella policies, as seen in the blocking or allowing of specific web and IP traffic.</li>
+<li><strong>Advanced Reporting:</strong> Utilization of Umbrella's advanced reporting features, such as Activity Search and Top Destinations, to filter and analyze network traffic data.</li>
+<li><strong>Strategic Insights:</strong> Gathering strategic insights from the data, enabling informed decision-making for future network and security enhancements.</li>
+</ul>
+<p>As we conclude this task, it's evident that the integration of Umbrella into the network infrastructure offers not just enhanced security but also invaluable data for continuous network optimization and threat mitigation. This task underscores the critical role of active monitoring and reporting in maintaining a secure and efficient network.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Task8/" class="btn btn-neutral float-left" title="Task 8 Umbrella Regional Policies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Task10/" class="btn btn-neutral float-right" title="Task 10 Modify Block Page Notification">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Task8-v1/" class="btn btn-neutral float-left" title="Task 8 Umbrella Regional Policies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task10-v1/" class="btn btn-neutral float-right" title="Task 10 Modify Block Page Notification">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -302,10 +327,10 @@
         </span>
     
     
-      <span><a href="../Task8/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Task8-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Task10/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Task10-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

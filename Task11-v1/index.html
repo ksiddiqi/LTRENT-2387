@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Task 11 Data Loss Prevention";
-        var mkdocs_page_input_path = "Task11.md";
+        var mkdocs_page_input_path = "Task11-v1.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -56,39 +56,39 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task2/">Task 2 Devices Feature Templates</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task3/">Task 3 Regional Internet Access for All Sites</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task4/">Task 4 Direct Internet Access for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task5/">Task 5 Umbrella (SIG) for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task6/">Task 6 Umbrella Policy for Site300</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task6-v1/">Task 6 Umbrella Policy for Site300</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task7/">Task 7 Umbrella SIG policies for Regional Access</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task8/">Task 8 Umbrella Regional Policies</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task9/">Task 9 Monitoring on Umbrella</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Task10/">Task 10 Modify Block Page Notification</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
                 </li>
               </ul>
               <ul class="current">
@@ -127,7 +127,7 @@
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
       <li class="breadcrumb-item active">Task 11 Data Loss Prevention</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task11.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task11-v1.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -137,9 +137,10 @@
               
                 <h1 id="task-11-data-loss-prevention">Task 11 - Data Loss Prevention</h1>
 <p>Umbrella Data Loss Prevention (DLP) policy helps to protect sensitive data uploaded to the web. It discovers and protects sensitive data stored being exposed outside of an organization.  </p>
-<p>This tasks will walk through the steps to create policy (called Real Time DLP Rule) that will monitor the web proxy traffic and then allow administrators to decide if the content should only be monitored or blocked.  In this case policy to monitor, and then block, files for General Data Protection Regulation (GDPR) classification will be configured.  The General Data Protection Regulation (GDPR) is a regulation in EU law on data protection and privacy.  Files with personal information such as names, addresses, phone numbers etc must be handled with care.  A sample file will be used to test the compliance of GDPR regulation i.e., monitoring and then enforcing/blocking.</p>
+<p>This task focuses on setting up a Data Loss Prevention (DLP) policy in Umbrella to protect sensitive data, specifically adhering to GDPR compliance. This task involves creating a policy to monitor and then block files containing personal information.</p>
 <h2 id="step-1-umbrella-dlp-monitor-policy">Step 1 - Umbrella DLP Monitor Policy</h2>
-<p>In this step we will configure a DLP rule for monitoring GDPR compliance.</p>
+<p><strong>Objective:</strong> Configure a DLP rule to monitor GDPR compliance.</p>
+<p><strong>1. Configuring DLP Monitor Policy:</strong></p>
 <ul>
 <li>
 <p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
@@ -166,10 +167,12 @@
 <img alt="" src="../pics/t11-DLP-add-rule-3.png" /></p>
 <p>Now the DLP policy to inspect (Monitor) the compliance of GDPR data has been configured.</p>
 <h2 id="step-2-sample-file-for-dlp">Step 2 - Sample file for DLP</h2>
-<p>In this step a sample file to test the previously configured DLP policy will be downloaded on a VM with hostname of <strong>Site300-Ubuntu-VPN10</strong> on SD-WAN site-300.  This file has sample data that includes items such as Name, Birth date, Gender, address etc.  If this file is published to cloud, then this data in file will result in raising a compliance alarm on Umbrella, as per our policy.</p>
+<p><strong>Objective:</strong> Download a sample file to test the DLP policy on Site-300 host.</p>
+<p>This file has sample data that includes items such as Name, Birth date, Gender, address etc.  If this file is published to cloud, then this data in file will result in raising a compliance alarm on Umbrella, as per our policy.</p>
+<p><strong>1. Downloading the Sample File:</strong></p>
 <ul>
 <li>
-<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code>.</p>
+<p>Launch console access to ubuntu <strong><code>Site300-Ubuntu-VPN10</code></strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code>.</p>
 </li>
 <li>
 <p>Use Chromium Browser on this VM to navigate onto website with URL of <strong><code>dlptest.com/sample-data</code></strong>.  </p>
@@ -181,10 +184,11 @@
 <p><img alt="" src="../pics/t11-dlp-sample-file.png" /></p>
 <p>Now we have the sample file available on our host VM to test it.</p>
 <h2 id="step-3-validate-dlp-monitor-policy">Step 3 - Validate DLP Monitor Policy</h2>
-<p>Now validate this DLP policy by publishing this file.  Umbrella will detect the GDPR compliance data violation as per our policy and raise an event in it's reporting.</p>
+<p><strong>Objective:</strong> Publish the sample file to validate the DLP monitoring policy.  Umbrella will detect the GDPR compliance data violation as per our policy.</p>
+<p><strong>1. Uploading the File:</strong></p>
 <ul>
 <li>
-<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
+<p>If required, re-launch console access to ubuntu <strong><code>Site300-Ubuntu-VPN10</code></strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
 </li>
 <li>
 <p>Use Chromium Browser to navigate to website: <code>dlptest.com/http-post/</code> </p>
@@ -202,6 +206,7 @@
 <li>The file will be uploaded successfully.  You will see the message as shown in below screenshot</li>
 </ul>
 <p><img alt="" src="../pics/t11-dlp-sample-file-upload-success.png" /></p>
+<p><strong>2. Monitoring the Compliance Report:</strong></p>
 <p>Now let's navigate to Umbrella to check if a compliance alarm was raised as per our policy.</p>
 <ul>
 <li>
@@ -217,7 +222,8 @@
 <p><img alt="" src="../pics/t11-dlp-report.png" /></p>
 <p>This event confirms that Umbrella has detected the compliance violation.</p>
 <h2 id="step-4-umbrella-dlp-block-policy">Step 4 - Umbrella DLP Block Policy</h2>
-<p>Now let's modify the existing DLP policy to Block (instead of Monitor) the content in case of breach of GDPR compliance</p>
+<p><strong>Objective:</strong> Modify the DLP policy to block content breaching the GDPR compliance.</p>
+<p><strong>1. Editing the DLP Rule to Block:</strong></p>
 <ul>
 <li>
 <p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
@@ -233,10 +239,11 @@
 <p><img alt="" src="../pics/t11-dlp-rule-edit-save.png" /></p>
 <p>Now this rule has been edited with block action instead of just monitor.</p>
 <h2 id="step-5-validate-dlp-block-policy">Step 5 - Validate DLP Block Policy</h2>
-<p>Now validate this DLP policy by publishing the test file previously downloaded on VM/host on Site300.  Umbrella will detect the GDPR compliance data violation as per our policy and block uploading of this file.</p>
+<p><strong>Objective:</strong> Test the DLP block policy by attempting to upload the sample file again.Umbrella will detect the GDPR compliance data violation as per our policy and block uploading of this file.</p>
+<p><strong>1. Testing File Upload Post Policy Change:</strong></p>
 <ul>
 <li>
-<p>Launch console access to ubuntu <strong>Site300-Ubuntu-VPN10</strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
+<p>Launch console access to ubuntu <strong><code>Site300-Ubuntu-VPN10</code></strong> host by using <strong>mRemoteNG</strong> application.  Login with credentials of <code>viptela</code></p>
 </li>
 <li>
 <p>Use Chromium Browser to navigate to website: <code>dlptest.com/http-post/</code>.  If you already have this webiste open on Chromium Browser, you must refresh the browser to navigate on to this page again.</p>
@@ -252,7 +259,8 @@
 </li>
 </ul>
 <p><img alt="" src="../pics/t11-dlp-sample-file-upload-fail.png" /></p>
-<p>Now let's navigate to Umbrella to check if a compliance event was raised as per our policy.</p>
+<p><strong>2. Monitoring the Compliance Report:</strong></p>
+<p>Now let's navigate to Umbrella to check if a compliance event was raised as per Block policy.</p>
 <ul>
 <li>
 <p>On the RDP session (jumphost), logon to Umbrella Dashboard by clicking on Google Chrome Browser bookmark named <code>Umbrella SSO</code>.  It will open the Umbrella dashboard and auto-login using single-sign-on.</p>
@@ -266,11 +274,13 @@
 </ul>
 <p><img alt="" src="../pics/t11-dlp-report-block.png" /></p>
 <p>This event confirms that Umbrella has detected the compliance violation and resulted in Blocking the upload of this file. </p>
+<p><strong>Conclusion:</strong></p>
+<p>This task successfully demonstrates the capability of Umbrella's DLP policy in monitoring and blocking sensitive data in compliance with GDPR. The task illustrates how sensitive data, when detected in transit, can trigger appropriate responses, ranging from alerts to outright blocking, thereby reinforcing the organization's data protection framework.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Task10/" class="btn btn-neutral float-left" title="Task 10 Modify Block Page Notification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task10-v1/" class="btn btn-neutral float-left" title="Task 10 Modify Block Page Notification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../Challenge-Tasks/" class="btn btn-neutral float-right" title="Challenge Task">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -298,7 +308,7 @@
         </span>
     
     
-      <span><a href="../Task10/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Task10-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../Challenge-Tasks/" style="color: #fcfcfc">Next &raquo;</a></span>

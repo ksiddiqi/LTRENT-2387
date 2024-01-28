@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CX Team" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Task 6 Umbrella Policy for Site300 - Cisco Live 2023 LTRENT-2387</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Task 6 Umbrella Policy for Site300";
+        var mkdocs_page_input_path = "Task6-v1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Cisco Live 2023 LTRENT-2387
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Topology/">Topology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../IP-Users/">Connection Details and Credentials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task1-Connect/">Task 1 Remote Connection</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task2-v1/">Task 2 Devices Feature Templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task3-v1/">Task 3 Regional Internet Access for All Sites</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task4-v1/">Task 4 Direct Internet Access for Site300</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task5-v1/">Task 5 Umbrella (SIG) for Site300</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Task 6 Umbrella Policy for Site300</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-firewall-policy">Step 1 - Firewall Policy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-web-policy">Step 2 - Web Policy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-web-policy-tester">Step 3 - Web Policy Tester</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-verify-policies">Step 4 - Verify Policies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-5-block-sites-using-destination-list">Step 5 - Block Sites Using Destination List</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task7-v1/">Task 7 Umbrella SIG policies for Regional Access</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task8-v1/">Task 8 Umbrella Regional Policies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task9-v1/">Task 9 Monitoring on Umbrella</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task10-v1/">Task 10 Modify Block Page Notification</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Task11-v1/">Task 11 Data Loss Prevention</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Challenge-Tasks/">Challenge Task</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Cisco Live 2023 LTRENT-2387</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Task 6 Umbrella Policy for Site300</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git/edit/master/docs/Task6-v1.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="task-6-umbrella-policy-for-site-300">Task 6: Umbrella Policy for Site-300</h1>
+<p><strong>Introduction:</strong></p>
+<p>In Task 6, we aim to create specific Umbrella Policies for Site-300. These policies will include:</p>
+<ul>
+<li>Using a Firewall Policy on Umbrella to block ICMP traffic to Google's IP address <strong>8.8.8.8</strong>.</li>
+<li>Using a Web Policy on Umbrella to block web traffic to social media websites, specifically Facebook.</li>
+</ul>
+<h2 id="step-1-firewall-policy">Step 1 - Firewall Policy</h2>
+<p><strong>Objective:</strong> Configure a Firewall Policy on the Umbrella Dashboard to block ICMP traffic.</p>
+<p><strong>1. Accessing the Umbrella Dashboard:</strong></p>
+<ul>
+<li>Log in to the Umbrella Dashboard via the <code>Umbrella SSO</code> bookmark in Google Chrome on the RDP session (jumphost).</li>
+</ul>
+<p><strong>2. Creating the Firewall Rule:</strong></p>
+<ul>
+<li>Go to <strong>Policies &gt; Management &gt; Firewall Policy</strong> and click <strong>Add</strong>.
+  <img alt="Add Firewall Policy" src="../pics/umbrella-p1.png" /></li>
+<li>Create a <strong>Rule Name</strong> of <strong><code>Block ICMP Google</code></strong>.</li>
+<li>Select <strong><code>Block</code></strong> under <strong>Rule Action</strong>.
+  <img alt="Rule Action" src="../pics/umbrella-p2.png" /></li>
+<li>Choose <strong><code>ICMP</code></strong> under <strong>Rule Criteria &gt; Protocol</strong>.</li>
+<li>Under <strong>Destinations</strong>, select <strong><code>Specify IP</code></strong> and enter the <strong>CIDR IP</strong> Address <code>8.8.8.8</code> and Click <strong>Add</strong>
+  <img alt="Specify IP" src="../pics/umbrella-p3.png" /></li>
+<li>Under <strong>Logging</strong> toggle the <strong><code>Logging Enabled</code></strong> to turn it on and then <strong>Save</strong> the policy.
+  <img alt="Save Policy" src="../pics/umbrella-p4.png" /></li>
+</ul>
+<h2 id="step-2-web-policy">Step 2 - Web Policy</h2>
+<p><strong>Objective:</strong> Set up an Umbrella Web Policy to block access to Facebook.</p>
+<p><strong>1. Creating Web Policy:</strong></p>
+<ul>
+<li>
+<p>Navigate to <strong>Policies &gt; Management &gt; Web Policy</strong> and click <strong>Add</strong> on the top right page:
+  <img alt="Add Web Policy" src="../pics/umbrella-p5.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>ADD RULE</code></strong> under <strong>Ruleset Rules</strong>.</p>
+</li>
+<li>
+<p>Name the rule <strong><code>Block Facebook</code></strong>. The default action is <code>Block</code>. Then click <strong><code>Add Identity</code></strong>.
+  <img alt="Add Identity" src="../pics/umbrella-p6.png" /></p>
+</li>
+<li>
+<p>On the <code>IDENTITIES</code> page, scroll down, select the <strong>Network Tunnels</strong> and hit <strong>Apply</strong> as shown in below screenshot.  This will result in selecting the two network tunnels between Umbrella cloud and SD-WAN Site-300:
+  <img alt="Select Tunnels" src="../pics/umbrella-p7.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>Add Destination</code></strong> for this new rule:
+  <img alt="Add Destination" src="../pics/umbrella-p8.png" /></p>
+</li>
+<li>
+<p>Click on <strong>Application Settings</strong> (on the right side at the right arrow <strong><code>&gt;</code></strong>), then Scroll down to <strong><code>Social Networking</code></strong> and Click on the right arrow <strong><code>&gt;</code></strong> of the <strong>Social Networking</strong>.
+  <img alt="" src="../pics/umbrella-p9.png" /></p>
+</li>
+<li>
+<p>Next, select <strong><code>Facebook</code></strong> and <strong><code>Facebook Messenger</code></strong> and hit <strong><code>Apply</code></strong>
+<img alt="" src="../pics/umbrella-p11.png" /></p>
+</li>
+<li>
+<p>On the main Rule screen, Click <strong><code>Save</code></strong> at the right side of the newly created Rule:
+<img alt="" src="../pics/umbrella-p12.png" /></p>
+</li>
+<li>
+<p>Click three dots (<strong><code>...</code></strong>) and then <strong><code>Enable Rule</code></strong>
+<img alt="" src="../pics/umbrella-p13.png" /></p>
+</li>
+<li>
+<p>Confirm by clicking <strong><code>Update</code></strong>
+<img alt="" src="../pics/umbrella-p14.png" /></p>
+</li>
+<li>
+<p>Under <strong>Ruleset Settings</strong>, go to the <strong><code>Ruleset Identities</code></strong> section and click <strong><code>Edit</code></strong>
+<img alt="" src="../pics/umbrella-p15.png" /></p>
+</li>
+<li>
+<p>Select <strong><code>Tunnels</code></strong> under <code>All Identities</code> and click <strong><code>Save</code></strong>
+<img alt="" src="../pics/umbrella-p16.png" /></p>
+</li>
+<li>
+<p>Under <strong>Ruleset Settings</strong>, go to the <strong><code>HTTPS Inspection</code></strong> section and click <strong><code>Edit</code></strong> 
+<img alt="" src="../pics/umbrella-p17.png" /></p>
+</li>
+<li>
+<p>Select <strong><code>Enable HTTPS Inspection</code></strong>, then <strong><code>Save</code></strong>
+<img alt="" src="../pics/umbrella-p18.png" /></p>
+</li>
+<li>
+<p>Scroll down and click Close
+<img alt="" src="../pics/umbrella-p19.png" /></p>
+</li>
+</ul>
+<h2 id="step-3-web-policy-tester">Step 3 - Web Policy Tester</h2>
+<p><strong>Objective:</strong> Test the newly created Web policies using Umbrella's "Policy Tester".</p>
+<p><strong>1. Testing Web Policy:</strong></p>
+<ul>
+<li>
+<p>Go to <strong>Policies &gt; Management &gt; Web Policy</strong> and click <strong>Policy Tester</strong> at top right page.
+  <img alt="Policy Tester" src="../pics/umbrella-web-policy-test.png" /></p>
+</li>
+<li>
+<p>On the <code>Web Policy Tester</code> page,</p>
+<ul>
+<li>Under the <strong>Primary Identity</strong> search box type <strong><code>Site</code></strong> and then select any of the tunnels for <strong>Site300</strong> </li>
+<li>Under <strong>Destination</strong>, enter <strong><code>facebook.com</code></strong></li>
+<li>Then click <strong>Run Test</strong> button: 
+  <img alt="Run Test" src="../pics/umbrella-web-policy-test-result.png" /></li>
+</ul>
+</li>
+<li>
+<p>Observe the test results showing the Ruleset and rule match.</p>
+</li>
+<li>
+<p>Explore the Web Policy Tester further by testing traffic to different destination website such as <code>cisco.com</code>, <code>google.com</code>.</p>
+</li>
+</ul>
+<h2 id="step-4-verify-policies">Step 4 - Verify Policies</h2>
+<p><strong>Objective:</strong> Validate the impact of both Firewall and Web Policies on SD-WAN Site-300.</p>
+<p><strong>1. Validating Traffic Redirection:</strong></p>
+<ul>
+<li>
+<p>Launch console access to ubuntu <code>Site300-Ubuntu-VPN10</code> host by using <strong>mRemoteNG</strong> application.</p>
+</li>
+<li>
+<p>Access <code>welcome.umbrella.com</code> on this ubuntu host to confirm traffic redirection.  green check mark should appear, confirming that traffic from VPN 10 is being successfully redirected to Umbrella.</p>
+</li>
+</ul>
+<p><strong>2. Confirming Web Policy Enforcement:</strong></p>
+<ul>
+<li>
+<p>Verify <code>Firewall policy</code> enforcement on Umbrella by launching the <strong>Terminal</strong> application on this <code>Site300-Ubuntu-VPN10</code> VM/host.  As per our policy ICMP traffic to 8.8.8.8 should be blocked now.</p>
+<ul>
+<li>On the <code>Terminal</code> application execute <code>ping 8.8.8.8</code> command.  Use <code>Ctrl+C</code> to stop the ping after few seconds.  This ping should fail (as expected).</li>
+<li>On the <code>Terminal</code> application execute <code>ping 1.1.1.1</code> command.  Use <code>Ctrl+C</code> to stop the ping.  This ping should work (as expected).</li>
+</ul>
+</li>
+<li>
+<p>Verify <code>Web Policy</code> by using Chromium Web Browser on <code>Site300-Ubuntu-VPN10</code> VM/host.  Just like previous step, use the console of this VM/host by using <strong>mRemoteNG</strong> application to launch Chromium Web Browser:</p>
+<ul>
+<li>On Chromium to navigate to <code>www.cisco.com</code>.  Access to this website should work.</li>
+<li>Use Chromium to navigate to <code>cnn.com</code>.  Access to this website should work.</li>
+<li>Use Chromium to navigate onto <code>www.facebook.com</code>.  As per our Umbrella Web Policy, this site should be blocked and, as expected, Cisco Umbrella block page will appear. </li>
+</ul>
+</li>
+</ul>
+<h2 id="step-5-block-sites-using-destination-list">Step 5 - Block Sites Using Destination List</h2>
+<p><strong>Objective:</strong> Create a custom destination list to block specific sites.</p>
+<p><strong>1. Creating and Applying Custom Block List:</strong></p>
+<ul>
+<li>
+<p>Navigate to <strong>Policy &gt; Policy Component &gt; Destination Lists</strong> and Click <strong>Add</strong> on the top right corner to add a new list.
+  <img alt="Add Destination List" src="../pics/umbrella-destination-01.png" /></p>
+</li>
+<li>
+<p>Enter <strong>Name</strong> : <strong><code>Custom Block List</code></strong></p>
+</li>
+<li>
+<p>On <strong>Destination List Type</strong> select <strong><code>Web Policy</code></strong> from the dropdown menu</p>
+</li>
+<li>
+<p>In the <strong>Destinations</strong> field, enter <strong><code>cnn.com</code></strong> and then click <strong><code>Add</code></strong> as shown below:
+<img alt="" src="../pics/umbrella-destination-03.png" /></p>
+</li>
+<li>
+<p>Verify <code>cnn.com</code> is added and Click <strong><code>Save</code></strong>:
+<img alt="" src="../pics/umbrella-destination-04.png" /></p>
+</li>
+<li>
+<p>Now Navigate to <strong>Policy &gt; Management &gt; Web Policy</strong> and expand on <strong><code>RuleSet 1</code></strong> as shown below:
+<img alt="" src="../pics/umbrella-destination-05.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>Add Rule</code></strong>
+<img alt="" src="../pics/umbrella-destination-06.png" /></p>
+</li>
+<li>
+<p>Enter <strong>Rule name</strong> : <strong><code>Custom List</code></strong> and click <strong><code>Add Identity</code></strong>
+<img alt="" src="../pics/umbrella-destination-07.png" /> </p>
+</li>
+<li>
+<p>Enable <strong><code>Inherit Ruleset Identities</code></strong> and click <strong><code>Apply</code></strong> as shown below:
+<img alt="" src="../pics/umbrella-destination-08.png" /> </p>
+</li>
+<li>
+<p>Click on <strong><code>Add Destination</code></strong> and then click on <strong><code>1</code></strong> next to <strong><code>Destination Lists</code></strong>
+<img alt="" src="../pics/umbrella-destination-09.png" /> </p>
+</li>
+<li>
+<p>Select <strong><code>Custom Block List</code></strong> and then click <strong><code>Apply</code></strong> 
+<img alt="" src="../pics/umbrella-destination-10.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>Save</code></strong> to save this new rule
+<img alt="" src="../pics/umbrella-destination-11.png" /></p>
+</li>
+<li>
+<p>Click on <code>3 Dots</code> (<strong><code>...</code></strong>) on this newly created rule and toggle the <strong><code>Enable Rule</code></strong> button
+<img alt="" src="../pics/umbrella-destination-12.png" /></p>
+</li>
+<li>
+<p>Click <strong><code>Update</code></strong> on the next message
+<img alt="" src="../pics/umbrella-destination-13.png" /></p>
+</li>
+</ul>
+<p><strong>2. Testing the Custom Block List:</strong></p>
+<ul>
+<li>Using <strong>mRemoteNG</strong>, relaunch the console session of the Ubuntu VM <code>Site300-Ubuntu-VPN10</code></li>
+<li>
+<p>Use Chromium Web Browser to validate that traffic to <code>cnn.com</code> is now blocked</p>
+</li>
+<li>
+<p>Repeat the steps to block <code>bbc.com</code> and validate on the same host.</p>
+</li>
+</ul>
+<p><strong>Conclusion:</strong></p>
+<p>Upon completion of Task 6, Site300 is now equipped with robust security measures, thanks to the integration of tailored Umbrella policies. The successful configuration and testing of the Firewall Policy ensure that ICMP traffic to 8.8.8.8 is effectively blocked, enhancing network security. The Web Policy implementation restricts access to social media platforms like Facebook, aligning with the organization's internet usage policies. Additionally, the creation of custom destination lists provides flexibility in managing and securing web traffic. These measures collectively enhance the overall security of Site300, making it resilient against common cyber threats and aligning with organizational security protocols.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Task5-v1/" class="btn btn-neutral float-left" title="Task 5 Umbrella (SIG) for Site300"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Task7-v1/" class="btn btn-neutral float-right" title="Task 7 Umbrella SIG policies for Regional Access">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ksiddiqi/LTRENT-2387.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Task5-v1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Task7-v1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
